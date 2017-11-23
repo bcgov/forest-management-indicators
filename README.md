@@ -1,6 +1,6 @@
 # Forest Management Indicators for B.C.
 
-A set of R scripts to create data visualizations for 3 forest management indicators for B.C. published on [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=B71460AF7A8049D59F8CBA6EE18E93B8) in December 2017.
+A set of R scripts to create data visualizations for three forest management indicators for B.C. published on [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=B71460AF7A8049D59F8CBA6EE18E93B8) in December 2017.
 
 - [Trends in Silviculture in B.C. (1987-2015)](http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html)
 - [Trends in Forest Tree Seed Use in B.C. (1987-2016)](http://wwwd.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
