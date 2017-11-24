@@ -1,6 +1,6 @@
 ## BC timber harvest indicator plots
 
-library(readr)
+library(readr) #read CSV file
 library(dplyr) #data prep
 library(reshape2) #for restructuring data table
 library(ggplot2)  #for plotting
@@ -73,7 +73,6 @@ harvest.plot <- ggplot(harvest_comp, aes(x = Year, y = millions_m3)) +
         legend.background = element_rect(fill = "NA"),
         plot.margin = unit(c(10,10,5,5),"mm")) +
   add_phylopic(conifer, alpha = .7, color = "grey30", ysize = 30, x = 2005, y = 20)
-
 plot(harvest.plot)
 
 
