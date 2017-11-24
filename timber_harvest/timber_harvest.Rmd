@@ -160,7 +160,7 @@ Review](https://www2.gov.bc.ca/gov/content?id=EAEB71451EB949DFB14A9E1957CF9598)
 process and the [Harvest Billing
 System](https://www2.gov.bc.ca/gov/content?id=4E1093E8C2D9472EA82B2CB00A6C59FD).
 The provincial Timber Supply Forecast is a summary of the management
-unit harvest forecast data. The [*R* code](http://www.r-project.org) for creating the graphs presented on this page is available on [GitHub](https://github.com/bcgov/EnvReportBC).
+unit harvest forecast data. The [**R** code](http://www.r-project.org) for creating the graphs presented on this page is available on [GitHub](https://github.com/bcgov/EnvReportBC).
 
 ## References and Other Useful Links
 * [Learn more about Forest Stewardship in
