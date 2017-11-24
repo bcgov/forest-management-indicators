@@ -1,3 +1,5 @@
+<div id="devex-badge"><a rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a></div>
+
 # Forest Management Indicators for B.C.
 
 A set of R scripts to create data visualizations for three forest management indicators for B.C. published on [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=B71460AF7A8049D59F8CBA6EE18E93B8) in December 2017.
