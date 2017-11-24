@@ -20,9 +20,6 @@ library(rphylopic) #for conifer image, package available from GitHub only
 library(curl) #required by rphylopic function
 library(knitr) #for knitting to PDF
 
-## Find the root of the project so we can find the files in the directory tree.
-root <- rprojroot::is_rstudio_project
-
 read_chunk("timber_harvest.R")
 ```
 
