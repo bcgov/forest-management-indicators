@@ -1,0 +1,453 @@
+---
+topic: "land"
+title: "Trends in Forest Tree Seed Use in B.C. (1987-2016)"
+output: envreportbc::print_ver
+---
+
+```{r set-options, echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE}
+
+knitr::opts_chunk$set(echo=FALSE, cache=FALSE, message=FALSE, warning=FALSE, 
+                      error=FALSE)
+
+library(readr) #read in CSV files
+library(dplyr) #data prep
+library(reshape2) #for restructuring data table
+library(bcmaps) #get bc boundary and nrs boundaries, package from GitHub
+library(bcmaps.rdata) # maps data
+library(ggplot2)  #for plotting
+library(extrafont) #Verdana font
+library(envreportutils) #soe theme & svg_px()
+library(rphylopic) #for conifer image
+library(curl) #required by rphylopic function
+library(scales) #for pretty_breaks()
+library(rmapshaper) # for intersect and simplify functions
+library(sp) # mapping
+library(knitr) #for knitting to PDF
+
+read_chunk("tree_seed_use.R")
+```
+
+```{r pre}
+```
+
+Conserving, protecting and managing forest tree genetic resources is the
+foundation for economic, social, cultural and ecological goods and
+services that flow from British Columbia\'s forests. Tracking forest
+tree seed use---from source to planting site---is an important tool for
+monitoring and assessment of B.C.'s forest tree genetic resources. This
+information supports the continuous improvement of genetic conservation
+and resource management plans, strategies and actions, including seed
+use best management practices used in reforestation. This indicator
+investigates the trends in forest tree seed use in regenerating B.C.\'s
+forests from 1987 to 2016.
+
+-   Maintaining genetic diversity, a fundamental component of
+    biodiversity, ensures forests and ecosystems are healthy, resilient
+    and productive. It also plays an important role in adaptation so
+    that forests and ecosystems are able to effectively respond to
+    natural disturbance events---such as wildfire, pests and disease
+    infestations---as well as the impacts of climate change.
+-   The area of B.C\'s crown land reforested through planting has
+    remained consistent---with an average over the past ten years of
+    approximately 186,000 hectares per year (2007-2016), a slight
+    increase over the previous 10 year average of approximately 170,000
+    hectares per year (1997-2006).
+-   Select seed---seed selected for specific genetic traits such as
+    growth, pest resistance, and wood density---includes seed sourced
+    from orchards and natural stand superior provenances. Over the past
+    two decades, the proportion of crown land planted with select seed
+    has steadily increased to 70 percent in 2016.
+    
+Visit [Tree Seed](http://www2.gov.bc.ca/gov/content?id=5D1A44C29890457F83E3D55E5B2FFBD8)
+to learn more about tree seed use in B.C., and the provincial [Tree
+Improvement
+Program](http://www2.gov.bc.ca/gov/content?id=6919718586C44A20B14EE9A9AE6C8B7D),
+which helps guide reforestation and silviculture investments through
+forest genetic research, tree breeding and seed orchard programs.
+
+\newpage
+
+## Forest Regeneration by Tree Seed Source in B.C. (1987--2016)
+
+\vspace{20pt}
+
+```{r bc_regen, fig.height = 6, fig.width = 11}
+```
+
+\vspace{20pt}
+
+-   The chart above displays the change in reforestation
+    patterns---planted versus natural regeneration---and the change in
+    area of forest planted by tree seed source from 1987 to 2016.
+-   After a disturbance by forest fire, forest pest or forest harvest,
+    reforestation occurs by natural regeneration, meaning from roots or
+    seed, or by planting. Seed used for planting may be from one or more
+    genetic sources: orchard, natural stand superior provenance, and
+    natural stand non-superior provenance.
+-   Both orchard and natural stand superior provenance seed sources have
+    a known level of improvement based on extensive forest genetic
+    adaptation research trials and tree breeding for the selection of
+    desired traits---such as growth, pest resistance and wood density.
+
+\newpage
+
+## Select Seed Use by Natural Resource District in B.C.
+
+\vspace{20pt}
+
+```{r map_regen, fig.height = 6, fig.width = 11}
+```
+
+\vspace{20pt}
+
+-   The chart above displays the percentage of select seed use by
+    natural resource district reported in 5-year snapshots from 1991
+    to 2016.
+-   Select seed use has increased provincially at a steady rate since
+    the early nineties: 1991 -- 3%, 1996 -- 18%, 2001 -- 35%, 2006 --
+    50%, 2011 -- 63% and 2016 -- 67%.
+-   Select seed use at the natural resource district level is more
+    variable, in part due to variances in the number and geographic
+    range of tree species for which there are orchards. Annual or
+    periodic fluctuations in orchard cone crops and seed inventories
+    also influence select seed use at local levels.
+-   Overall, the increased use of select seed is indicative of the
+    substantial effort underway to meet the target set by the Forest
+    Genetic Council of British Columbia to, by 2020, increase select
+    seed use to 75 percent of the total provincial seed use for
+    reforestation.
+
+\newpage
+
+## References and Other Useful Links
+
+* Learn more about [Tree
+    Seed](http://www2.gov.bc.ca/gov/content?id=5D1A44C29890457F83E3D55E5B2FFBD8)
+* Learn about [trends in silviculture in B.C.](silviculture.html)
+* [Operational Tree Improvement
+    Program](http://www2.gov.bc.ca/gov/content?id=6919718586C44A20B14EE9A9AE6C8B7D)
+* [Seed Planning and Registry Application
+    (SPAR)](http://www2.gov.bc.ca/gov/content?id=A2F6834E799241929E4113210A9BDD08)
+* [Forest Genetics Council of British
+    Columbia](http://www.fgcouncil.bc.ca/)
+
+## Data
+
+\*By accessing these datasets, you agree to the license associated with each file, as indicated in parentheses below.
+
+* [Indicator data: Forest Regeneration by Seed Source in B.C.
+    (1987-2016)]() (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+* [Indicator data: Forest Regeneration by Seed Source by Natural
+    Resource District in B.C. (1987-2016)]() (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+
+Published and Available On-Line at Environmental Reporting BC (December 2017):
+[http://www.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html](http://www.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
+
+Email correspondence to: envreportbc@gov.bc.ca
+
+\newpage
+
+# METHODS
+
+## Source Data
+
+The Forest Tree Seed Use analysis uses data from:
+
+1.  Reporting Silviculture Updates and Land Status Tracking System
+    (RESULTS): <http://www.for.gov.bc.ca/his/results/>; and
+
+2.  Seed Planning and Registry System (SPAR)
+    <http://www2.gov.bc.ca/gov/content/industry/forestry/managing-our-forest-resources/tree-seed/spar>
+
+Wherever possible, the analysis used public data layers from the B.C.
+Geographic Warehouse[^1] released under either the Open Government Licence---British Columbia or the B.C. Crown Copyright Licence:
+
+-   **Activity Treatment Unit** –
+    WHSE\_FOREST\_VEGATATION\_RSLT\_ACTIVITY\_TREATMENT\_UNIT
+
+    -   <http://catalogue.data.gov.bc.ca/dataset/results-activity-treatment-units>
+
+-   **Opening\_VW** – WHSE\_FOREST\_VEGATATION\_OPENING\_VW
+
+    -   <http://catalogue.data.gov.bc.ca/dataset/results-openings-attribute-only>
+
+-   **Seedlot** – WHSE\_FOREST\_VEGATATION\_SEED\_SEEDLOT
+
+    -   <http://catalogue.data.gov.bc.ca/dataset/seedlot-table>
+
+-   **Veglot** – WHSE\_FOREST\_VEGETATION.SEED\_VEG\_LOT
+
+    -   <http://catalogue.data.gov.bc.ca/dataset/vegetative-lot-table>
+
+-   **Planting** – WHSE\_FOREST\_VEGATATION\_RSLT\_PLANTING\_RSLT
+
+    -   Currently not in the B.C. Geographic Warehouse
+
+-   **Standards Unit** –
+    WHSE\_FOREST\_VEGATATION\_RSLT\_STOCKING\_STNDRD\_UNIT
+
+    -   Currently not in the B.C. Geographic Warehouse
+
+-   **Seedlot Genetic Worth** – SEEDLOT\_GENETIC\_WORTH
+
+    -   Currently not in the B.C. Geographic Warehouse
+
+-   **Veglot Genetic Worth** – SEEDLOT\_GENETIC\_WORTH
+
+    -   Currently not in the B.C. Geographic Warehouse
+
+The layers above that are currently not publicly available in the B.C. Geographic Warehouse
+are in the process of being added so that the raw data and source code
+can be published to allow interested parties to repeat the analysis.
+
+## Planting
+
+RESULTS openings may have one or more planting treatment report that
+contains the area treated, species planted, SPAR seedlot/veglot (lot)
+and the number of trees planted. To determine the genetic source by
+area, the number of trees planted by lot is prorated to the treatment
+area and is reported based on the date planted. The reporting for
+planted trees by genetic source is based on the planting date.
+Classification for the genetic source is:
+
+-   "A": GENETIC\_CLASS\_CODE = "A"
+
+-   "B+": GENETIC\_CLASS\_CODE = "B" and SUPERIOR\_PRVNC\_IND = "Y"
+
+-   "B": GENETIC\_CLASS\_CODE = "B" and SUPERIOR\_PRVNC\_IND = "N"
+
+-   "B" GENETIC\_CLASS\_CODE = "B" and SUPERIOR\_PRVNCE\_IND is null
+
+-   "B" GENETIC\_CLASS\_CODE is null
+
+Note: Reporting of current trends and patterns in reforestation may be
+incomplete due to delays in surveying after a disturbance event
+(typically a 1-3 year delay in areas planted and a 3-7 year delay in
+areas managed for natural regeneration).
+
+## Natural Regeneration
+
+Natural Regeneration is not reported in RESULTS. Instead, this is
+inferred by the existence of planting records. If the sum of the
+planting area is &lt;= 10% of the opening, the opening is classified as
+natural regenerated and the total Net Area to be Reforested (NAR) of the
+opening is used as the area of natural regeneration. The year displayed
+for natural regeneration is based on the disturbance end date, if not
+available, the disturbance start date is used.
+
+Note: Reporting of current trends and patterns in reforestation may be
+incomplete due to delays in surveying after a disturbance event
+(typically a 1-3 year delay in areas planted and a 3-7 year delay in
+areas managed for natural regeneration).
+
+## Fiscal Year
+
+Fiscal year will be display as follows:
+
+-   Formula used: Fiscal Yr:```IIf(Month([DATE])<4,Year([DATE])-1,Year([DATE]))```
+
+-   Example: 1987-04-01 and 1988-03-31 Fiscal Year = 1988
+
+### QUERY STEPS – Baseline Make Table Queries
+
+All queries are built in Microsoft Access 2007. Make Table queries are
+used to create baseline data tables for increased efficiency and data
+auditability. Note that all data reported after April 1, 1970 is added
+to the baseline but the data are subset to more recent years in the
+final queries.
+
+### Make Tables – Planting Area: A, B+, B
+
+###### 1a-Make Planting Activities (outcome: 1a-Planted Activities)
+
+Joins the Opening\_VW and ATU source tables to create a list of openings
+with planting activities completed after March 1970.
+
+  **Field**                   **Criteria**      **Details**
+  --------------------------- ----------------- -------------------------------------------------------------
+  ATU.ATU\_COMPLETION\_DATE   &gt;=1970-04-01   
+  ATU.SILV\_BASE\_CODE        PL                
+  ATU.ACT\_PLANTED\_NO        &gt;0             Isolates only those completed activities with planted trees
+
+###### 1b-Make Planted Trees (outcome: 1b-Planted Trees)
+
+Joins the Opening, ATU and Planting source tables to create a list of
+tree species planted after March 1970.
+
+  **Field**                   **Criteria**      **Details**
+  --------------------------- ----------------- -------------------------------------------------------------
+  ATU.ATU\_COMPLETION\_DATE   &gt;=1970-04-01   
+  ATU.SILV\_BASE\_CODE        PL                
+  ATU.ACT\_PLANTED\_NO        &gt;0             Isolates only those completed activities with planted trees
+
+###### 1c-Make Unique Opening (outcome: 1c-Unique Opening)
+
+Groups the 1a-Planted Activity table by Opening\_ID to create a unique
+list of openings where one or more planting activities have occurred.
+
+###### 1d-Make Opening (outcome: 1d-Opening)
+
+Joins the 1c-Unique Opening table with the Opening\_VW and Opening
+source tables to add general overview opening information such as
+management unit, opening category and disturbance dates. The Opening
+source table will not be needed in this query once the Opening\_VW
+ORG\_UNIT attribute is correctly referenced – this fix is expected to be
+applied to the BC Data Catalogue layers in the summer of 2016.
+
+QUERY STEPS – Data Summary
+--------------------------
+
+### Planting Area: A, B+, B
+
+###### 2b-Planting Details with Seedlot
+
+Joins the 1a-Planted Activities, 1b-Planted Trees, 1d-Opening, Org Unit
+and Seedlot tables to summarize activity-based details for each
+species/seedlot planted.
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                             **Criteria**                                                                                                                                                            **Details**
+  ------------------------------------  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------
+  Planted Yr                            ```Planted Yr: IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```                                                        Converts date to fiscal year
+
+  SeedClass                             ```A=GENETIC_CLASS_CODE= "A" B+=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNC_IND="Y" B=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNCE_IND ="N" B=GENETIC_CLASS_CODE is null```
+  
+  ProratePLArea                         ```ProratePLArea: Round((([1b-Planted Trees]![NUMBER_PLANTED]/[1b-Planted Trees]![ACT_PLANTED_NO])*[1b-Planted Trees]![TREATMENT_AMOUNT]),2)```                            This gives a prorated area for each of the individual species seedlot planted
+  
+  
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+###### 2c-Summary Seed Class
+
+Sums the ProratePLArea from the results of query 2b-Planting Details
+with Seedlot by Planted Yr and SeedClass for the Province.
+
+###### 2d-Summary Seed Class BC
+
+Sums the ProratePLArea from the results of query 2b-Planting Details
+with Seedlot by Planted Yr, SeedClass, District and Region.
+
+### Natural Regeneration
+
+###### 3a-Make Opening Natural Regen (outcome 3a-Opening Natural Regen)
+
+Joins the Opening\_VW and Opening source tables to provide a unique list
+of openings to add general overview opening information such as
+management unit, opening category and disturbance dates to be used in
+the natural regeneration queries.
+
+
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                                           **Criteria**                                                                                   **Details**
+  --------------------------------------------------  ---------------------------------------------------------------------------------------------  ----------------------------------------   
+  Best Date                                           ```IIf([DISTURBANCE_START_DATE] Is Null,[DISTURBANCE_END_DATE], [DISTURBANCE_START_DATE])```   Uses the Disturbance End Date, if it is not available, then use the Disturbance Start Date
+  
+  OPENING_ VW.OPENING_ GROSS_AREA                      >0.1                                                                                          Excludes shell openings
+  
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+###### 3b-Make SU (outcome – 3b-SU)
+
+Joins the Opening\_VW and SU source tables to summarize the Net Area to
+be Reforested (NAR) by OPENING\_ID. NAR is used as a baseline to
+calculate the less than 10% planted percentage to be considered a
+natural regeneration opening.
+
+
+  ---------------------------------------------------------------------------
+  **Field**                          **Criteria**   **Details**
+  ---------------------------------- -------------- -------------------------
+  OPENING\_VW.OPENING\_GROSS\_AREA   <>0.1          Excludes shell openings
+  
+  ---------------------------------------------------------------------------
+
+###### 3c-PL Area
+
+Summarizes the 1a-Planted Activities query Planted Area by Opening\_ID
+where the Technique is “PL”.
+
+
+  -----------------------------------------------------------------------
+  **Field**               **Criteria**   **Details**
+  ----------------------- -------------- --------------------------------
+  SILV\_TECHNIQUE\_CODE   ```"PL"```     
+  
+  TREATMENT\_AREA                        Sums the total PL/PL Area by Opening\_ID
+
+  -----------------------------------------------------------------------
+
+###### 3d-Combine Opening SU and PL Area
+
+Joins the 3a-Opening Natural Regen, 3b-SU, 3c-PL Area and Org Unit to
+summarize all Planted and NAR areas in one query.
+
+  ---------------------------------------------------------------------------------------------------------
+  **Field**         **Criteria**                                                           **Details**
+  ----------------  ---------------------------------------------------------------------  ----------------
+  Disturb Start Yr  ```IIf(Month([Best Date])<4,Year([Best Date])-1,Year([Best Date]))```  Converts the Best Date to Fiscal Year
+  
+  ---------------------------------------------------------------------------------------------------------
+
+###### 3e-Fix Missing NAR and PL Values
+
+Calculates the 3d-Combine Opening SU and PL Area null values for NAR or
+PL Area to zero in order to do subsequent calculations.
+
+  --------------------------------------------------------------------
+  **Field**   **Criteria**                               **Details**
+  ----------  -----------------------------------------  -------------
+  NewNAR      ```iif([NAR] is null,0,[NAR])```
+  
+  NewPL       ```Iif([PL Area] is null, 0,[PL Area])```   
+
+  ---------------------------------------------------------------------
+
+###### 3f-Calculate Regen Ratio
+
+Summarizes the 3e-Fix Missing NAR and PL Values NewNAR by opening. Note
+that planting is the sum of the PL/PL. This area is compared against
+opening’s NAR. Generally, records with missing NAR are historical
+records.
+
+  ---------------------------------------------------------------------------------------------------------------------
+  **Field**   **Criteria**                                                           **Details**
+  ---------   ---------------------------------------------------------------------  ------------------------------------
+  Ratio       ```iif([NewNAR]=0,0,iif([NewNAR]>0, Round([NewPL]/[NewNAR],2),"")```    This defaults 0 value if there is no NAR, otherwise calculate the ratio of planting. Note that records with no NAR will not be accounted for in the total values for natural regen. There are approximately 23K records that is missing NAR
+  
+  ---------------------------------------------------------------------------------------------------------------------
+
+###### 3g-Assess Regen Type – Set Threshold
+
+Uses 3f-Calculate Regen Ratio to define the Regen Type of Natural or
+Planted. A threshold of 10% or less of the NAR area planted is defined
+as Natural while all openings with &gt; 10% of the NAR area planted are
+considered planted.
+
+  -----------------------------------------------------------------------
+  **Field**   **Criteria**                                  **Details**
+  ----------  --------------------------------------------  -------------
+  Regen Type  ```iif(;Ratio]<=0.1,"Natural","Planted")``` 
+  
+  -----------------------------------------------------------------------
+
+###### 3h-Final Natural vs Planted BC
+
+Summarizes the NAR area in 3g-Assess Regen Type-Set by Regen Type. Note
+that the Natural Column is what is defined as the total area naturally
+regenerated. Planted column is ignored as it is reflected by the
+prorated of species trees planted – actuals vs. derived process.
+
+###### 3i-Final Natural vs Planted Org Unit
+
+Takes 3g-Assess Regen Type-Set Threshold that has assigned natural and
+planted ratio set and groups the sum of NAR area that is by Regen Type.
+Note that the Natural Column is what is defined as the total area
+naturally regenerated. This data is summarized by Region and District.
+Planted column is ignored as it is reflected by the prorated of species
+trees planted – actuals vs. derived process.
+
+[^1]: Detailed descriptions and downloads of the source layers are
+    available from the B.C. Data Catalogue at:
+    <http://catalogue.data.gov.bc.ca/dataset>
+
+
