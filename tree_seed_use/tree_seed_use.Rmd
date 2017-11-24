@@ -149,6 +149,8 @@ Email correspondence to: envreportbc@gov.bc.ca
 
 # METHODS
 
+The [*R* code](http://www.r-project.org) for creating the graphs presented on this page is available on [GitHub](https://github.com/bcgov/EnvReportBC).
+
 ## Source Data
 
 The Forest Tree Seed Use analysis uses data from:
