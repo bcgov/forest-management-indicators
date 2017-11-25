@@ -5,8 +5,8 @@ library(dplyr) #data prep
 library(reshape2) #for restructuring data table
 library(ggplot2)  #for plotting
 library(extrafont) #Verdana font
-library(envreportutils) #soe theme
-library(rphylopic) #for conifer image, package available from GitHub only
+library(envreportutils) #soe theme, package from GitHub
+library(rphylopic) #for conifer image, package from GitHub
 library(curl) #required by rphylopic function
 
 ## @knitr pre

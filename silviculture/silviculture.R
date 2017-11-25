@@ -1,17 +1,15 @@
-#Read the associated Silviculture_data_README file 
-#to find out about the tweaks and changes made to the CSV
-#files provided by FLNRO (Lead: Mei-Ching Tsoi) prior
-#to using for this script.
+## Silviculture indicator plots
 
 #loading libraries for script
-library(magrittr)
-library(dplyr)
-library(reshape2)
-library(ggplot2)
-library(RColorBrewer)
-library(extrafont)
-library(grid)
-library(envreportutils)
+library(readr) #read CSV file
+library(magrittr) #pipe %>% 
+library(dplyr) #data cleaning
+library(reshape2) #wide to long df format
+library(ggplot2) #plotting
+library(RColorBrewer) #colour palette
+library(extrafont) #Verdana font
+library(grid) #for plots
+library(envreportutils) #for soe_theme(), package from GitHub
 
 #do not turn all strings in csv files into factors
 options(stringsAsFactors=FALSE)

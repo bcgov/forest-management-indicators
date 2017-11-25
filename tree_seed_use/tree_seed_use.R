@@ -4,11 +4,11 @@ library(readr) #read in CSV files
 library(dplyr) #data prep
 library(reshape2) #for restructuring data table
 library(bcmaps) #get bc boundary and nrs boundaries, package from GitHub
-library(bcmaps.rdata) # maps data
+library(bcmaps.rdata) # maps data, package from GitHub
 library(ggplot2)  #for plotting
 library(extrafont) #Verdana font
-library(envreportutils) #soe theme & svg_px()
-library(rphylopic) #for conifer image
+library(envreportutils) #soe theme & svg_px(), package from GitHub
+library(rphylopic) #for conifer image, package from GitHub
 library(curl) #required by rphylopic function
 library(scales) #for pretty_breaks()
 library(rmapshaper) # for intersect and simplify functions
