@@ -1,0 +1,484 @@
+---
+topic: "land"
+title: "Trends in Silviculture in B.C. (1987-2015)"
+output: envreportbc::print_ver
+---
+
+
+```{r set-options, echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE}
+require(knitr)
+library(dplyr)
+library(reshape2)
+library(ggplot2)
+library(RColorBrewer)
+library(grid)
+library(envreportutils)
+library(magrittr)
+library(extrafont)
+
+opts_chunk$set(echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.height=5)
+read_chunk("../silviculturegraphs.R")
+
+options(stringsAsFactors=FALSE)
+
+################################################################################
+## Read in the data files
+################################################################################
+
+# Silvicultural systems
+silsystems <- read.csv("Z:/forests/silviculture/2017/silviculture_systems.csv",
+                        strip.white=TRUE)
+
+# Disturbances and Reforestation
+dist.refor <- read.csv("Z:/forests/silviculture/2017/disturbance_and_reforestation.csv",
+                       strip.white=TRUE)
+
+# Silvicultural Treatments
+treatments <- read.csv("Z:/forests/silviculture/2017/silviculture_treatments.csv",
+                       strip.white=TRUE)
+
+# Gains
+gains <- read.csv("Z:/forests/silviculture/2017/timber_volume_gains.csv",
+                  strip.white=TRUE)
+
+# Set chart font to "" so uses pdf font
+chart_font_web <- ""
+```
+
+```{r pre}
+
+```
+
+Managing and conserving the province’s Crown forest and range resources provides environmental, social and economic benefits to all British Columbians. Silviculture---one of the primary means to enhance the social and economic benefits from our forest resource---entails the manipulation of forest and woodland vegetation in stands and on landscapes to meet the diverse needs and values of landowners and society on a sustainable basis. This indicator investigates the trends in four measures of silviculture from 1987 to 2015.
+
+
+-   [Silviculture](#gloss) is the practice of growing and cultivating trees in
+    forests to meet certain objectives, such as timber production,
+    biodiversity, wildlife habitat or visual quality.
+
+-   Silviculture activities occur within a silviculural system, which is
+    a planned cycle of forest or tree harvest, regeneration and tending
+    over time. Silvicultural systems used in British Columbia are
+    [clearcutting](#gloss), partial cutting ([seed tree](#gloss), [shelterwood](#gloss),
+    [selection](#gloss)), [clearcutting with reserves](#gloss) and 
+    [variable retention](#gloss). Each name reflects the type of forest structure
+    remaining after the initial harvest.
+
+-   Changes in silvicultural practices over the past 40 years have
+    increased reforestation, increased the volume and value of future
+    timber supplies.
+
+-   Silvicultural choices are often influenced by natural disturbances,
+    public expectations and market demands.
+
+```{r silviculture, fig.height=4.6}
+```
+
+-   Since 1970, the area of Crown forest harvested annually has ranged
+    from 120,000 hectares to 240,000 hectares, with an average of
+    roughly 175,000 hectares each year.
+
+-   From 1970-1996, clearcutting systems were applied on 87% of the area
+    harvested on public land; and partial cutting (seed tree,
+    shelterwood, and Selection ) systems on 13%. By 2012/13 clearcutting
+    with reserves and clearcutting accounted for 96% of the area
+    harvested on public land with variable retention and partial cutting
+    systems accounting for 4%.
+
+```{r dist-refor}
+```
+
+-   Silvicultural investments can accelerate reforestation and thereby
+    increase timber supplies and restore [ecological services](#gloss) sooner.
+
+-   In the 1970s and 1980s on Crown forest land, the area disturbed
+    exceeded the area reforested. As a result, the area deemed 
+    [not satisfactorily restocked (NSR)](#gloss) after timber harvesting and other
+    disturbances increased over several decades.
+
+-   This gap was closed during the 1980s with increasing investments in
+    [site preparation](#gloss), research that led to better planting methods,
+    [planting](#gloss), [backlog planting](#gloss) and [brushing](#gloss) to ensure
+    prompt restocking and the growth of desired trees.
+
+-   In 1987, explicit reforestation obligations on public land were
+    introduced. Since 1987, holders of harvesting rights are required to
+    reforest the areas they harvest. This led to planting of a greater
+    proportion of current harvest areas.
+
+-   In recent years harvesting and reforestation are in step with each
+    other. Since 2005, over 76 million seedlings have been planted on
+    over 56,000ha of Mountain Pine Beetle and wildfire impacted land not
+    currently under legal reforestation obligations.
+
+```{r treat}
+```
+
+
+-   Silvicultural treatments are investments in future timber production
+    and environmental benefits from forests. Silvicultural treatments
+    can also increase timber quantity and quality, manage forest health
+    and fire risks, and improve specific habitats, water management and
+    visual landscapes. Silvicultural treatments also create employment
+    opportunities for First Nations and others affected by changes in
+    the forest industry.
+
+-   Between 1976 and 2012, investments in [incremental silviculture](#gloss) to 
+    improve the growth and quality of future crop trees included 
+    [fertilizing](#gloss) (394,000 hectares), [pruning](#gloss) (57,000 hectares), 
+    [spacing](#gloss) (678,000 hectares) and the use of [select seed](#gloss) for 
+    planting (1,240,000 hectares). Over this period, silviculture treatments 
+    totalled approximately 2.4 million hectares.
+
+-   Public funding of fertilization, pruning, and spacing has been
+    significantly reduced in recent years, however, funding is
+    continuing for research, production, storage and monitoring of
+    select seed use on public land. Fertilization has seen significant 
+    increases since the inception of the [Forests for Tomorrow](#gloss) 
+    program in 2004.  
+
+-   By increasing the rate of tree growth, use of select seed can
+    increase future timber volume, reduce constraints on harvesting
+    adjacent areas and reduce the need for, and cost of, brushing.
+
+```{r gains}
+```
+
+-   Investments in silviculture depend on expected gains in ecological
+    services, volume and return on investment.
+
+-   Compared with [natural regeneration](#gloss), planting increases
+    harvestable volume by about 15%, and about 25% with the use of
+    select seed.
+
+-   Cumulative volume gains 65 years after making investments in incremental 
+    silviculture since 1976 are estimated at 65 million cubic metres (m^3^), 
+    based on fertilization (10 million m^3^), Spacing (11 million m^3^), 
+    select seed (33 million m^3^), and reforestation through the Forests for 
+    Tomorrow program (11 million m^3^). 
+
+-   Other gains from silvicultural treatments include increased short
+    and [mid-term timber supply](#gloss) through spacing and fertilization,
+    accelerated development of mature or old growth forest
+    characteristics where needed for wildlife or biodiversity, higher
+    wood quality through pruning, more pleasing visual landscapes and
+    planting to make up the long-term timber supply.
+
+
+## References and other useful links
+-   Ministry of Forests, Lands and Natural Resource Operations Annual
+    Reports: <http://www.for.gov.bc.ca/mof/annualreports.htm>
+
+-   Reporting Silviculture Updates and Land Status Tracking System
+    (RESULTS): <http://www.for.gov.bc.ca/his/results/>
+
+-   Silviculture Program Page:
+    <http://www.for.gov.bc.ca/hfp/silviculture/index.htm>
+
+-   Seed Planning and Registry Application (SPAR):
+    <http://www.for.gov.bc.ca/HTI/spar/>
+    
+-   Forests for Tomorrow (FFT) reforestation program: 
+    <http://www.for.gov.bc.ca/hcp/fia/landbase/fft/>
+
+
+## Data
+\*By accessing these datasets, you agree to the license associated with
+each file, as indicated below.
+
+-   Chart data: Silviculture Systems <http://catalogue.data.gov.bc.ca/dataset/forest-area-harvested-by-silviculture-systems>
+    -   License: B.C. OGL: <http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf>
+
+-   Chart data: Disturbances and Reforestation <http://catalogue.data.gov.bc.ca/dataset/trends-in-forest-disturbances-and-reforestation>
+    -   License: B.C. OGL: <http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf>
+
+-   Chart data: Silvicultural Treatments <http://catalogue.data.gov.bc.ca/dataset/trends-in-silvicultural-treatments-in-b-c>
+    -   License: B.C. OGL: <http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf>
+
+-   Chart data: Timber Volume Gains <http://catalogue.data.gov.bc.ca/dataset/expected-timber-volume-gains-from-silvicultural-treatments>
+    -   License: B.C. OGL: <http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf>
+
+
+## Glossary {#gloss}
+
+Silviculture
+:   The art and science of controlling the
+    establishment, growth, composition, health and quality of forests
+    and woodlands. Silviculture entails the manipulation of forest and
+    woodland vegetation in stands and on landscapes to meet the diverse
+    needs and values of landowners and society on a sustainable basis.
+
+Clearcutting
+:   The process of removing all trees, large and small,
+    in a stand in one cutting operation. Clear-cutting with reserves is
+    the removal of the majority of the trees saving some within or
+    outside the cut boundary for other purposes such as wildlife
+    habitat.
+
+Seed tree
+:   Trees left after reproduction cutting to provide seeds
+    for natural regeneration. Trees are chosen for desired species,
+    being healthy and and having good growth form.
+
+Shelterwood
+:   Harvesting trees in two or more cuttings that
+    creates conditions where a new generation of seedlings can be
+    established under the remaining timber without planting. This system
+    is implemented in forests with species that can establish themselves
+    in partial shade under the remaining mature trees.
+
+Selection
+:   Harvesting trees in a way that moves a forest stand
+    towards an uneven-aged condition.
+
+Clearcutting with reserves
+:   The removal of the majority of the
+    trees saving some within or outside the cut boundary for other
+    purposes such as wildlife habitat.
+
+Variable retention
+:   Retaining forest structural elements for at
+    least one rotation in order to preserve environmental values.
+
+Ecosystem services
+:   benefits to humankind and wildlife such as
+    the production of food, provisioning of clean water, decomposition
+    of wastes, control of micro-climate, regulating nutrient cycles,
+    pollination, spiritual and recreational sites.
+
+Not satisfactorily restocked (NSR)
+:   productive forest land that
+    has been denuded and has failed, partially or completely, to
+    regenerate either naturally or by planting or seeding to the
+    specified or desired free growing standards for the site.
+
+Site preparation
+:   any action, related to reforestation, to create
+    an environment favourable for survival of suitable trees during the
+    first growing season. It may alter the ground cover, soil or
+    microsite conditions, using biological, mechanical, or manual
+    clearing, prescribed burns, herbicides, or a combination of methods.
+    Both natural regeneration and planting may be improved through site
+    preparation.
+
+Planting
+:   establishing a forest by setting out seedlings,
+    transplants or cuttings in an area.
+
+Back-log planting
+:   planting that is overdue. In general, planting
+    is considered backlog planting if more than 7 years have elapsed
+    since a site was cleared (by harvesting, fire, insects or disease)
+    in the Interior, and more than 3 years have elapsed on the Coast of
+    British Columbia.
+
+Brushing
+:   a silvicultural activity done by chemical, manual,
+    grazing, or mechanical means to control competing forest vegetation
+    and reduce competition for space, light, moisture, and nutrients
+    with crop trees or seedlings.
+
+Incremental Silviculture
+:   Application of cultural measures which will allow an increase in the 
+    value or volume of the cut over and above the establishment of a fully 
+    stocked stand after harvest.
+
+Fertilizing
+:   the addition of fertilizer to promote tree growth on
+    sites deficient in one or more soil nutrients. Also used to improve
+    the vigor of crop trees following juvenile spacing or commercial
+    thinning.
+    
+Forests for Tomorrow
+:   A silviculture program, established by the B.C. Provincial Government 
+    in March 2005 to respond to catastrophic wildfires and the mountain pine 
+    beetle epidemic.
+
+Pruning
+:   the manual removal, close to or flush with the stem, of
+    side branches, live or dead, and of multiple leaders from standing,
+    generally plantation-grown trees. Pruning is carried out to improve
+    the market value of the final wood product by producing knot-free
+    wood for the improvement of the tree or its timber.
+
+Spacing
+:   the removal of undesirable trees within a young stand to
+    control stocking, to maintain or improve growth, to increase wood
+    quality and value, or to achieve other resource management
+    objectives.
+
+Select seed
+:   seed that exhibits a higher level of one or more
+    desired genetic traits (such as growth rate, form, wood density, and
+    resistance to insects and disease) than wild seed collected from an
+    average natural stand. This includes seed from tested parents
+    growing in seed orchards and seed collected from natural stand
+    superior provenances. Vegetative material for propagation, from
+    production facilities using tested parents and from superior
+    provenances, is included in the term select seed.
+
+Natural regeneration
+:   a change in forest structure and
+    composition caused by fire, insects, wind, landslides and other
+    natural processes.
+
+Mid-term timber supply
+:   the mid-term timber supply is a term that
+    refers to that portion of the timber inventory that would be
+    available for harvest within the middle of the normal management
+    cycle.
+
+
+*****
+# METHODS - Trends in Silviculture in B.C. (1970-2012)
+
+## Silviculture Systems:  
+Detailed silviculture records are stored in the Reporting Silviculture
+Updates and Land Status Tracking System (RESULTS;
+<http://www.for.gov.bc.ca/his/results/>). Reported disturbances and
+reforestation on public land are published in Ministry of Forests, Lands
+and Natural Resources Operations annual reports (since 1989/90).
+
+Data was taken from Ministry of Forests Lands and Natural Resource
+Operations annual reports - Area Harvested by Silvicultural Systems on
+Crown Land, by Forest Region (table 7.3) available here:
+<http://www.for.gov.bc.ca/hfp/silviculture/statistics/statistics.htm>.
+Private land accounts for 10% of the total area harvested in the
+province between 1983/84 and 2008/09. Earlier data are not available.
+
+Fiscal years were rounded down to calendar years in order to standardize
+data display (e.g., 1980/1981 was considered to be 1980).
+
+For the purposes of data rollup, partial cutting includes coppice,
+intermediate cut, patch cut, seed tree, selection, shelterwood and
+unspecified.
+
+The areas for 1970 are estimated using the ratio of volumes harvested in
+1970 and 1971, applied to the areas harvested in 1971.
+
+## Disturbances and Reforestation:
+Detailed silviculture records are stored in the Reporting Silviculture
+Updates and Land Status Tracking System (RESULTS;
+<http://www.for.gov.bc.ca/his/results/>).
+
+Data was taken from Ministry of Forests Lands and Natural Resource
+Operations annual reports - Changes in the Not Satisfactorily Restocked
+(NSR) Crown Land (pdf) available here:
+<http://www.for.gov.bc.ca/hfp/silviculture/statistics/statistics.htm>.
+
+Fiscal years were rounded down to calendar years in order to standardize
+data display (e.g., 1980/1981 was considered to be 1980).
+
+Disturbances or 'Additions to NSR' are areas that become not
+satisfactorily restocked (NSR) with timber due to harvesting, fire,
+insects, diseases and other causes. Data for 1989/90 onwards are based
+on surveyed and reported changes to NSR areas of public (Crown) land,
+from ministry annual reports. For earlier years, estimates are based on
+areas harvested and planted, and estimated rates of losses to fires,
+insects, diseases and restocking failures.
+
+Reforestation or 'Reductions to NSR' are areas successfully reforested
+by natural regeneration or planting. Data for 1989/90 onwards are based
+on surveyed and reported changes to NSR areas of public (Crown) land,
+from ministry annual reports. For earlier years, estimates are based on
+areas harvested and planted, and estimated rates of natural
+regeneration, losses to fires, insects, diseases and restocking
+failures.
+
+## Silvicultural Treatments:
+Detailed silviculture records are stored in the Reporting Silviculture
+Updates and Land Status Tracking System (RESULTS;
+<http://www.for.gov.bc.ca/his/results/>).
+
+1.  Data for fertilization, pruning and spacing treatments was taken
+    from Ministry of Forests Lands and Natural Resource Operations
+    annual reports - Silviculture Accomplishments on Crown Land Funded
+    by All Funding Sources by Forest Region (table 2.8) available here:
+    <http://www.for.gov.bc.ca/hfp/silviculture/statistics/statistics.htm>.
+
+2.  Forests for Tomorrow (FFT) planting information was taken from FFT
+    annual accomplishment reporting published here:
+    <http://lbis.forestpracticesbranch.com/LBIS/accomplishments>.
+
+3.  Data for select seed was calculated using the following methodology:
+
+    1.  Source data from 2 tables via DataBC: (1) RESULTS - Activity
+        Treatment Units
+        (<http://www.data.gov.bc.ca/dbc/catalogue/detail.page?config=dbc&P110=recorduid:174422>)
+        and (2) RESULTS - Planting
+        (<http://www.data.gov.bc.ca/dbc/catalogue/detail.page?config=dbc&P110=recorduid:173789>).
+        These data are licensed under the BC Open Government License
+        (<http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf>);
+
+    2.  Join Table 2 based on the field
+        `activity_treatment_unit_id`(selecting only records where
+        `ATU_COMPLETION_DATE` \>= 2006-04-01) and Table 1, retaining
+        only matching records;
+
+    3.  Using the joined file, exclude records where
+        `ACTUAL_TREATMENT_AREA` = null and `ACTUAL_PLANTED_NUMBER` = 0;
+
+    4.  Calculate pro-rated AREA for each planting:\
+        ((NUMBER\_PLANTED/ACTUAL\_PLANTED\_NUMBER)\*ACTUAL\_TREATMENT\_AREA);
+
+    5.  Calculate Fiscal Year based on `ATU_COMPLETION_DATE`;
+
+    6.  Narrow to select seed only using categories in
+        `GENETIC_CLASS_CODE` and
+        `SUPERIOR_PROVIDENCE_IND`:(Genetic\_class = 'A') or
+        (Genetic\_class = 'B' and SUPERIOR\_PROVIDENCE\_IND = 'Y');
+
+    7.  Summarize pro-rated AREA by Fiscal Year.
+
+An individual site may be treated more than once. Site preparation,
+brushing and planting of B class seed is not included. Private
+landowners are not required to report treatments. Fiscal years were
+rounded down to calendar years in order to standardize data display
+(e.g., 1980/1981 was considered to be 1980).
+
+## Timber Volume Gains Expected from Silvicultural Treatments:
+Timber volume gains (millions of cubic metres of wood) were estimated
+using data submitted by licensees and the Ministry of Forests, Lands and
+Natural resource operations to Reporting Silviculture Updates and Land
+Status Tracking System (RESULTS;
+<http://www.for.gov.bc.ca/his/results/>) and Seed Planning and Registry
+System (SPAR; <http://www.for.gov.bc.ca/HTI/spar/>). Genetic gain data
+are contained in the Ministry of Forests, Lands and Natural Resources
+Operations Seed Planning and Registry System (SPAR;
+<http://www.for.gov.bc.ca/HTI/spar/>).
+
+Timber volume gains (cubic metres per hectare per year) were calculated
+by multiplying the number of hectares treated, from Silvicultural
+Treatments (see above), by the average annual growth rate multiplied by
+65 (assumed rotation age) divided by 1,000,000. Site preparation,
+brushing and planting of B class seed are not included as enhanced
+silviculture treatments as they are considered to be the required
+treatments post-harvest to achieve free growing conditions, these
+activities are not considered to create incremental volume, and thus
+gains from these treatments are considered to be baseline.
+
+Annual growth rates per hectare:
+
+-   0.50 m3 planting one to three years after logging (relative to
+    satisfactory natural regeneration)
+
+-   2.93 m3 backlog planting (relative to a NSR site, overgrown by
+    competing vegetation)
+
+-   0.40 m3 fertilizing
+
+-   0.25 m3 spacing
+
+-   0.41 m3 select seed (average gain in 2004/05, adjusted for lower and
+    higher genetic quality in earlier and later years, respectively). In
+    2009/2010 the select seed average gain was upped to 0.57m3 and in
+    2010/2011 it was upped to 0.615 m3 based on the forest genetics
+    council annual report actual and forecast genetic worth.
+
+***
+
+Published and Available On-Line at Environmental Reporting BC (July
+2014):
+<http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html>
+
+Email correspondence to: envreportbc@gov.bc.ca
