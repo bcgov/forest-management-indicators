@@ -15,7 +15,7 @@ The results data used for the indicators are available from the [B.C. Data Catal
 ### Code
 There is one R script and one RMarkdown file associated with each indicator.
 
-Most packages used in the analysis can be installed from CRAN using `install.packages()`, but you will need to install [envreportutils](https://github.com/bcgov/envreportutils) and [bcmaps](https://github.com/bcgov/bcmaps) using devtools:
+Most packages used in the analyses can be installed from CRAN using `install.packages()`, but you will need to install [envreportutils](https://github.com/bcgov/envreportutils), [bcmaps](https://github.com/bcgov/bcmaps), [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) and [rphylopic](https://github.com/sckott/rphylopic) using devtools:
 
 
 ```r
@@ -24,6 +24,8 @@ install.packages("devtools") # If you don't already have it installed
 library(devtools)
 install_github("bcgov/envreportutils")
 install_github("bcgov/bcmaps")
+install_github("bcgov/bcmaps.rdata")
+install_github("sckott/rphylopic")
 ```
 
 
