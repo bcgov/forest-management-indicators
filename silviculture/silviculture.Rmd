@@ -1,45 +1,20 @@
 ---
 topic: "land"
-title: "Trends in Silviculture in B.C. (1987-2015)"
+title: "Trends in Silviculture in B.C. (1987-2016)"
 output: envreportbc::print_ver
 ---
 
 
 ```{r set-options, echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE}
 require(knitr)
-library(dplyr)
-library(reshape2)
-library(ggplot2)
-library(RColorBrewer)
-library(grid)
-library(envreportutils)
-library(magrittr)
-library(extrafont)
+library(readr) #read CSV file
+library(dplyr) #data cleaning
+library(tidyr) #wide to long df format
+library(ggplot2) #plotting
+library(envreportutils) #for soe_theme(), package from GitHub
 
 opts_chunk$set(echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.height=5)
-read_chunk("../silviculturegraphs.R")
-
-options(stringsAsFactors=FALSE)
-
-################################################################################
-## Read in the data files
-################################################################################
-
-# Silvicultural systems
-silsystems <- read.csv("Z:/forests/silviculture/2017/silviculture_systems.csv",
-                        strip.white=TRUE)
-
-# Disturbances and Reforestation
-dist.refor <- read.csv("Z:/forests/silviculture/2017/disturbance_and_reforestation.csv",
-                       strip.white=TRUE)
-
-# Silvicultural Treatments
-treatments <- read.csv("Z:/forests/silviculture/2017/silviculture_treatments.csv",
-                       strip.white=TRUE)
-
-# Gains
-gains <- read.csv("Z:/forests/silviculture/2017/timber_volume_gains.csv",
-                  strip.white=TRUE)
+read_chunk("silviculture.R")
 
 # Set chart font to "" so uses pdf font
 chart_font_web <- ""
