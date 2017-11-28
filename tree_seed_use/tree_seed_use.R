@@ -101,7 +101,7 @@ forest_regen <- ggplot(bc_seed, aes(x = Year, y = area)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
         legend.text = element_text(size = 14),
-        axis.title = element_text(size=15),
+        axis.title = element_text(size=16),
         axis.text = element_text(size=12),
         plot.margin = unit(c(5,5,5,5),"mm"),
         legend.background = element_rect(colour = "white"),
@@ -158,9 +158,9 @@ seed_map_plot <- ggplot(seed_map, aes(x = long, y = lat)) +
                                                 draw.ulim = TRUE)) +
   coord_equal() +
   theme_map() +
-   theme(legend.title = element_text(face = "bold", size = 12),
-         legend.text = element_text(size = 12),
-         strip.text.x = element_text(size = 13)) 
+   theme(legend.title = element_text(face = "bold", size = 14),
+         legend.text = element_text(size = 14),
+         strip.text.x = element_text(size = 14)) 
 plot(seed_map_plot)
 
 ## @knitr stop
