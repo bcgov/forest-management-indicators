@@ -59,7 +59,7 @@ silsystems.stack <- ggplot(data=silsystems.data,
                            aes(x = Year, y = Area, fill = System)) + 
   geom_area(aes(fill=System), size=.2, alpha=.7) + 
   xlab ("Year") + ylab ("Area (Hectares*1000)") +
-  ggtitle ("Silvicultural Systems") +
+#  ggtitle ("Silvicultural Systems") +
   theme_soe() +
   scale_y_continuous(limits = c(0, 300), breaks=seq(0, 300, 30), 
                      expand=c(0,0)) +
@@ -69,17 +69,21 @@ silsystems.stack <- ggplot(data=silsystems.data,
   geom_line(data=silsystems.total, aes(x = Year, y = Area),
             colour = "black", size = 1.3, show.legend = FALSE) +
   annotate("text", label = "Clearcutting", x = 1994, y = 75,
-           size = 4, family = chart_font_web) +
+           size = 5, family = chart_font_web) +
   annotate("text", label = "Partial\nCutting", x = 1996, y = 240,
-           size = 4, family = chart_font_web) +
+           size = 5, family = chart_font_web) +
   annotate("segment", x = 1996, xend = 1997.5, y = 220, yend = 178) +
   annotate("text", label = "Total Area\nHarvested", x = 2009, y = 255,
-           size = 4, family = chart_font_web) +
+           size = 5, family = chart_font_web) +
   annotate("segment", x = 2009.5, xend = 2010.5, y = 236, yend = 200) +
   annotate("text", label = "Clearcutting with\n Reserves", x = 2008, y = 110,
-           size = 4, family = chart_font_web) +
-  theme(legend.position = "none", plot.title = element_text(size = 12, hjust = .5),
-        panel.grid.major.x = (element_blank()), plot.margin = unit(c(5,5,5,5),"mm"))
+           size = 5, family = chart_font_web) +
+  theme(legend.position = "none",
+ #       plot.title = element_text(size = 12, hjust = .5),
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 12),
+        panel.grid.major.x = (element_blank()),
+        plot.margin = unit(c(5,10,5,5),"mm"))
 plot(silsystems.stack)
 
 
@@ -117,7 +121,7 @@ dist.refor.plot <- ggplot(data=dist.data, aes(x = Year, y = Area, group = Catego
   geom_line(data=total.dist, aes(x = Year, y = Area, group = Category,
                                  colour = Category), size = 1.3) +
   xlab ("Year") + ylab ("Area (Hectares*1000)") +
-  ggtitle ("Disturbances and Reforestation") +
+ # ggtitle ("Disturbances and Reforestation") +
   scale_y_continuous(limits = c(0,300), breaks=seq(0, 300, 30),
                      expand=c(0,0)) +
   scale_fill_manual(name = "Category", drop = FALSE, values = dfPalette,
@@ -126,16 +130,20 @@ dist.refor.plot <- ggplot(data=dist.data, aes(x = Year, y = Area, group = Catego
                       values = c("#006d2c", "black")) +
   scale_x_continuous(limits = c(1987, 2016), breaks=seq(1988, 2016, 4), expand=c(0,0)) +
    annotate("text", label = "Natural Disturbance",
-            x = 2004, y = 140, size = 4, family = chart_font_web) +
+            x = 2004, y = 140, size = 5, family = chart_font_web) +
    annotate("segment", x = 2007.5, xend = 2009, y = 152, yend = 170) +
    annotate("text", label = "Harvested",
-            x = 1997, y = 87, size = 4, family = chart_font_web) +
+            x = 1997, y = 87, size = 5, family = chart_font_web) +
   theme_soe() +
-  theme(legend.position = c(.2,.96), legend.direction = "vertical",
+  theme(legend.position = c(.2,.96),
+        legend.direction = "vertical",
         legend.background = element_rect(fill = "NA"),
-        legend.text = element_text(size =11, family = chart_font_web),
-        plot.title = element_text(size = 12,  hjust = .5),
-        panel.grid.major.x = (element_blank()), plot.margin = unit(c(5,5,5,5),"mm"))
+        legend.text = element_text(size =14, family = chart_font_web),
+ #       plot.title = element_text(size = 12,  hjust = .5),
+        panel.grid.major.x = (element_blank()),
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 12),
+        plot.margin = unit(c(5,10,5,5),"mm"))
 plot(dist.refor.plot)
 
 
@@ -167,18 +175,22 @@ treatment.plot <- ggplot(data=treatments.long,
                          aes(x = Fiscal_Year, y = Area, group=Treatment, colour=Treatment)) + 
   geom_line(size = 1.3) + 
   xlab ("Year") + ylab ("Area (Hectares*1000)") +
-  ggtitle ("Incremental Silviculture") + 
+#  ggtitle ("Incremental Silviculture") + 
   scale_y_continuous(limits = c(0,200), breaks=seq(0, 200, 20),
                      expand = c(0,0)) +
   scale_x_continuous(limits = c(1987, 2016), breaks=seq(1988, 2016, 4), expand=c(0,0)) + 
   scale_colour_manual(values = tmPalette, name = NULL) +
   guides(colour = guide_legend(reverse=TRUE)) +
   theme_soe() +
-  theme(legend.position = c(.3,.70), legend.direction = "vertical",
+  theme(legend.position = c(.3,.70),
+        legend.direction = "vertical",
         legend.background = element_rect(fill = "NA"),
-        legend.text = element_text(size =11, family = chart_font_web),
-        plot.title = element_text(size = 12,  hjust = .5),
-        panel.grid.major.x = (element_blank()), plot.margin = unit(c(5,5,5,5),"mm"))
+        legend.text = element_text(size =14, family = chart_font_web),
+ #       plot.title = element_text(size = 12,  hjust = .5),
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 12),
+        panel.grid.major.x = (element_blank()),
+        plot.margin = unit(c(5,10,5,5),"mm"))
 plot(treatment.plot)
 
 
@@ -216,7 +228,7 @@ names(treatment.pal) <- treatment.order
 gains.stack <- ggplot(data=gains.long, aes(x = Fiscal_Year, y = Volume, fill = Treatment)) + 
   geom_area(aes(fill=Treatment), size=.2, alpha=.7) + 
   xlab("Year") +  ylab(expression(paste("Volume ","(",m^3, "*1000)"))) +
-  ggtitle ("Timber Volume Gains from Incremental Silviculture") +
+#  ggtitle ("Timber Volume Gains from Incremental Silviculture") +
   scale_y_continuous(limits = c(0, 10000), breaks=seq(0, 10000, 1000),
                      expand=c(0,0)) +
   scale_x_continuous(limits = c(1987, 2016), breaks=seq(1988, 2016, 4), expand=c(0,0)) +
@@ -225,14 +237,18 @@ gains.stack <- ggplot(data=gains.long, aes(x = Fiscal_Year, y = Volume, fill = T
   geom_line(data=gains.total, aes(x = Fiscal_Year, y = Volume),
             colour = "black", size = 1.3) +
    annotate("text", label = "Total timber volume gain expected\n 65 years after treatment",
-            x = 2003, y = 8000, size = 4, family = chart_font_web) +
+            x = 2003, y = 8000, size = 5, family = chart_font_web) +
    annotate("segment", x = 2003, xend = 2010, y = 7500, yend = 6000) +
   theme_soe() +
-  theme(legend.position = c(.35,.5), legend.direction = "vertical",
+  theme(legend.position = c(.35,.5),
+        legend.direction = "vertical",
         legend.background = element_rect(fill = "NA"),
-        legend.text = element_text(size =11, family = chart_font_web),
-        plot.title = element_text(size = 12,  hjust = .5),
-        panel.grid.major.x = (element_blank()), plot.margin = unit(c(5,5,5,5),"mm"))
+        legend.text = element_text(size =14, family = chart_font_web),
+  #      plot.title = element_text(size = 12,  hjust = .5),
+        panel.grid.major.x = (element_blank()),
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 12),
+        plot.margin = unit(c(5,10,5,5),"mm"))
 plot(gains.stack)
 
 ## @knitr end
