@@ -28,7 +28,7 @@ read_chunk("timber_harvest.R")
 
 Timber harvesting has direct implications for British Columbia's
 environmental integrity and sustainable economic activity. Timber
-harvesting has contributed substantially to B.C.′s economic development
+harvesting has contributed substantially to B.C.'s economic development
 and continues to provide the economic base for many rural communities.
 Environmental integrity and sustainable economic activity depend on
 maintaining a long-term balance between forest growth and timber
@@ -45,7 +45,7 @@ harvest.
     below the Allowable Annual Cut on public lands in British Columbia.
 -   **What is the provincial timber supply forecast?** Predictable
     timber supplies are important to the provincial economy and to
-    customers who rely on B.C.′s forest products. Timber supply is
+    customers who rely on B.C.'s forest products. Timber supply is
     forecasted in response to changes in the forest and new information,
     forecasting methods, and assumptions. Allowable Annual Cuts are
     required by law to be determined at least every ten years, using the
