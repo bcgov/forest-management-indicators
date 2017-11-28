@@ -106,7 +106,7 @@ harvest.
 
 \vspace{20pt}
 
-```{r aac, fig.height = 8, fig.width = 12}
+```{r aac, fig.height = 6, fig.width = 11}
 ```
 
 \vspace{20pt}
@@ -130,7 +130,7 @@ harvest.
 
 \vspace{20pt}
 
-```{r forecast, fig.height = 6, fig.width = 12}
+```{r forecast, fig.height = 6, fig.width = 11}
 ```
 
 \vspace{20pt}
