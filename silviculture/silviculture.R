@@ -238,19 +238,19 @@ plot(gains.stack)
 ## @knitr end
 
 ## Print plots to SVG for web
-svg_px(file = "./out/systems.svg", width = 500, height = 500)
+svg_px(file = "./out/systems.svg", width = 836, height = 489)
 plot(silsystems.stack)
 dev.off()
 
-svg_px(file = "./out/dist_refor.svg", width = 500, height = 500)
+svg_px(file = "./out/dist_refor.svg", width = 836, height = 489)
 plot(dist.refor.plot)
 dev.off()
 
-svg_px(file = "./out/treatment.svg", width = 500, height = 500)
+svg_px(file = "./out/treatment.svg", width = 836, height = 489)
 plot(treatment.plot)
 dev.off()
 
-svg_px(file = "./out/gains.svg", width = 500, height = 500)
+svg_px(file = "./out/gains.svg", width = 836, height = 489)
 plot(gains.stack)
 dev.off()
 
