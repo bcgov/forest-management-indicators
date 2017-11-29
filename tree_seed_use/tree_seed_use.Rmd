@@ -147,6 +147,17 @@ Email correspondence to: envreportbc@gov.bc.ca
 
 \newpage
 
+# Glossary
+
+- **Genetic diversity** is the genetic variation within individual organisms, within populations and among populations of a species. A fundamental component of biological diversity (genetic, species and ecosystem), genetic diversity plays an important role in the survival, adaptability and productivity of species and populations.
+- **Natural stand non-superior provenance** seed is wild seed collected from a natural stand seed source having no "known"" level of genetic improvement. 
+- **Natural stand superior provenance** seed is wild seed collected from a natural stand seed source identified as a superior provenance with a "known" level of genetic improvement for a specific trait (e.g. growth) over that of local wild stand populations. 
+- **Orchard** seed is collected from parent trees growing in a managed seed orchard that is selected and tested as part of a tree breeding program.
+- **Select** seed is collected from either orchards or natural stand superior provenances. Select seed exhibits a higher level of improvement in one or more desired genetic traits (such as growth, form, wood density, and resistance to insects and disease) than wild seed collected from an average natural stand. 
+- **Tree improvement program** in BC is set up to provide strategic and long term planning, administrative oversight and management of forest tree seed orchards and tree breeding for the purposes of producing seed for reforestation that is genetically suitable (adapted to its planting site) and having a level of improvement (i.e. a known genetic value over that of "wild" seed based on science-based forest genetic theory and research).  
+
+\newpage
+
 # METHODS
 
 The [**R** code](http://www.r-project.org) for creating the graphs presented on this page is available on [GitHub](https://github.com/bcgov/EnvReportBC).
