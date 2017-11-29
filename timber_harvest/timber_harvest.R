@@ -61,17 +61,17 @@ harvest.plot <- ggplot(harvest_comp, aes(x = Year, y = millions_m3)) +
                      guide = guide_legend(order=1, title = "")) +
   xlab("Year") +
   ylab(expression(paste("Timber Volume", " ", "(", "millions", " ", m^3, ")"))) +
-  scale_x_continuous(limits = c(1910, 2015), breaks=seq(1915, 2015, 10), expand = c(0, 3)) +
-  scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 10), expand=c(0, 0)) +
   theme_soe() +
+  scale_x_continuous(limits = c(1910, 2015), breaks=seq(1915, 2015, 10), expand = c(0,0)) +
+  scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 10), expand=c(0, 0)) +
   theme(panel.grid.major.x = element_blank(),
         legend.text = element_text(size = 14),
         axis.title = element_text(size=16),
         axis.text = element_text(size=12),
         legend.position = c(.23,.61), 
         legend.direction = "vertical",
-        legend.background = element_rect(fill = "NA"),
-        plot.margin = unit(c(5,10,5,5),"mm")) +
+        plot.margin = unit(c(1,2,1,1),"lines"),
+        legend.background = element_rect(fill = "NA")) +
   add_phylopic(conifer, alpha = .7, color = "grey30", ysize = 30, x = 2005, y = 20)
 plot(harvest.plot)
 
@@ -103,7 +103,7 @@ aac.plot <- ggplot(total_aac_short, aes(x = Year, y = millions_m3)) +
                      guide = guide_legend(order=1, title = "")) +
   xlab("Year") +
   ylab(expression(paste("Timber Volume", " ", "(", "millions", " ", m^3, ")"))) +
-  scale_x_continuous(limits = c(1945, 2015), breaks=seq(1950, 2015, 5), expand = c(0,3)) +
+  scale_x_continuous(limits = c(1945, 2015), breaks=seq(1950, 2015, 5), expand = c(0,0)) +
   scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 10), expand=c(0, 0)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
@@ -136,7 +136,7 @@ forecast.plot <- ggplot(forecast_mut, aes(x = Year, y = volume, colour = harvest
   scale_color_manual(values = pal3) +
   xlab("Year") +
   ylab(expression(paste("Timber Harvest", " ", "(", m^3,"/year", " ", " * million", ")"))) +
-  scale_x_continuous(limits = c(2010, 2100), breaks=seq(2010, 2100, 10), expand = c(0,3)) +
+  scale_x_continuous(limits = c(2010, 2100), breaks=seq(2010, 2100, 10), expand = c(0,0)) +
   scale_y_continuous(limits = c(0, 100), breaks = seq(10, 100, 10), expand=c(0, 0)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
