@@ -46,7 +46,7 @@ Managing and conserving the province’s Crown forest and range resources provid
 -   Silvicultural choices are often influenced by natural disturbances,
     public expectations and market demands.
 
-```{r silviculture, fig.height=4.6}
+```{r silviculture, fig.height = 6, fig.width = 11}
 ```
 
 -   Since 1970, the area of Crown forest harvested annually has ranged
@@ -60,7 +60,7 @@ Managing and conserving the province’s Crown forest and range resources provid
     harvested on public land with variable retention and partial cutting
     systems accounting for 4%.
 
-```{r dist-refor}
+```{r dist-refor, fig.height = 6, fig.width = 11}
 ```
 
 -   Silvicultural investments can accelerate reforestation and thereby
@@ -86,7 +86,7 @@ Managing and conserving the province’s Crown forest and range resources provid
     over 56,000ha of Mountain Pine Beetle and wildfire impacted land not
     currently under legal reforestation obligations.
 
-```{r treat}
+```{r treat, fig.height = 6, fig.width = 11}
 ```
 
 
@@ -116,7 +116,7 @@ Managing and conserving the province’s Crown forest and range resources provid
     increase future timber volume, reduce constraints on harvesting
     adjacent areas and reduce the need for, and cost of, brushing.
 
-```{r gains}
+```{r gains, fig.height = 6, fig.width = 11}
 ```
 
 -   Investments in silviculture depend on expected gains in ecological
