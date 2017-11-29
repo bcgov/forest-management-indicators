@@ -166,11 +166,10 @@ The [**R** code](http://www.r-project.org) for creating the graphs presented on 
 
 The Forest Tree Seed Use analysis uses data from:
 
-1.  Reporting Silviculture Updates and Land Status Tracking System
-    (RESULTS): <http://www.for.gov.bc.ca/his/results/>; and
+1.  [Reporting Silviculture Updates and Land Status Tracking System (RESULTS)](https://www2.gov.bc.ca/gov/content?id=F62992DA5B324446AD5E1B5BFFA404CC>) and
 
-2.  Seed Planning and Registry System (SPAR)
-    <http://www2.gov.bc.ca/gov/content/industry/forestry/managing-our-forest-resources/tree-seed/spar>
+2.  [Seed Planning and Registry System (SPAR)](https://www2.gov.bc.ca/gov/content?id=A2F6834E799241929E4113210A9BDD08)
+
 
 Wherever possible, the analysis used public data layers from the B.C.
 Geographic Warehouse[^1] released under either the Open Government Licence---British Columbia or the B.C. Crown Copyright Licence:
