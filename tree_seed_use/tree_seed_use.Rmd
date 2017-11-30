@@ -270,7 +270,7 @@ final queries.
 
 ### Make Tables – Planting Area: A, B+, B
 
-###### 1a-Make Planting Activities (outcome: 1a-Planted Activities)
+*1a-Make Planting Activities (outcome: 1a-Planted Activities)*
 
 Joins the Opening\_VW and ATU source tables to create a list of openings
 with planting activities completed after March 1970.
@@ -281,7 +281,7 @@ with planting activities completed after March 1970.
   ATU.SILV\_BASE\_CODE        PL                
   ATU.ACT\_PLANTED\_NO        &gt;0             Isolates only those completed activities with planted trees
 
-###### 1b-Make Planted Trees (outcome: 1b-Planted Trees)
+*1b-Make Planted Trees (outcome: 1b-Planted Trees)*
 
 Joins the Opening, ATU and Planting source tables to create a list of
 tree species planted after March 1970.
@@ -292,12 +292,12 @@ tree species planted after March 1970.
   ATU.SILV\_BASE\_CODE        PL                
   ATU.ACT\_PLANTED\_NO        &gt;0             Isolates only those completed activities with planted trees
 
-###### 1c-Make Unique Opening (outcome: 1c-Unique Opening)
+*1c-Make Unique Opening (outcome: 1c-Unique Opening)*
 
 Groups the 1a-Planted Activity table by Opening\_ID to create a unique
 list of openings where one or more planting activities have occurred.
 
-###### 1d-Make Opening (outcome: 1d-Opening)
+*1d-Make Opening (outcome: 1d-Opening)*
 
 Joins the 1c-Unique Opening table with the Opening\_VW and Opening
 source tables to add general overview opening information such as
@@ -306,12 +306,11 @@ source table will not be needed in this query once the Opening\_VW
 ORG\_UNIT attribute is correctly referenced – this fix is expected to be
 applied to the BC Data Catalogue layers in the summer of 2016.
 
-QUERY STEPS – Data Summary
---------------------------
+### QUERY STEPS – Data Summary
 
 ### Planting Area: A, B+, B
 
-###### 2b-Planting Details with Seedlot
+*2b-Planting Details with Seedlot*
 
 Joins the 1a-Planted Activities, 1b-Planted Trees, 1d-Opening, Org Unit
 and Seedlot tables to summarize activity-based details for each
@@ -329,19 +328,19 @@ species/seedlot planted.
   
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-###### 2c-Summary Seed Class
+*2c-Summary Seed Class*
 
 Sums the ProratePLArea from the results of query 2b-Planting Details
 with Seedlot by Planted Yr and SeedClass for the Province.
 
-###### 2d-Summary Seed Class BC
+*2d-Summary Seed Class BC*
 
 Sums the ProratePLArea from the results of query 2b-Planting Details
 with Seedlot by Planted Yr, SeedClass, District and Region.
 
 ### Natural Regeneration
 
-###### 3a-Make Opening Natural Regen (outcome 3a-Opening Natural Regen)
+*3a-Make Opening Natural Regen (outcome 3a-Opening Natural Regen)*
 
 Joins the Opening\_VW and Opening source tables to provide a unique list
 of openings to add general overview opening information such as
@@ -358,7 +357,7 @@ the natural regeneration queries.
   
  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
-###### 3b-Make SU (outcome – 3b-SU)
+*3b-Make SU (outcome – 3b-SU)*
 
 Joins the Opening\_VW and SU source tables to summarize the Net Area to
 be Reforested (NAR) by OPENING\_ID. NAR is used as a baseline to
@@ -373,7 +372,7 @@ natural regeneration opening.
   
   ---------------------------------------------------------------------------
 
-###### 3c-PL Area
+*3c-PL Area*
 
 Summarizes the 1a-Planted Activities query Planted Area by Opening\_ID
 where the Technique is “PL”.
@@ -388,7 +387,7 @@ where the Technique is “PL”.
 
   -----------------------------------------------------------------------
 
-###### 3d-Combine Opening SU and PL Area
+*3d-Combine Opening SU and PL Area*
 
 Joins the 3a-Opening Natural Regen, 3b-SU, 3c-PL Area and Org Unit to
 summarize all Planted and NAR areas in one query.
@@ -400,7 +399,7 @@ summarize all Planted and NAR areas in one query.
   
   ---------------------------------------------------------------------------------------------------------
 
-###### 3e-Fix Missing NAR and PL Values
+*3e-Fix Missing NAR and PL Values*
 
 Calculates the 3d-Combine Opening SU and PL Area null values for NAR or
 PL Area to zero in order to do subsequent calculations.
@@ -414,7 +413,7 @@ PL Area to zero in order to do subsequent calculations.
 
   ---------------------------------------------------------------------
 
-###### 3f-Calculate Regen Ratio
+*3f-Calculate Regen Ratio*
 
 Summarizes the 3e-Fix Missing NAR and PL Values NewNAR by opening. Note
 that planting is the sum of the PL/PL. This area is compared against
@@ -428,7 +427,7 @@ records.
   
   ---------------------------------------------------------------------------------------------------------------------
 
-###### 3g-Assess Regen Type – Set Threshold
+*3g-Assess Regen Type – Set Threshold*
 
 Uses 3f-Calculate Regen Ratio to define the Regen Type of Natural or
 Planted. A threshold of 10% or less of the NAR area planted is defined
@@ -442,14 +441,14 @@ considered planted.
   
   -----------------------------------------------------------------------
 
-###### 3h-Final Natural vs Planted BC
+*3h-Final Natural vs Planted BC*
 
 Summarizes the NAR area in 3g-Assess Regen Type-Set by Regen Type. Note
 that the Natural Column is what is defined as the total area naturally
 regenerated. Planted column is ignored as it is reflected by the
 prorated of species trees planted – actuals vs. derived process.
 
-###### 3i-Final Natural vs Planted Org Unit
+*3i-Final Natural vs Planted Org Unit*
 
 Takes 3g-Assess Regen Type-Set Threshold that has assigned natural and
 planted ratio set and groups the sum of NAR area that is by Regen Type.
