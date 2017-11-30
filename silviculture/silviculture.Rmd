@@ -313,12 +313,6 @@ in one or more desired genetic traits (such as growth, form, wood
 density, and resistance to insects and disease) than wild seed collected
 from an average natural stand.
 
-**Silviculture** The art and science of controlling the establishment,
-growth, composition, health and quality of forests and woodlands.
-Silviculture entails the manipulation of forest and woodland vegetation
-in stands and on landscapes to meet the diverse needs and values of
-landowners and society on a sustainable basis.
-
 **Site preparation** Any action, related to reforestation, to create an
 environment favourable for survival of suitable trees during the first
 growing season. It may alter the ground cover, soil or microsite
@@ -348,45 +342,25 @@ The Silviculture analysis uses data from:
 Wherever possible, the analysis used public data layers from the B.C.
 Geographic Warehouse[^1] released under either the Open Government Licence---British Columbia or the B.C. Crown Copyright Licence:
 
--   **Opening\_VW** – WHSE\_FOREST\_VEGATATION\_OPENING\_VW
+-   **Opening\_VW**: [WHSE\_FOREST\_VEGATATION\_OPENING\_VW](https://catalogue.data.gov.bc.ca/dataset/f6d17c00-d4b9-401b-a20e-ef7e37b6d5e3) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
-    -   <http://catalogue.data.gov.bc.ca/dataset/results-openings-attribute-only>
+-   **Seedlot**: [WHSE\_FOREST\_VEGATATION\_SEED\_SEEDLOT](https://catalogue.data.gov.bc.ca/dataset/686e10d6-78e3-4779-9a8b-08015a5c070d) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
--   **Seedlot** – WHSE\_FOREST\_VEGATATION\_SEED\_SEEDLOT
+-   **Veglot**: [WHSE\_FOREST\_VEGETATION.SEED\_VEG\_LOT](https://catalogue.data.gov.bc.ca/dataset/2456f4ed-7e47-438f-9ab5-711268c92075) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
-    -   <http://catalogue.data.gov.bc.ca/dataset/seedlot-table>
+-   **Activity Treatment Unit**: [WHSE\_FOREST\_VEGATATION\_RSLT\_ACTIVITY\_TREATMENT\_UNIT](https://catalogue.data.gov.bc.ca/dataset/07cabbdf-d7bf-4c50-919d-5b7d80086ef5) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
--   **Veglot** – WHSE\_FOREST\_VEGETATION.SEED\_VEG\_LOT
+-   **Planting**: WHSE\_FOREST\_VEGATATION\_RSLT\_PLANTING\_RSLT
 
-    -   <http://catalogue.data.gov.bc.ca/dataset/vegetative-lot-table>
+-   **Seedlot Genetic Worth**: SEEDLOT\_GENETIC\_WORTH
 
--   **Activity Treatment Unit** –
-    WHSE\_FOREST\_VEGATATION\_RSLT\_ACTIVITY\_TREATMENT\_UNIT
+-   **Org Unit**: Appendix I – Lookup Tables
 
-    -   <http://catalogue.data.gov.bc.ca/dataset/results-activity-treatment-units>
+-   **CoastInteriorOrgUnit**: Appendix I – Lookup Tables
 
--   **Planting** – WHSE\_FOREST\_VEGATATION\_RSLT\_PLANTING\_RSLT
+-   **SILV\_FUND\_SRC\_CODE**: Appendix I – Lookup Tables
 
-    -   Currently not in the BC Geographic Warehouse
-
--   **Seedlot Genetic Worth** – SEEDLOT\_GENETIC\_WORTH
-
-    -   Currently not in the BC Geographic Warehouse
-
--   **Org Unit**
-
-    -   Appendix I – Lookup Tables
-
--   **CoastInteriorOrgUnit**
-
-    -   Appendix I – Lookup Tables
-
--   **SILV\_FUND\_SRC\_CODE**
-
-    -   Appendix I – Lookup Tables
-
-The layers above that are currently not publicly available in the B.C. Geographic Warehouse
-are in the process of being added so that the raw data and source code
+The intent is to move the two data layers above that are currently not publicly available into the B.C. Geographic Warehouse so that the raw data and source code
 can be published to allow interested parties to repeat the analysis.
 
 ## Fiscal Year
@@ -424,7 +398,7 @@ Unit table.
 
 *2a-Detailed Silv System and Fiscal Date*
 
-Joins the “2a-Raw Silv System” with the “1a-Make Opening” and creates
+Joins the 2a-Raw Silv System with the 1a-Make Opening and creates
 some new calculated attributes.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -445,7 +419,7 @@ some new calculated attributes.
 
 *2b-ATU DN Detail Best Date*
 
-Joins the “2a-Detailed Silv System and Fiscal Date” NewSilv with the
+Joins the 2a-Detailed Silv System and Fiscal Date NewSilv with the
 following Silv System Code lookup table and defines the best fiscal year
 to report the treatments to.
 
@@ -472,12 +446,12 @@ to report the treatments to.
 
 *2c-Harvest Sum of DN Area*
 
-Summarizes “2b-ATU DN Detail Best Date” to calculate the disturbance
+Summarizes 2b-ATU DN Detail Best Date to calculate the disturbance
 area in an opening.
 
   **Field**                **Criteria**             **Details**
   ------------------------ ------------------------ ----------------
-  Disturbance Type         = “Harvest”              Group by (Row)
+  Disturbance Type         = Harvest                Group by (Row)
   OPENING\_ID                                       Group by (Row)
   LastOfBest Dist End Yr   LAST(Best Dist End Yr)   Group by (Row)
   OPENING\_GROSS\_AREA                              Group by (Row)
@@ -498,12 +472,12 @@ Calculates the best harvest area using 2c-Harvest Sum of DN Area.
 
 *2e-Harvest Silv System Area*
 
-Summarizes “2b-ATU DN Detail Best Date” to calculate the disturbance
+Summarizes 2b-ATU DN Detail Best Date to calculate the disturbance
 area in an opening.
 
   **Field**                **Criteria**   **Details**
   ------------------------ -------------- -------------------
-  Disturbance Type         = “Harvest”    Group by (Row)
+  Disturbance Type         = Harvest      Group by (Row)
   OPENING\_ID                             Group by (Row)
   LastOfBest Dist End Yr                  Group by (Row)
   SOF Silv System                         Group by (Column)
@@ -511,7 +485,7 @@ area in an opening.
 
 *2f-Make Silv System Ratio*
 
-Joins the “2e-Harvest Silv System Area” with the “2d-Harvest Best Area”
+Joins the 2e-Harvest Silv System Area with the 2d-Harvest Best Area
 and creates some new calculated attributes.
 
   **Field**      **Criteria**                         **Details**
@@ -520,9 +494,9 @@ and creates some new calculated attributes.
   CLEAR\_pct     Round((\[CLEAR\]/\[DN Area\]),2)     
   PARTIAL\_pct   Round((\[PARTIAL\]/\[DN Area\]),2)   
 
-###### 2g-Harvest Silv System Best Area
+*2g-Harvest Silv System Best Area*
 
-Joins the “2f-Make Silv System Ratio” with the “2d-Harvest Best Area”
+Joins the 2f-Make Silv System Ratio with the 2d-Harvest Best Area
 and creates some new calculated attributes.
 
   **Field**       **Criteria**                           **Details**
@@ -531,9 +505,9 @@ and creates some new calculated attributes.
   Final CLEAR     \[CLEAR\_pct\]\*\[Best Harv Area\]     
   Final PARTIAL   \[PARTIAL\_pct\]\*\[Best Harv Area\]   
 
-###### 2h-Final Silv System
+*2h-Final Silv System*
 
-Summarizes “2g-Harvest Silv System Best Area” to calculate the
+Summarizes 2g-Harvest Silv System Best Area to calculate the
 disturbance area in an opening by silvicultural system.
 
   **Field**                **Criteria**   **Details**
@@ -546,9 +520,9 @@ disturbance area in an opening by silvicultural system.
 
 ## Disturbances and Reforestation
 
-###### 2i-Disturbance Sum of DN Area
+*2i-Disturbance Sum of DN Area*
 
-Summarizes “2b-ATU DN Detail Best Date” to calculate the natural
+Summarizes 2b-ATU DN Detail Best Date to calculate the natural
 disturbance area in an opening.
 
   **Field**                **Criteria**             **Details**
@@ -559,7 +533,7 @@ disturbance area in an opening.
   OPENING\_GROSS\_AREA                              Group by (Row)
   DN Area                  TREATMENT\_AMOUNT        Sum
 
-###### 2j-Disturbance Best Area
+*2j-Disturbance Best Area*
 
 Calculates the best harvest date and area using the 1a-Opening and
 2e-Summary DN Area.
@@ -568,18 +542,18 @@ Calculates the best harvest date and area using the 1a-Opening and
   ------------------- ------------------------------------------------------------------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------
   Best Disturb Area   IIf(\[DN Area\]&lt;=\[OPENING\_GROSS\_AREA\],\[DN Area\],\[OPENING\_GROSS\_AREA\])   Where the sum of the DN Area is less than the opening gross area, the DN Area is used as the Best Disturb area, else the opening gross area is used
 
-###### 2k-Final Disturbance by Year
+*2k-Final Disturbance by Year*
 
-Summarises “2j-Disturbance Best Area” by Year.
+Summarises 2j-Disturbance Best Area by Year.
 
   **Field**                **Criteria**       **Details**
   ------------------------ ------------------ ----------------
   LastOfBest Dist End Yr   Where &gt;= 1987   Group by (Row)
   Best Disturb Area                           Sum
 
-###### 2l-All Denudation
+*2l-All Denudation*
 
-Joins the “2h-Final Silv System” with the “2k-Final Disturbance by Year”
+Joins the 2h-Final Silv System with the 2k-Final Disturbance by Year
 to sum the total harvested and total natural disturbance areas by fiscal
 year.
 
@@ -596,7 +570,7 @@ Threshold).
 
 ## Silviculture Treatments
 
-###### 6a-Make Fertilization (outcome: 6a-Fertilization)
+*6a-Make Fertilization (outcome: 6a-Fertilization)*
 
 Joins the Activity Treatment Unit and Opening\_VW tables using the
 Opening\_ID, joins the Activity Treatment Unit to the Org Unit using the
@@ -609,7 +583,7 @@ the ORG\_UNIT\_CODE to get a complete list of fertilization activities.
   SILV\_TECHNIQUE\_CODE   Is Null or CA   
   TREATMENT\_AREA         &gt;0           
 
-###### 6b-Fertilization with Coast Interior
+*6b-Fertilization with Coast Interior*
 
 Joins 6a-Fertilization with 1a-Opening using the Opening\_ID, joins
 6a-Fertilization with SILV\_FUND\_SRCE\_CODE using the
@@ -628,7 +602,7 @@ fiscal year.
                                                                                                                                              Coast = 0.3m^3^/ha/yr
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-###### 6c-Fertilization with Volume Gains – BC
+*6c-Fertilization with Volume Gains – BC*
 
 Summarizes 6b-Fertilization with Coast Interior Fertilization Area and
 Fertilization Volume Gain by Fiscal Year.
@@ -638,9 +612,9 @@ Fertilization Volume Gain by Fiscal Year.
   Fert Yr                     Between &gt;= 1970   Group by (Row)
   Fertilization Area          TREATMENT\_AMOUNT    Sum
   Fertilization Volume Gain                        Sum
-  Category                    &lt;&gt;“Legal”      Where
+  Category                    < > Legal            Where
 
-###### 7a-Make Spacing (outcome: 7a-Spacing)
+*7a-Make Spacing (outcome: 7a-Spacing)*
 
 Joins the Activity Treatment Unit and Opening\_VW tables using the
 Opening\_ID to summarize spacing activities.
@@ -648,10 +622,10 @@ Opening\_ID to summarize spacing activities.
   **Field**            **Criteria**      **Details**
   -------------------- ----------------- -----------------------------
   SILV\_BASE\_CODE     JS                
-  SILV\_METHOD\_CODE   &lt; &gt; LAYOT   Ignore preparatory activity
+  SILV\_METHOD\_CODE   < > LAYOT         Ignore preparatory activity
   TREATMENT\_AREA      &gt;0             
 
-###### 7b-Spacing Volume Gains
+*7b-Spacing Volume Gains*
 
 Joins 7a-Spacing with 1a-Opening using the Opening\_ID, joins 7a-Spacing
 with SILV\_FUND\_SRCE\_CODE using the SILV\_FUND\_SRCE\_CODE, and joins
@@ -663,9 +637,9 @@ are joined to summarize spacing volume by fiscal year.
   Incremental                                                                                                                         
   JS Gains      (0.25\*\[TREATMENT\_AMOUNT\])\*65                                                                                     Gains = .25m^3^/ha/yr
   JS Yr         JS Yr: IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))   
-  Category      Not in (Legal)                                                                                                        Excludes any legally obligated spacing activities
+  Category      Not in (Legal, Other)                                                                                                 Excludes any legally obligated spacing activities
 
-###### 7c-Spacing with Volume Gains – BC
+*7c-Spacing with Volume Gains – BC*
 
 Summarizes 7b-Spacing with Volume Gains Spacing Area and Incremental JS
 Gains by JS Year.
@@ -677,7 +651,7 @@ Gains by JS Year.
   Incremental JS Gains                       Sum
   Category               &lt;&gt;“Legal”     Where
 
-###### 8a-Make Pruning (outcome: 8a-Pruning)
+*8a-Make Pruning (outcome: 8a-Pruning)*
 
 Joins the Activity Treatment Unit and Opening\_VW tables using the
 Opening\_ID to summarize pruning activities.
@@ -688,7 +662,7 @@ Opening\_ID to summarize pruning activities.
   SILV\_METHOD\_CODE   &lt; &gt; LAYOT   Removes preparatory activity
   TREATMENT\_AREA      &gt;0             
 
-###### 8b-Pruning Area
+*8b-Pruning Area*
 
 Joins 8a-Pruning with 1a-Opening using the Opening\_ID, joins 8a-Pruning
 with SILV\_FUND\_SRCE\_CODE using the SILV\_FUND\_SRCE\_CODE, and joins
@@ -699,7 +673,7 @@ are joined to summarize pruning volume by fiscal year.
   ----------- --------------------------------------------------------------------------------------------------------------------- -------------
   PR Yr       PR Yr: IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))   
 
-###### 8d-Pruning – BC
+*8d-Pruning – BC*
 
 Summarizes 8b-Pruning Area Pruning Area by PR Year.
 
@@ -709,12 +683,12 @@ Summarizes 8b-Pruning Area Pruning Area by PR Year.
   Pruning Area   TREATMENT\_AMOUNT   Sum
   Category       &lt;&gt;“Legal”     Where
 
-###### 1a-Make Opening (outcome: 1a-Opening)
+*1a-Make Opening (outcome: 1a-Opening)*
 
 Extracts the all the required attributes from the Opening\_VW to create
 the 1a-Opening table to get a unique list of all openings.
 
-###### 1b-Make Planting Activities (outcome: 1b-Planting Activities)
+*1b-Make Planting Activities (outcome: 1b-Planting Activities)*
 
 Joins the Activity Treatment Unit and Opening\_VW tables using the
 Opening\_ID to summarize planting activities.
@@ -724,7 +698,7 @@ Opening\_ID to summarize planting activities.
   SILV\_BASE\_CODE   PL             
   ACT\_PLANTED\_NO   &gt;0          Must contain planted trees
 
-###### 1c-Make Planted Trees (outcome: 1b-Planted Trees)
+*1c-Make Planted Trees (outcome: 1b-Planted Trees)*
 
 Joins the Activity Treatment Unit and Opening\_VW tables using the
 Opening\_ID and joins the Activity Treatment Unit and Planting RSLT
@@ -735,7 +709,7 @@ using the ACTIVITY\_TREATMENT\_UNIT\_ID to summarize planted trees.
   SILV\_BASE\_CODE   PL             
   ACT\_PLANTED\_NO   &gt;0          Must contain planted trees
 
-###### 5a-Backlog Planting
+*5a-Backlog Planting*
 
 Joins the 1a-Opening to the 1b-Planted Activities using the Opening\_ID
 and joins the 1b-Planted Activities to the SILV\_FUND\_SRCE\_CODE using
@@ -747,7 +721,7 @@ the SILV\_FUND\_SRCE\_CODE to summarize planting activities.
   Backlog Planted Yr       IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))   
   Backlog PL Volume Gain   (2.93\*\[TREATMENT\_AMOUNT\])\*65                                                                              Gains = 2.93 m^3^/ha/yr
 
-###### 5b- Backlog Planting with Volume Gains
+*5b- Backlog Planting with Volume Gains*
 
 Summarizes 8b-Pruning Area Pruning Area by PR Year.
 
@@ -758,7 +732,7 @@ Summarizes 8b-Pruning Area Pruning Area by PR Year.
   Backlog PL Volume Gain                              Sum
   Category                 Not In ("Legal","Other")   Where
 
-###### 3a-Planting Details with Seedlot
+*3a-Planting Details with Seedlot*
 
 Joins the 1a-Opening to the 1b-Planted Activities using the opening\_ID,
 joins the 1b-Planted Activities to the 1c-Planted Trees using the
@@ -774,7 +748,7 @@ needed to calculate genetic gains.
   SeedClass          IIf(\[GENETIC\_CLASS\_CODE\]="B" And \[SUPERIOR\_PRVNC\_IND\]="Y","B+",IIf(\[GENETIC\_CLASS\_CODE\]="B" And \[SUPERIOR\_PRVNC\_IND\]="N","B",IIf(\[GENETIC\_CLASS\_CODE\]="B" And \[SUPERIOR\_PRVNC\_IND\] Is Null,"B",IIf(\[GENETIC\_CLASS\_CODE\]="A","A",IIf(\[GENETIC\_CLASS\_CODE\] Is Null,"B")))))   Assign Seed Class
   ProratePLArea      Round(((\[1c-Planted Trees\]!\[NUMBER\_PLANTED\]/\[1c-Planted Trees\]!\[ACT\_PLANTED\_NO\])\*\[1c-Planted Trees\]!\[TREATMENT\_AMOUNT\]),2)                                                                                                                                                                 Prorated species planted by planted area
 
-###### 4a-Calculate Genetic Worth G Gains by Opening
+*4a-Calculate Genetic Worth G Gains by Opening*
 
 Summarizes 3a-Planting Details with Seedlot by Opening\_ID where the
 GENETIC\_WORTH\_CODE = “G” or the SeedClass = “A” OR “B+”.
@@ -784,7 +758,7 @@ GENETIC\_WORTH\_CODE = “G” or the SeedClass = “A” OR “B+”.
   GENETIC\_WORTH\_CODE   G              Gain
   SeedClass              In (A, B+)     “A”=Orchard and “B+”=Planted Natural Stand Superior
   
-  ###### 4b-Calculate Genetic Worth G Gains by Opening
+*4b-Calculate Genetic Worth G Gains by Opening*
 
 Calculates the Productivity Gain for each opening in the 4a-Calculate
 Genetic Worth G Gains by Opening table.
@@ -801,9 +775,9 @@ Genetic Worth G Gains by Opening table.
                       IIf(\[PlantedYr\]&gt;2010,0.615\*\[ProratePLArea\]\*65)))   
   -------------------------------------------------------------------------------------------------------------
 
-###### 
 
-###### 4c-Summary Genetic Gains from Planting BC
+
+*4c-Summary Genetic Gains from Planting BC*
 
 Takes 4b-Calculate Genetic Productivity G Gains by Opening and
 summarizes gains by area and volume.
@@ -814,7 +788,7 @@ summarizes gains by area and volume.
   Select Seed Area     (ProratePLArea)       Sum
   Select Seed Volume   (Productivity Gain)   Sum
 
-###### 9a-Silvicuture Treatments BC Area
+*9a-Silvicuture Treatments BC Area*
 
 Joins the following tables to report all of the silviculture treatment
 area summaries in one table:
@@ -829,7 +803,7 @@ area summaries in one table:
 
 -   8d-Pruning – BC.
 
-###### 9b-Silvicuture Treatments BC Area
+*9b-Silvicuture Treatments BC Area*
 
 Joins the following tables to report all of the silviculture treatment
 area summaries in one table:
@@ -844,11 +818,10 @@ area summaries in one table:
 
 -   8d-Pruning – BC.
 
-Appendix I – Lookup tables
-==========================
+## Appendix I – Lookup tables
 
-Org Unit
---------
+
+### Org Unit
 
   **ORG\_UNIT\_NO**   **ORG\_UNIT\_CODE**   **ROLLUP\_REGION\_CODE**
   ------------------- --------------------- --------------------------
@@ -879,8 +852,7 @@ Org Unit
   1824                DSS                   RSK
   30                  DVA                   ROM
 
-CoastInteriorOrgUnit
---------------------
+### CoastInteriorOrgUnit
 
   **ROLLUP\_REGION\_CODE**   **ORG\_UNIT\_CODE**   **ORG\_UNIT\_NAME**            **Coast\_Interior**
   -------------------------- --------------------- ------------------------------ ---------------------
@@ -909,8 +881,7 @@ CoastInteriorOrgUnit
   RWC                        DQC                   Haida Gwaii                    C
   RWC                        DSI                   South Island                   C
 
-SILV\_FUND\_SRC\_CODE
----------------------
+### SILV\_FUND\_SRC\_CODE
 
   **SILV\_FUND\_SRCE\_CODE**   **DESCRIPTION**                                  **Category**
   ---------------------------- ------------------------------------------------ --------------
