@@ -247,112 +247,88 @@ Email correspondence to: envreportbc@gov.bc.ca
 
 # Glossary
 
-- **Silviculture** The art and science of controlling the
-    establishment, growth, composition, health and quality of forests
-    and woodlands. Silviculture entails the manipulation of forest and
-    woodland vegetation in stands and on landscapes to meet the diverse
-    needs and values of landowners and society on a sustainable basis.
+**Basic silviculture** Harvesting methods and silviculture
+operations including seed collecting, site preparation, artificial and
+natural regeneration, brushing, spacing and stand tending and other
+operations as are prescribed to be required for the purpose of
+establishing a free growing crop of trees of a commercially valuable
+species.
 
-- **Clearcutting** The process of removing all trees, large and small,
-    in a stand in one cutting operation. Clear-cutting with reserves is
-    the removal of the majority of the trees saving some within or
-    outside the cut boundary for other purposes such as wildlife
-    habitat.
+**Below acceptable stocking** Productive forest land that has been
+denuded and has failed, partially or completely, to regenerate either
+naturally or by planting or seeding to the specified or desired free
+growing standards for the site.
 
-- **Seed tree** Trees left after reproduction cutting to provide seeds
-    for natural regeneration. Trees are chosen for desired species,
-    being healthy and and having good growth form.
+**Brushing** A silvicultural activity done by chemical, manual, grazing,
+or mechanical means to control competing forest vegetation and reduce
+competition for space, light, moisture, and nutrients with crop trees or
+seedlings.
 
-- **Shelterwood** Harvesting trees in two or more cuttings that
-    creates conditions where a new generation of seedlings can be
-    established under the remaining timber without planting. This system
-    is implemented in forests with species that can establish themselves
-    in partial shade under the remaining mature trees.
+**Clearcutting** The process of removing all trees, large and small, in
+a stand in one cutting operation.
 
-- **Selection** Harvesting trees in a way that moves a forest stand
-    towards an uneven-aged condition.
+**Clearcutting with reserves** The removal of the majority of the trees
+saving some within or outside the cut boundary for other purposes such
+as wildlife habitat, water quality and visual landscapes.
 
-- **Clearcutting with reserves** The removal of the majority of the
-    trees saving some within or outside the cut boundary for other
-    purposes such as wildlife habitat.
+**Fertilizing** The addition of fertilizer to promote tree growth on
+sites deficient in one or more soil nutrients. Also used to improve the
+vigor of crop trees following juvenile spacing or commercial thinning.
 
-- **Variable retention** Retaining forest structural elements for at
-    least one rotation in order to preserve environmental values.
+**Forests for Tomorrow** A silviculture program, established by the B.C.
+Provincial Government in March 2005 to respond to catastrophic wildfires
+and the mountain pine beetle epidemic.
 
-- **Ecosystem services** Benefits to humankind and wildlife such as
-    the production of food, provisioning of clean water, decomposition
-    of wastes, control of micro-climate, regulating nutrient cycles,
-    pollination, spiritual and recreational sites.
+**Incremental Silviculture** Silviculture other than basic silviculture.
 
-- **Not satisfactorily restocked (NSR)** Productive forest land that
-    has been denuded and has failed, partially or completely, to
-    regenerate either naturally or by planting or seeding to the
-    specified or desired free growing standards for the site.
+**Mid-term timber supply** A term that refers to that portion of the timber inventory that would be available
+for harvest within the middle of the normal management cycle.
 
-- **Site preparation** Any action, related to reforestation, to create
-    an environment favourable for survival of suitable trees during the
-    first growing season. It may alter the ground cover, soil or
-    microsite conditions, using biological, mechanical, or manual
-    clearing, prescribed burns, herbicides, or a combination of methods.
-    Both natural regeneration and planting may be improved through site
-    preparation.
+**Natural regeneration** A change in forest structure and composition
+caused by fire, insects, wind, landslides and other natural processes.
 
-- **Planting** Establishing a forest by setting out seedlings,
-    transplants or cuttings in an area.
+**Partial cutting** A variety of silvicultural system in which a stand
+may be cut to ensure regeneration. In a partial cutting system, only
+some of the trees are felled during the harvesting phase. The selection
+method may specify ‘removal’ or ‘leave’ trees. Some examples of
+selection criteria are diameter, species, volume, age, height, disease,
+or other damage.
 
-- **Back-log planting** Planting that is overdue. In general, planting
-    is considered backlog planting if more than 7 years have elapsed
-    since a site was cleared (by harvesting, fire, insects or disease)
-    in the Interior, and more than 3 years have elapsed on the Coast of
-    British Columbia.
+**Planting** Establishing a forest by setting out seedlings, transplants
+or cuttings in an area.
 
-- **Brushing** A silvicultural activity done by chemical, manual,
-    grazing, or mechanical means to control competing forest vegetation
-    and reduce competition for space, light, moisture, and nutrients
-    with crop trees or seedlings.
+**Pruning** The manual removal, close to or flush with the stem, of side
+branches, live or dead, and of multiple leaders from standing, generally
+plantation-grown trees. Pruning is carried out to improve the market
+value of the final wood product by producing knot-free wood for the
+improvement of the tree or its timber.
 
-- **Incremental Silviculture** Application of cultural measures which will allow an increase in the 
-    value or volume of the cut over and above the establishment of a fully 
-    stocked stand after harvest.
+**Rehabilitation planting** Where planting occurs on areas disturbed by
+a natural event such as fire or insects which has not been salvaged in a
+manner that would generate a legal reforestation obligation.
 
-- **Fertilizing** The addition of fertilizer to promote tree growth on
-    sites deficient in one or more soil nutrients. Also used to improve
-    the vigor of crop trees following juvenile spacing or commercial
-    thinning.
-    
-- **Forests for Tomorrow** A silviculture program, established by the B.C. Provincial Government 
-    in March 2005 to respond to catastrophic wildfires and the mountain pine 
-    beetle epidemic.
+**Select seed** Seed collected from either orchards or natural stand
+superior provenances. Select seed exhibits a higher level of improvement
+in one or more desired genetic traits (such as growth, form, wood
+density, and resistance to insects and disease) than wild seed collected
+from an average natural stand.
 
-- **Pruning** The manual removal, close to or flush with the stem, of
-    side branches, live or dead, and of multiple leaders from standing,
-    generally plantation-grown trees. Pruning is carried out to improve
-    the market value of the final wood product by producing knot-free
-    wood for the improvement of the tree or its timber.
+**Silviculture** The art and science of controlling the establishment,
+growth, composition, health and quality of forests and woodlands.
+Silviculture entails the manipulation of forest and woodland vegetation
+in stands and on landscapes to meet the diverse needs and values of
+landowners and society on a sustainable basis.
 
-- **Spacing** The removal of undesirable trees within a young stand to
-    control stocking, to maintain or improve growth, to increase wood
-    quality and value, or to achieve other resource management
-    objectives.
+**Site preparation** Any action, related to reforestation, to create an
+environment favourable for survival of suitable trees during the first
+growing season. It may alter the ground cover, soil or microsite
+conditions, using biological, mechanical, or manual clearing, prescribed
+burns, herbicides, or a combination of methods. Both natural
+regeneration and planting may be improved through site preparation.
 
-- **Select seed** Seed that exhibits a higher level of one or more
-    desired genetic traits (such as growth rate, form, wood density, and
-    resistance to insects and disease) than wild seed collected from an
-    average natural stand. This includes seed from tested parents
-    growing in seed orchards and seed collected from natural stand
-    superior provenances. Vegetative material for propagation, from
-    production facilities using tested parents and from superior
-    provenances, is included in the term select seed.
-
-- **Natural regeneration** A change in forest structure and
-    composition caused by fire, insects, wind, landslides and other
-    natural processes.
-
-- **Mid-term timber supply** The mid-term timber supply is a term that
-    refers to that portion of the timber inventory that would be
-    available for harvest within the middle of the normal management
-    cycle.
-
+**Spacing** The removal of undesirable trees within a young stand to
+control stocking, to maintain or improve growth, to increase wood
+quality and value, or to achieve other resource management objectives.
 
 \newpage
 
@@ -429,14 +405,14 @@ auditability. Note that all data reported after April 1, 1970 is added
 to the baseline but the data are subset to more recent years in the
 final queries.
 
-### Silvicultural Systems
+## Silvicultural Systems
 
-###### 1a-Make Opening (outcome: 1a-Opening)
+*1a-Make Opening (outcome: 1a-Opening)*
 
-Extracts the all the required attributes from the Opening\_VW to create
+Extracts all the required attributes from the Opening\_VW to create
 the 1a-Opening table to get a unique list of all openings.
 
-###### 2a-Make Raw Silv System (outcome: 2a-Raw Silv System)
+*2a-Make Raw Silv System (outcome: 2a-Raw Silv System)*
 
 Lists all completed disturbance reporting from the Activity Treatment
 Unit table.
@@ -446,19 +422,28 @@ Unit table.
   SILV\_BASE\_CODE   DN             Disturbance Reporting Only
   RESULTS\_IND       Y              Completed activities only
 
-###### 2a-Detailed Silv System and Fiscal Date
+*2a-Detailed Silv System and Fiscal Date*
 
 Joins the “2a-Raw Silv System” with the “1a-Make Opening” and creates
 some new calculated attributes.
 
-  **Field**          **Criteria**                                                                                                                                                                             **Details**
-  ------------------ ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------------------
-  NewSilv            NewSilv: IIf(\[DISTURBANCE\_CODE\] In ("L","S") And \[SILV\_SYSTEM\_CODE\] Is Null,"CLEAR",\[SILV\_SYSTEM\_CODE\])                                                                       Identifies disturbance records with a silv system code that are Logging or Salvage and identifies them as a clearcut
-  Dist Start Yr      IIf(Month(\[ATU\_START\_DATE\])&lt;4,Year(\[ATU\_START\_DATE\])-1,Year(\[ATU\_START\_DATE\]))                                                                                            Changes the disturbance start date to calendar year
-  Dist End Yr        IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))                                                                             Changes the disturbance end date to calendar year
-  Disturbance Type   IIf(\[DISTURBANCE\_CODE\] In ("L","S") And \[2a-Raw Silv System\]!\[SILV\_SYSTEM\_CODE\] Is Null Or \[2a-Raw Silv System\]!\[SILV\_SYSTEM\_CODE\] Is Not Null,"Harvest","Not Harvest")   Identifies disturbance records with a Harvest or Not Harvest identifier
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                            **Criteria**                                                                                                                                                                           **Details**
+  ------------------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    ---------------------------------------------------------------------------------------
+  NewSilv                              ```IIf([DISTURBANCE_CODE] In ("L","S") And [SILV_SYSTEM_CODE] Is Null,"CLEAR",[SILV_SYSTEM_CODE])```                                                                                   Identifies disturbance records with a silv system code that are Logging or Salvage and identifies them as a clearcut
+  
+  
+  Dist Start Yr                        ```IIf(Month([ATU_START_DATE])<4, Year([ATU_START_DATE])-1, Year([ATU_START_DATE]))```                                                                                                 Changes the disturbance start date to calendar year
+  
+  
+  Dist End Yr                          ```IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```                                                                                  Changes the disturbance end date to calendar year
+  
+  
+  Disturbance Type                     ```IIf([DISTURBANCE_CODE] In ("L","S") And [2a-Raw Silv System]![SILV_SYSTEM_CODE] Is Null Or [2a-Raw Silv System]![SILV_SYSTEM_CODE] Is Not Null,"Harvest","Not Harvest")```          Identifies disturbance records with a Harvest or Not Harvest identifier
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-###### 2b-ATU DN Detail Best Date
+*2b-ATU DN Detail Best Date*
 
 Joins the “2a-Detailed Silv System and Fiscal Date” NewSilv with the
 following Silv System Code lookup table and defines the best fiscal year
@@ -476,13 +461,16 @@ to report the treatments to.
   SELEC                    Partial cutting
   SHELT                    Partial cutting
 
-  **Field**          **Criteria**                                                     **Details**
-  ------------------ ---------------------------------------------------------------- --------------------------------------------------------------------------
-  Best Dist End Yr   IIf(\[Dist End Yr\] Is Null,\[Dist Start Yr\],\[Dist End Yr\])   Populates missing disturbance ends years with the disturbance start year
 
-###### 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**          **Criteria**                                                         **Details**
+  ------------------ -------------------------------------------------------------------- --------------------------------------------------------------------------
+  Best Dist End Yr   ```IIf([Dist End Yr] Is Null,[Dist Start Yr],[Dist End Yr])```       Populates missing disturbance ends years with the disturbance start year
 
-###### 2c-Harvest Sum of DN Area
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+*2c-Harvest Sum of DN Area*
 
 Summarizes “2b-ATU DN Detail Best Date” to calculate the disturbance
 area in an opening.
@@ -495,18 +483,20 @@ area in an opening.
   OPENING\_GROSS\_AREA                              Group by (Row)
   DN\_Area                 TREATMENT\_AMOUNT        Sum
 
-###### 2d-Harvest Best Area
+*2d-Harvest Best Area*
 
 Calculates the best harvest area using 2c-Harvest Sum of DN Area.
 
-  **Field**        **Criteria**                                                                          **Details**
-  ---------------- ------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------
-  DN Area          &gt;0                                                                                 
-  Best Harv Area   IIf(\[DN Area\]&lt;=\[OPENING\_GROSS\_AREA\], \[DN Area\],\[OPENING\_GROSS\_AREA\])   Where the sum of the DN Area is greater than the opening gross area, the opening gross area is used as the disturbance area
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                     **Criteria**                                                                                       **Details**
+  ----------------------------- -------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------
+  DN Area                       <0                                                                                 
+  
+  Best Harv Area                ```IIf([DN Area]<=[OPENING_GROSS_AREA], [DN Area],[OPENING_GROSS_AREA])```                          Where the sum of the DN Area is greater than the opening gross area, the opening gross area is used as the disturbance area
 
-###### 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
-###### 2e-Harvest Silv System Area
+*2e-Harvest Silv System Area*
 
 Summarizes “2b-ATU DN Detail Best Date” to calculate the disturbance
 area in an opening.
@@ -519,7 +509,7 @@ area in an opening.
   SOF Silv System                         Group by (Column)
   TREATMENT\_AMOUNT        Sum            Sum
 
-###### 2f-Make Silv System Ratio
+*2f-Make Silv System Ratio*
 
 Joins the “2e-Harvest Silv System Area” with the “2d-Harvest Best Area”
 and creates some new calculated attributes.
