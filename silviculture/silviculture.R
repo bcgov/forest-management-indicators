@@ -227,7 +227,7 @@ names(treatment.pal) <- treatment.order
 ## gains plot (plotting systems over time by sector using stacked area chart)
 gains.stack <- ggplot(data=gains.long, aes(x = Fiscal_Year, y = Volume, fill = Treatment)) + 
   geom_area(aes(fill=Treatment), size=.2, alpha=.7) + 
-  xlab("Year") +  ylab(expression(paste("Volume ","(",m^3, "*1000)"))) +
+  xlab("Year") +  ylab(expression(paste("Volume", " ","(",m^3, "*1000)"))) +
 #  ggtitle ("Timber Volume Gains from Incremental Silviculture") +
   scale_y_continuous(limits = c(0, 10000), breaks=seq(0, 10000, 1000),
                      expand=c(0,0)) +
