@@ -28,6 +28,7 @@ install_github("bcgov/bcmaps.rdata")
 install_github("sckott/rphylopic")
 ```
 
+A full installation of Tex (e.g. MiKTex or MacTeX) is required to render the .Rmd file to PDF with `knitr`.
 
 ### Getting Help or Reporting an Issue
 
