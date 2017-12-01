@@ -402,18 +402,18 @@ Joins the 2a-Raw Silv System with the 1a-Make Opening and creates
 some new calculated attributes.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Field**                            **Criteria**                                                                                                                                                                           **Details**
-  ------------------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    ---------------------------------------------------------------------------------------
-  NewSilv                              ```IIf([DISTURBANCE_CODE] In ("L","S") And [SILV_SYSTEM_CODE] Is Null,"CLEAR",[SILV_SYSTEM_CODE])```                                                                                   Identifies disturbance records with a silv system code that are Logging or Salvage and identifies them as a clearcut
+  **Field**                                      **Criteria**                                                                                                                                                                        **Details**
+  ---------------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------
+  NewSilv                                        ```NewSilv: ([DISTURBANCE_CODE] In ("L","S") And [SILV_SYSTEM_CODE] Is Null,"CLEAR", [SILV_SYSTEM_CODE])```                                                                         Identifies disturbance records with a silv system code that are Logging or Salvage and identifies them as a clearcut
   
   
-  Dist Start Yr                        ```IIf(Month([ATU_START_DATE])<4, Year([ATU_START_DATE])-1, Year([ATU_START_DATE]))```                                                                                                 Changes the disturbance start date to calendar year
+  Dist Start Yr                                  ```IIf(Month([ATU_START_DATE])<4, Year([ATU_START_DATE])-1, Year([ATU_START_DATE]))```                                                                                              Changes the disturbance start date to calendar year
   
   
-  Dist End Yr                          ```IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```                                                                                  Changes the disturbance end date to calendar year
+  Dist End Yr                                    ```IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```                                                                               Changes the disturbance end date to calendar year
   
   
-  Disturbance Type                     ```IIf([DISTURBANCE_CODE] In ("L","S") And [2a-Raw Silv System]![SILV_SYSTEM_CODE] Is Null Or [2a-Raw Silv System]![SILV_SYSTEM_CODE] Is Not Null,"Harvest","Not Harvest")```          Identifies disturbance records with a Harvest or Not Harvest identifier
+  Disturbance Type                               ```IIf([DISTURBANCE_CODE] In ("L","S") And [2a-Raw Silv System]![SILV_SYSTEM_CODE] Is Null Or [2a-Raw Silv System]![SILV_SYSTEM_CODE] Is Not Null,"Harvest","Not Harvest")```       Identifies disturbance records with a Harvest or Not Harvest identifier
   
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -437,9 +437,9 @@ to report the treatments to.
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Field**          **Criteria**                                                         **Details**
-  ------------------ -------------------------------------------------------------------- --------------------------------------------------------------------------
-  Best Dist End Yr   ```IIf([Dist End Yr] Is Null,[Dist Start Yr],[Dist End Yr])```       Populates missing disturbance ends years with the disturbance start year
+  **Field**                    **Criteria**                                                         **Details**
+  ---------------------------- -------------------------------------------------------------------- --------------------------------------------------------------------------
+  Best Dist End Yr             ```IIf([Dist End Yr] Is Null,[Dist Start Yr],[Dist End Yr])```       Populates missing disturbance ends years with the disturbance start year
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -451,7 +451,7 @@ area in an opening.
 
   **Field**                **Criteria**             **Details**
   ------------------------ ------------------------ ----------------
-  Disturbance Type         = Harvest                Group by (Row)
+  Disturbance Type         = "Harvest""             Group by (Row)
   OPENING\_ID                                       Group by (Row)
   LastOfBest Dist End Yr   LAST(Best Dist End Yr)   Group by (Row)
   OPENING\_GROSS\_AREA                              Group by (Row)
@@ -462,11 +462,11 @@ area in an opening.
 Calculates the best harvest area using 2c-Harvest Sum of DN Area.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Field**                     **Criteria**                                                                                       **Details**
-  ----------------------------- -------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------
-  DN Area                       <0                                                                                 
+  **Field**                               **Criteria**                                                                                       **Details**
+  --------------------------------------- -------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------
+  DN Area                                 <0                                                                                 
   
-  Best Harv Area                ```IIf([DN Area]<=[OPENING_GROSS_AREA], [DN Area],[OPENING_GROSS_AREA])```                          Where the sum of the DN Area is greater than the opening gross area, the opening gross area is used as the disturbance area
+  Best Harv Area                          ```IIf([DN Area]<=[OPENING_GROSS_AREA], [DN Area],[OPENING_GROSS_AREA])```                          Where the sum of the DN Area is greater than the opening gross area, the opening gross area is used as the disturbance area
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
@@ -477,7 +477,7 @@ area in an opening.
 
   **Field**                **Criteria**   **Details**
   ------------------------ -------------- -------------------
-  Disturbance Type         = Harvest      Group by (Row)
+  Disturbance Type         = "Harvest""   Group by (Row)
   OPENING\_ID                             Group by (Row)
   LastOfBest Dist End Yr                  Group by (Row)
   SOF Silv System                         Group by (Column)
@@ -538,9 +538,12 @@ disturbance area in an opening.
 Calculates the best harvest date and area using the 1a-Opening and
 2e-Summary DN Area.
 
-  **Field**           **Criteria**                                                                         **Details**
-  ------------------- ------------------------------------------------------------------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------
-  Best Disturb Area   IIf(\[DN Area\]&lt;=\[OPENING\_GROSS\_AREA\],\[DN Area\],\[OPENING\_GROSS\_AREA\])   Where the sum of the DN Area is less than the opening gross area, the DN Area is used as the Best Disturb area, else the opening gross area is used
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                                  **Criteria**                                                                             **Details**
+  ------------------------------------------ ---------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------
+  Best Disturb Area                          ```IIf([DN Area]<= [OPENING_GROSS_AREA], [DN Area], [OPENING_GROSS_AREA])```              Where the sum of the DN Area is less than the opening gross area, the DN Area is used as the Best Disturb area, else the opening gross area is used
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *2k-Final Disturbance by Year*
 
@@ -557,10 +560,10 @@ Joins the 2h-Final Silv System with the 2k-Final Disturbance by Year
 to sum the total harvested and total natural disturbance areas by fiscal
 year.
 
-  **Field**           **Criteria**                                                             **Details**
-  ------------------- ------------------------------------------------------------------------ -------------
-  Total Harvested     \[Final CCRES\]+\[Final CLEAR\]+\[Final PARTIAL\]                        
-  Total Disturbance   \[Final CCRES\]+\[Final CLEAR\]+\[Final PARTIAL\]+\[Not Harvest Area\]   
+  **Field**           **Criteria**                                                                 **Details**
+  ------------------- ---------------------------------------------------------------------------- -------------
+  Total Harvested     ```[Final CCRES]+[Final CLEAR]+[Final PARTIAL]```                      
+  Total Disturbance   ```[Final CCRES]+[Final CLEAR]+[Final PARTIAL]+[Not Harvest Area]```  
 
 The reforestation number is calculated in the Trends in Genetic Resource
 Conservation and Management of B.C. Forests indicator analysis. Details
@@ -592,15 +595,14 @@ the ORG\_UNIT\_NO. These tables are joined to summarize fertilization
 volume gains for the coast and interior (two different calculations) by
 fiscal year.
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Field**                   **Criteria**                                                                                                   **Details**
-  --------------------------- -------------------------------------------------------------------------------------------------------------- ---------------------------
-  Fert Yr                     IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))   
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                                 **Criteria**                                                                                                        **Details**
+  ----------------------------------------- ------------------------------------------------------------------------------------------------------------------- -------------------------------------------------
+  Fert Yr                                   ```IIf(Month([ATU_COMPLETION_DATE]), 4,Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```   
 
-  Fertilization Volume Gain   IIf(\[Coast\_interior\]="I",\[TREATMENT\_AMOUNT\]\*0.15\*65,\[TREATMENT\_AMOUNT\]\*0.3\*65)                    Interior = 0.15m^3^/ha/yr
-                                                                                                                                             
-                                                                                                                                             Coast = 0.3m^3^/ha/yr
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Fertilization Volume Gain                 ```IIf([Coast_interior]="I", [TREATMENT_AMOUNT]*0.15*65, [TREATMENT_AMOUNT]*0.3*65)```                               Interior = 0.15m^3^/ha/yr Coast = 0.3m^3^/ha/yr
+  
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *6c-Fertilization with Volume Gains – BC*
 
@@ -632,13 +634,21 @@ with SILV\_FUND\_SRCE\_CODE using the SILV\_FUND\_SRCE\_CODE, and joins
 the 1a-Opening with the Org Unit using the ORG\_UNIT\_NO. These tables
 are joined to summarize spacing volume by fiscal year.
 
-  **Field**     **Criteria**                                                                                                          **Details**
-  ------------- --------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------
-  Incremental                                                                                                                         
-  JS Gains      (0.25\*\[TREATMENT\_AMOUNT\])\*65                                                                                     Gains = .25m^3^/ha/yr
-  JS Yr         JS Yr: IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))   
-  Category      Not in (Legal, Other)                                                                                                 Excludes any legally obligated spacing activities
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**           **Criteria**                                                                                                          **Details**
+  ------------------- --------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------
+  Incremental
+  
+  JS Gains            ```(0.25*[TREATMENT_AMOUNT])*65```                                                                                    Gains = .25m^3^/ha/yr
+  
+  JS Yr               ```JS Yr: IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))``` 
+  
+  Category            ```Not in (Legal, Other)```                                                                                           Excludes any legally obligated spacing activities
+  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
 *7c-Spacing with Volume Gains – BC*
 
 Summarizes 7b-Spacing with Volume Gains Spacing Area and Incremental JS
@@ -669,9 +679,12 @@ with SILV\_FUND\_SRCE\_CODE using the SILV\_FUND\_SRCE\_CODE, and joins
 the 1a-Opening with the Org Unit using the ORG\_UNIT\_NO. These tables
 are joined to summarize pruning volume by fiscal year.
 
-  **Field**   **Criteria**                                                                                                          **Details**
-  ----------- --------------------------------------------------------------------------------------------------------------------- -------------
-  PR Yr       PR Yr: IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**   **Criteria**                                                                                                               **Details**
+  ----------- -------------------------------------------------------------------------------------------------------------------------- -------------
+  PR Yr       ```PR Yr: IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE\]))```   
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *8d-Pruning – BC*
 
@@ -715,11 +728,16 @@ Joins the 1a-Opening to the 1b-Planted Activities using the Opening\_ID
 and joins the 1b-Planted Activities to the SILV\_FUND\_SRCE\_CODE using
 the SILV\_FUND\_SRCE\_CODE to summarize planting activities.
 
-  **Field**                **Criteria**                                                                                                   **Details**
-  ------------------------ -------------------------------------------------------------------------------------------------------------- --------------------------------------------------------
-  Category                 FFT                                                                                                            FFT is used to identify the post-2005 backlog planting
-  Backlog Planted Yr       IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))   
-  Backlog PL Volume Gain   (2.93\*\[TREATMENT\_AMOUNT\])\*65                                                                              Gains = 2.93 m^3^/ha/yr
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                **Criteria**                                                                                                        **Details**
+  ------------------------ ------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------
+  Category                 ```FFT```                                                                                                            FFT is used to identify the post-2005 backlog planting
+  
+  Backlog Planted Yr       ```IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```
+  
+  Backlog PL Volume Gain   ```(2.93*[TREATMENT_AMOUNT])*65```                                                                                   Gains = 2.93 m^3^/ha/yr
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *5b- Backlog Planting with Volume Gains*
 
@@ -740,13 +758,21 @@ ACTIIVTY\_TREATMENT\_UNIT\_ID and joins the 1c-Planted Trees to the
 Seedlot using the SEEDLOT\_NUMBER to summarize planted tree details
 needed to calculate genetic gains.
 
-  **Field**          **Criteria**                                                                                                                                                                                                                                                                                                **Details**
-  ------------------ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------
-  Disturb Start Yr   IIf(Month(\[DISTURBANCE\_START\_DATE\])&lt;4,Year(\[DISTURBANCE\_START\_DATE\])-1,Year(\[DISTUBANCE\_START\_DATE\]))                                                                                                                                                                                        Converts the Disturbance Start Date to Fiscal year
-  Disturb End Yr     IIf(Month(\[DISTURBANCE\_END\_DATE\])&lt;4,Year(\[DISTURBANCE\_END\_DATE\])-1,Year(\[DISTURBANCE\_END\_DATE\]))                                                                                                                                                                                             Converts the Disturbance End Date to Fiscal year
-  Planted Yr         IIf(Month(\[ATU\_COMPLETION\_DATE\])&lt;4,Year(\[ATU\_COMPLETION\_DATE\])-1,Year(\[ATU\_COMPLETION\_DATE\]))                                                                                                                                                                                                Converts the Planting Date to Fiscal year
-  SeedClass          IIf(\[GENETIC\_CLASS\_CODE\]="B" And \[SUPERIOR\_PRVNC\_IND\]="Y","B+",IIf(\[GENETIC\_CLASS\_CODE\]="B" And \[SUPERIOR\_PRVNC\_IND\]="N","B",IIf(\[GENETIC\_CLASS\_CODE\]="B" And \[SUPERIOR\_PRVNC\_IND\] Is Null,"B",IIf(\[GENETIC\_CLASS\_CODE\]="A","A",IIf(\[GENETIC\_CLASS\_CODE\] Is Null,"B")))))   Assign Seed Class
-  ProratePLArea      Round(((\[1c-Planted Trees\]!\[NUMBER\_PLANTED\]/\[1c-Planted Trees\]!\[ACT\_PLANTED\_NO\])\*\[1c-Planted Trees\]!\[TREATMENT\_AMOUNT\]),2)                                                                                                                                                                 Prorated species planted by planted area
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                                       **Criteria**                                                                                                                                                                                                                                                                        **Details**
+  ----------------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------
+  Disturb Start Yr                                ```IIf(Month([DISTURBANCE_START_DATE]<4, Year([DISTURBANCE_START_DATE])-1, Year([DISTUBANCE_START_DATE]))```                                                                                                                                                                         Converts the Disturbance Start Date to Fiscal year
+  
+  Disturb End Yr                                  ```IIf(Month([DISTURBANCE_END_DATE]<4, Year([DISTURBANCE_END_DATE])-1, Year([DISTURBANCE_END_DATE]))```                                                                                                                                                                              Converts the Disturbance End Date to Fiscal year
+  
+  Planted Yr                                      ```IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```                                                                                                                                                                                Converts the Planting Date to Fiscal year
+  
+  SeedClass                                       ```IIf([GENETIC_CLASS_CODE]="B" And [SUPERIOR_PRVNC_IND]="Y","B+", IIf([GENETIC_CLASS_CODE]="B" And [SUPERIOR_PRVNC_IND]="N","B", IIf([GENETIC_CLASS_CODE]="B" And [SUPERIOR_PRVNC_IND] Is Null,"B", IIf([GENETIC_CLASS_CODE]="A","A", IIf([GENETIC_CLASS_CODE] Is Null,"B")))))```  Assign Seed Class
+  
+  ProratePLArea                                   ```Round((([1c-Planted Trees]![NUMBER_PLANTED]/ [1c-Planted Trees]![ACT_PLANTED_NO])* [1c-Planted Trees]![TREATMENT_AMOUNT]),2)```                                                                                                                                                   Prorated species planted by planted area
+  
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *4a-Calculate Genetic Worth G Gains by Opening*
 
@@ -763,18 +789,12 @@ GENETIC\_WORTH\_CODE = “G” or the SeedClass = “A” OR “B+”.
 Calculates the Productivity Gain for each opening in the 4a-Calculate
 Genetic Worth G Gains by Opening table.
 
-  -------------------------------------------------------------------------------------------------------------
-  **Field**           **Criteria**                                                **Details**
-  ------------------- ----------------------------------------------------------- -----------------------------
-  Productivity Gain   GProductivity Gain:                                         &lt; = 2009: 0.41m^3^/ha/yr
-                                                                                  
-                      IIf(\[PlantedYr\]&lt;=2009,0.41\*\[ProratePLArea\]\*65,     2010: 0.53m^3^/ha/yr
-                                                                                  
-                      IIf(\[PlantedYr\]=2010,0.53\*\[ProratePLArea\]\*65,         &gt;2010: 0.615m^3^/ha/yr
-                                                                                  
-                      IIf(\[PlantedYr\]&gt;2010,0.615\*\[ProratePLArea\]\*65)))   
-  -------------------------------------------------------------------------------------------------------------
-
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Field**                           **Criteria**                                                                                                                                                                                     **Details**
+  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -----------------------------------------------------------
+  Productivity Gain                   ```GProductivity Gain: IIf([PlantedYr]<=2009, 0.41*[ProratePLArea]\*65, IIf([PlantedYr]=2010, 0.53*[ProratePLArea]*65, IIf([PlantedYr]>2010, 0.615*[ProratePLArea]*65)))```                      < = 2009: 0.41m^3^/ha/yr  2010: 0.53m^3^/ha/yr >2010: 0.615m^3^/ha/yr
+  
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                 
 
 
 *4c-Summary Genetic Gains from Planting BC*
