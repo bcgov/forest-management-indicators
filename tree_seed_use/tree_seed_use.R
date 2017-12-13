@@ -4,7 +4,6 @@ library(readr) #read in CSV files
 library(dplyr) #data prep
 library(reshape2) #for restructuring data table
 library(bcmaps) #get bc boundary and nrs boundaries, package from GitHub
-library(bcmaps.rdata) # maps data, package from GitHub
 library(ggplot2)  #for plotting
 library(extrafont) #Verdana font
 library(envreportutils) #soe theme & svg_px(), package from GitHub
