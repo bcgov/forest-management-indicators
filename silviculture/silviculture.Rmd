@@ -1,7 +1,7 @@
 ---
 topic: "land"
 title: "Trends in Silviculture in B.C. (1987-2016)"
-output: envreportbc::print_ver
+output: envreportutils.internal::print_ver
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 topic: "land"
 title: "Trends in Forest Tree Seed Use in B.C. (1987-2016)"
-output: envreportbc::print_ver
+output: envreportutils.internal::print_ver
 ---
 
 ```{r set-options, echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE}

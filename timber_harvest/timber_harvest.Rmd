@@ -1,7 +1,7 @@
 ---
 topic: "land"
 title: "Trends in Timber Harvest in B.C."
-output: envreportbc::print_ver
+output: envreportutils.internal::print_ver
 ---
 
 
