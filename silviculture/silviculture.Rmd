@@ -37,7 +37,7 @@ silviculture from 1987 to 2016.
 -   **What silvicultural systems are used?** The three general
     categories of silvicultural systems used in B.C. are clearcutting,
     partial cutting and clearcutting with reserves. The area of Crown
-    forest harvested annually averages 209,000 hectares each year.
+    forest harvested annually averages 209,000 hectares.
     Clearcutting with reserves was the most common silvicultural system
     applied over the last 15 years.
 -   **How much is reforested after disturbance?** The area of Crown land
@@ -51,7 +51,7 @@ silviculture from 1987 to 2016.
     Investments in incremental silviculture to improve the growth and
     quality of future crop trees included fertilizing, pruning, spacing
     and using select seed (usually from seed orchards) for planting.
-    Since 1987, silvicultural treatments totalled approximately 2.7
+    Since 1987, incremental silvicultural treatments totalled approximately 2.7
     million hectares.
 -   **What volume gains will incremental silvicultural treatments
     yield?** Cumulative volume gains 65 years after making investments
@@ -102,7 +102,7 @@ silviculture from 1987 to 2016.
     of forest structure remaining after the initial harvest.
 -   Since 1987, the area of Crown forest harvested annually has ranged
     from 150,000 hectares to 250,000 hectares, with an average of
-    approximately 209,000 hectares each year.
+    approximately 209,000 hectares.
 -   From 1987-1996, a clearcutting silvicultural system was applied on
     88% of the area harvested. By 2012, clearcutting with reserves
     accounted for 85% of the area harvested on public forest land. While
@@ -212,7 +212,7 @@ silviculture from 1987 to 2016.
 \newpage
 
 ## References and other useful links
--   [Ministry of Forests, Lands and Natural Resource Operations Annual
+-   [Ministry of Forests, Lands, Natural Resource Operations and Rural Development Annual
     Reports](http://www2.gov.bc.ca/gov/content?id=C1A06DF943D84858AFA8E755910E9D41)
 -   [Reporting Silviculture Updates and Land Status Tracking System
     (RESULTS)](http://www2.gov.bc.ca/gov/content?id=F62992DA5B324446AD5E1B5BFFA404CC)
@@ -237,8 +237,8 @@ each file, as indicated below.
 -   [Indicator data: Timber Volume
     Gains](https://catalogue.data.gov.bc.ca/dataset/6db9467f-22e8-48e7-b6ce-b3c3f169d949) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
-Published and Available On-Line at Environmental Reporting BC (December
-2017):
+Published and Available On-Line at Environmental Reporting BC (April
+2018):
 <http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html>
 
 Email correspondence to: envreportbc@gov.bc.ca
@@ -350,9 +350,9 @@ Geographic Warehouse[^1] released under either the Open Government Licence---Bri
 
 -   **Activity Treatment Unit**: [WHSE\_FOREST\_VEGATATION\_RSLT\_ACTIVITY\_TREATMENT\_UNIT](https://catalogue.data.gov.bc.ca/dataset/07cabbdf-d7bf-4c50-919d-5b7d80086ef5) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
--   **Planting**: WHSE\_FOREST\_VEGATATION\_RSLT\_PLANTING\_RSLT
+-   **Planting**: WHSE\_FOREST\_VEGATATION\_RSLT\_PLANTING\_RSLT (Licence: [Access Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
 
--   **Seedlot Genetic Worth**: SEEDLOT\_GENETIC\_WORTH
+-   **Seedlot Genetic Worth**: SEEDLOT\_GENETIC\_WORTH (Licence: [Access Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
 
 -   **Org Unit**: Appendix I – Lookup Tables
 
@@ -360,8 +360,7 @@ Geographic Warehouse[^1] released under either the Open Government Licence---Bri
 
 -   **SILV\_FUND\_SRC\_CODE**: Appendix I – Lookup Tables
 
-The intent is to move the two data layers above that are currently not publicly available into the B.C. Geographic Warehouse so that the raw data and source code
-can be published to allow interested parties to repeat the analysis.
+The intent is to move the data and tables that are currently not publicly available into the B.C. Geographic Warehouse so that interested parties can repeat the analysis.
 
 ## Fiscal Year
 
@@ -659,7 +658,7 @@ Gains by JS Year.
   JS Yr                  &gt;= 1970          Group by (Row)
   Spacing Area           TREATMENT\_AMOUNT   Sum
   Incremental JS Gains                       Sum
-  Category               &lt;&gt;“Legal”     Where
+  Category               &lt;&gt;Legal       Where
 
 *8a-Make Pruning (outcome: 8a-Pruning)*
 
@@ -694,7 +693,7 @@ Summarizes 8b-Pruning Area Pruning Area by PR Year.
   -------------- ------------------- ----------------
   PR Yr Yr       &gt;= 1970          Group by (Row)
   Pruning Area   TREATMENT\_AMOUNT   Sum
-  Category       &lt;&gt;“Legal”     Where
+  Category       &lt;&gt;Legal       Where
 
 *1a-Make Opening (outcome: 1a-Opening)*
 
@@ -748,7 +747,7 @@ Summarizes 8b-Pruning Area Pruning Area by PR Year.
   Backlog Planted Yr       &gt;= 1970                 Group by (Row)
   Backlog Planting Area    TREATMENT\_AMOUNT          Sum
   Backlog PL Volume Gain                              Sum
-  Category                 Not In ("Legal","Other")   Where
+  Category                 Not In (Legal, Other)      Where
 
 *3a-Planting Details with Seedlot*
 
