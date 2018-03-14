@@ -150,7 +150,7 @@ seed_map_plot <- ggplot(seed_map, aes(x = long, y = lat)) +
   geom_polygon(aes(group = group,  fill = prop_ss)) +
   geom_path(aes(group = group), colour = "grey60", size = 0.3) +
   facet_wrap(~Year, ncol = 3) +
-  scale_fill_continuous(name = "Percentage of\nForest Planted\nusing Select Seed (%)", low = "#ffffcc", 
+  scale_fill_continuous(name = "Percentage of\nForest Planted\nUsing Select Seed (%)", low = "#ffffcc", 
                         high = "#006837", na.value = "grey81", 
                         breaks = pretty_breaks(6), 
                         guide = guide_colourbar(draw.llim = TRUE, 
