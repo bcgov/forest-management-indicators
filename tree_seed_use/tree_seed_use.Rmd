@@ -140,7 +140,7 @@ forest genetic research, tree breeding and seed orchard programs.
 * [Indicator data: Forest Regeneration by Seed Source by Natural
     Resource District in B.C. (1987-2016)]() (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
-Published and Available On-Line at Environmental Reporting BC (December 2017):
+Published and Available On-Line at Environmental Reporting BC (April 2018):
 [http://www.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html](http://www.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
 
 Email correspondence to: envreportbc@gov.bc.ca
@@ -183,16 +183,15 @@ Geographic Warehouse[^1] released under either the Open Government Licence---Bri
 
 - **Veglot**: [WHSE\_FOREST\_VEGETATION.SEED\_VEG\_LOT](https://catalogue.data.gov.bc.ca/dataset/2456f4ed-7e47-438f-9ab5-711268c92075) (Licence: [B.C. Crown Copyright](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
 
-- **Planting**: WHSE\_FOREST\_VEGATATION\_RSLT\_PLANTING\_RSLT
+- **Planting**: WHSE\_FOREST\_VEGATATION\_RSLT\_PLANTING\_RSLT (Licence: [Access Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
 
-- **Standards Unit**: WHSE\_FOREST\_VEGATATION\_RSLT\_STOCKING\_STNDRD\_UNIT
+- **Standards Unit**: WHSE\_FOREST\_VEGATATION\_RSLT\_STOCKING\_STNDRD\_UNIT (Licence: [Access Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
 
-- **Seedlot Genetic Worth**: SEEDLOT\_GENETIC\_WORTH
+- **Seedlot Genetic Worth**: SEEDLOT\_GENETIC\_WORTH (Licence: [Access Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
 
-- **Veglot Genetic Worth**: SEEDLOT\_GENETIC\_WORTH
+- **Veglot Genetic Worth**: SEEDLOT\_GENETIC\_WORTH (Licence: [Access Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
 
-The intent is to move the four data layers above that are currently not publicly available into the B.C. Geographic Warehouse so that the raw data and source code
-can be published to allow interested parties to repeat the analysis.
+The intent is to move the data that are currently not publicly available into the B.C. Geographic Warehouse so that interested parties can repeat the analysis.
 
 ## Planting
 
