@@ -162,6 +162,8 @@ System](https://www2.gov.bc.ca/gov/content?id=4E1093E8C2D9472EA82B2CB00A6C59FD).
 The provincial Timber Supply Forecast is a summary of the management
 unit harvest forecast data. The [**R** code](http://www.r-project.org) for creating the graphs presented on this page is available on [GitHub](https://github.com/bcgov/EnvReportBC).
 
+For more information on this indicator or on Timber Harvest in British Columbia contact the Forest Analysis and Inventory Branch at [Forests.ForestAnalysisBranchOffice@gov.bc.ca](Forests.ForestAnalysisBranchOffice@gov.bc.ca).
+
 ## References and Other Useful Links
 * [Learn more about Forest Stewardship in
     B.C.](https://www2.gov.bc.ca/gov/content?id=EE19793D89C149E6A16CD6B71AF71FF0)
@@ -178,7 +180,7 @@ unit harvest forecast data. The [**R** code](http://www.r-project.org) for creat
 * [Indicator data: B.C. Timber Harvest (1910-2015)]() (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 * [Indicator data: B.C. Timber Supply Forecast (2010-2100)]() (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
-Published and Available On-Line at Environmental Reporting BC (April 2018):
+Published and Available On-Line at Environmental Reporting BC (May 2018):
 [http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html](http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html)
 
 Email correspondence to: envreportbc@gov.bc.ca
