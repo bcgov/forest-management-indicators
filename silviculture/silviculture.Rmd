@@ -34,9 +34,7 @@ basis. This indicator investigates the trends in four measures of
 silviculture from 1987 to 2016.
 
 
--   **What silvicultural systems are used?** The three general
-    categories of silvicultural systems used in B.C. are clearcutting,
-    partial cutting and clearcutting with reserves. The area of Crown
+-   **What silvicultural systems are used?** A variety of silvicultural systems are used in B.C. and can be grouped into three general categories: clearcutting, partial cutting, and clearcutting with reserves. Each name reflects the type of forest structure remaining after the initial harvest. The area of Crown
     forest harvested annually averages 209,000 hectares.
     Clearcutting with reserves was the most common silvicultural system
     applied over the last 15 years.
@@ -91,11 +89,7 @@ silviculture from 1987 to 2016.
 ```{r silviculture, fig.height = 6, fig.width = 11}
 ```
 
--   A silvicultural system is a planned program of activities that
-    encompasses how a stand of trees is harvested, regenerated, and
-    managed over time. Selection of a silvicultural system depends on
-    the ecological traits of the tree species, and on balancing the
-    objectives of the landowner.
+-   A Silvicultural system is a planned program of treatments during the whole life of a stand designed to achieve specific stand structural objectives. The three general categories of silvicultural systems used in B.C. are clearcutting, partial cutting, and clearcutting with reserves. Selection of a silvicultural system depends on the ecological traits of the tree species, and on balancing the objectives of the landowner.
 -   A variety of silvicultural systems are used in B.C. and can be
     grouped into three general categories: clearcutting, partial
     cutting, and clearcutting with reserves. Each name reflects the type
@@ -229,15 +223,17 @@ silviculture from 1987 to 2016.
 each file, as indicated below.
 
 -   [Indicator data: Silviculture
-    Systems](https://catalogue.data.gov.bc.ca/dataset/d3f00308-9d4d-4dc6-bdec-996124b61974) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Systems](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 -   [Indicator data: Disturbances and
-    Reforestation](https://catalogue.data.gov.bc.ca/dataset/fbc78ed7-1fc3-49a2-b90c-fb4e53884c41) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Reforestation](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 -   [Indicator data: Silvicultural
-    Treatments](https://catalogue.data.gov.bc.ca/dataset/fd81a75c-4059-49dc-8d54-90eeae0bf5c9) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Treatments](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 -   [Indicator data: Timber Volume
-    Gains](https://catalogue.data.gov.bc.ca/dataset/6db9467f-22e8-48e7-b6ce-b3c3f169d949) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Gains](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
-Published and Available On-Line at Environmental Reporting BC (April
+For more information on this indicator or on Silviculture in British Columbia contact the Resource Practices Branch at [Forests.ForestPracticesBranchOffice@gov.bc.ca](Forests.ForestPracticesBranchOffice@gov.bc.ca).
+
+Published and Available On-Line at Environmental Reporting BC (May
 2018):
 <http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html>
 
