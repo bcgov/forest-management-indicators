@@ -2,7 +2,7 @@
 
 # Forest Management Indicators for B.C.
 
-A set of R scripts to create data visualizations for three forest management indicators for B.C. published on [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=B71460AF7A8049D59F8CBA6EE18E93B8) in December 2017.
+A set of R scripts to create data visualizations for three forest management indicators for B.C. published on [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=B71460AF7A8049D59F8CBA6EE18E93B8).
 
 - [Trends in Silviculture in B.C. (1987-2015)](http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html)
 - [Trends in Forest Tree Seed Use in B.C. (1987-2016)](http://wwwd.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
@@ -15,11 +15,11 @@ The results data used for the indicators are available from the [B.C. Data Catal
 ### Code
 There is one R script and one RMarkdown file associated with each indicator.
 
-Most packages used in the analyses can be installed from CRAN using `install.packages()`, but you will need to install [envreportutils](https://github.com/bcgov/envreportutils), [bcmaps](https://github.com/bcgov/bcmaps), [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) and [rphylopic](https://github.com/sckott/rphylopic) using devtools:
+Most packages used in the analyses can be installed from CRAN using `install.packages()`, but you will need to install [envreportutils](https://github.com/bcgov/envreportutils), [bcmaps](https://github.com/bcgov/bcmaps), [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) and [rphylopic](https://github.com/sckott/rphylopic) using remotes:
 
 
 ```r
-install.packages("devtools") # If you don't already have it installed
+install.packages("remotes") # If you don't already have it installed
 
 library(devtools)
 install_github("bcgov/envreportutils")
@@ -28,7 +28,7 @@ install_github("bcgov/bcmaps.rdata")
 install_github("sckott/rphylopic")
 ```
 
-A full installation of Tex (e.g. MiKTex or MacTeX) is required to render the .Rmd file to PDF with `knitr`.
+An installation of LaTeX (e.g. MiKTex, MacTeX or [`tinytex`](https://cran.r-project.org/web/packages/tinytex/index.html)) is required to render the .Rmd file to PDF with `knitr`.
 
 ### Getting Help or Reporting an Issue
 
