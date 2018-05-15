@@ -83,11 +83,6 @@ harvest.
     
     \text{The Allowable Annual Cut is the maximum average level of timber harvest permitted}     \text{for forest management areas---it represents a harvest level that balances}             \text{environmental, economic and social considerations.}
  
- \vspace{3mm}    
- 
-    \text{Since 1949, the Chief Forester or their delegate has set Allowable Annual Cuts to}     \text{regulate harvest levels on public land and some private land.}
-    
-    
   \end{minipage}
 }
 \end{center}
@@ -111,6 +106,8 @@ harvest.
     Allowable Annual Cuts. The remaining 7 million cubic metres of
     timber harvested per year (10% of the total harvest) was from lands
     with no government-set Allowable Annual Cuts.
+- Since 1949, the Chief Forester or their delegate has set Allowable Annual Cuts to     regulate harvest levels on public land and some private land. Harvest without regulation by an Allowable Annual Cut occurs on private lands under the *Private Managed Forest Land Act*.
+    
 
 \newpage
 
