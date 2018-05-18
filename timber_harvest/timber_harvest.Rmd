@@ -65,9 +65,6 @@ harvest.
     Uncertainties in timber supply forecasting include merchantability
     of tree species, operability, future management practices, the
     future timber production land base, wildfires and insect epidemics.
-    In reality, most Allowable Annual Cut decisions are revisited every
-    5 years to account for changes in timber supply and harvesting
-    practices.
 
 \vspace{30pt}
 
@@ -145,7 +142,7 @@ harvest.
 \vspace{20pt}
 
 -   Until relatively recently, B.C. was forecast to have a stable mid
-    and long-term timber supply of about 70 million cubic meters per
+    and long-term timber supply of about 70 million cubic metres per
     year. Recent analysis projects decreases in timber supply to about
     58 million cubic metres per year by 2025---due to mortality caused
     by the mountain pine beetle epidemic. The forecasted timber supply
