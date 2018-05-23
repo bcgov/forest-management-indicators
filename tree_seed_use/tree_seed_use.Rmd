@@ -148,9 +148,9 @@ forest genetic research, tree breeding and seed orchard programs.
 
 \*By accessing these datasets, you agree to the license associated with each file, as indicated in parentheses below.
 
-* [Indicator Data: Forest Regeneration by Seed Source in B.C.
+* [Indicator Summary Data: Forest Regeneration by Tree Seed Source in B.C.
     (1987-2016)](https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
-* [Indicator Data: Forest Regeneration by Seed Source by Natural
+* [Indicator Summary Data:  Select Seed Use by Natural
     Resource District in B.C. (1987-2016)](https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
 

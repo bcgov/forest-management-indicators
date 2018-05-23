@@ -183,8 +183,8 @@ For more information on this indicator or on Timber Harvest in British Columbia 
 
 \*By accessing these datasets, you agree to the licence associated with each file, as indicated in parentheses below.
 
-* [Indicator Data: B.C. Timber Harvest (1910-2015)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
-* [Indicator Data: B.C. Timber Supply Forecast (2010-2100)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+* [Indicator Summary Data: Change in Timber Harvest in B.C. (1910-2015)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+* [Indicator Summary Data: B.C. Timber Supply Forecast (2010-2100)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
 Published and Available On-Line at Environmental Reporting BC (May 2018):
 [http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html](http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html)
