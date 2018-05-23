@@ -100,6 +100,7 @@ forest_regen <- ggplot(bc_seed, aes(x = Year, y = area)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
         legend.text = element_text(size = 14),
+        legend.text.align = 0,
         axis.title = element_text(size=16),
         axis.text = element_text(size=12),
         plot.margin = unit(c(5,5,5,5),"mm"),
