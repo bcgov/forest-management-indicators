@@ -16,9 +16,10 @@ library(sp) # mapping
 ## @knitr pre
 
 ## DATA
-## load tree seed use results data provided by Dan Turner (FLNRO)
-bc_forest <- read_csv("~/soe_data/forests/tree_seed_use/2017/bc_regen.csv")
-district_forest <- read.csv("~/soe_data/forests/tree_seed_use/2017/district_regen.csv")
+## load tree seed use results data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
+
+bc_forest <- read_csv("https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc/resource/9e329a4d-1648-4c64-bb86-2cebba2517a2/download/bcregen.csv")
+district_forest <- read.csv("https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc/resource/a9f93154-5c3a-4752-bc34-cb3cbaff45c2/download/districtregen.csv")
 
 ##font selection
 chart_font_web <- "Verdana"

@@ -12,10 +12,11 @@ library(curl) #required by rphylopic function
 ## @knitr pre
 
 ## DATA
-## load timber harvest data from FLNRO
-harvest <- read_csv("~/soe_data/forests/timber_harvest/2017/bc_timber_harvest.csv")
+## load timber harvest data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-forecast <- read_csv("~/soe_data/forests/timber_harvest/2017/bc_timber_supply_forecast.csv")
+harvest <- read_csv("https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598/resource/d62e461d-50b5-497c-af7c-fb143cda581f/download/bctimberharvest.csv")
+
+forecast <- read_csv("https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598/resource/0720031e-ab18-47bb-9604-47a38a9ab58c/download/bctimbersupplyforecast.csv")
 
 ##font selection
 chart_font_web <- "Verdana"
@@ -66,6 +67,7 @@ harvest.plot <- ggplot(harvest_comp, aes(x = Year, y = millions_m3)) +
   scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 10), expand=c(0, 0)) +
   theme(panel.grid.major.x = element_blank(),
         legend.text = element_text(size = 14),
+        legend.text.align = 0,
         axis.title = element_text(size=16),
         axis.text = element_text(size=12),
         legend.position = c(.23,.61), 
@@ -108,6 +110,7 @@ aac.plot <- ggplot(total_aac_short, aes(x = Year, y = millions_m3)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
         legend.text = element_text(size = 14),
+        legend.text.align = 0,
         axis.title = element_text(size=16),
         axis.text = element_text(size=12),
         legend.position = c(.14,.86), 
