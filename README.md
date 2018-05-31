@@ -5,7 +5,7 @@
 A set of R scripts to create data visualizations for three forest management indicators for B.C. published on [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=B71460AF7A8049D59F8CBA6EE18E93B8).
 
 - [Trends in Silviculture in B.C. (1987-2015)](http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html)
-- [Trends in Forest Tree Seed Use in B.C. (1987-2016)](http://wwwd.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
+- [Trends in Forest Tree Seed Use in B.C. (1987-2016)](http://www.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
 - [Trends in Timber Harvest in B.C.](http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html)
 
 ### Data
@@ -32,7 +32,7 @@ An installation of LaTeX (e.g. MiKTex, MacTeX or [`tinytex`](https://cran.r-proj
 
 ### Getting Help or Reporting an Issue
 
-To report bugs/issues/feature requests, please file an [Issue](https://github.com/bcgov-c/forest-management-indicators/issues/).
+To report bugs/issues/feature requests, please file an [Issue](https://github.com/bcgov/forest-management-indicators/issues/).
 
 ### How to Contribute
 
@@ -57,4 +57,4 @@ Please note that this project is released with a [Contributor Code of Conduct](C
     limitations under the License.
 
 
-This repository is maintained by [Environmental Reporting BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a complete list of our repositories on GitHub.
+This repository is maintained by [Environmental Reporting BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC) for a complete list of our repositories on GitHub.
