@@ -7,5 +7,5 @@ spec:
     status: exempt
     last-updated: '2020-04-08T03:49:22.492Z'
   - name: STRA
-    status: STRA_STATUS_HERE
-    last-updated: '2020-01-17T00:03:33.948Z'
+    status: exempt
+    last-updated: '2020-04-08T17:10:16.684Z'
