@@ -193,7 +193,7 @@ treatment.plot <- ggplot(data=treatments.long,
 #  ggtitle ("Incremental Silviculture") + 
   scale_y_continuous(limits = c(0,200), breaks=seq(0, 200, 20),
                      expand = c(0,0)) +
-  scale_x_continuous(limits = c(1987, 2019), breaks=seq(1987, 2019, 4), expand=c(0,0)) + 
+  scale_x_continuous(limits = c(1987, 2018), breaks=seq(1988, 2018, 3), expand=c(0,0)) + 
   scale_colour_manual(values = tmPalette, name = NULL) +
   guides(colour = guide_legend(reverse=TRUE)) +
   theme_soe() +
