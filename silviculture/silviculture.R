@@ -6,20 +6,28 @@ library(dplyr) #data cleaning
 library(tidyr) #wide to long df format
 library(ggplot2) #plotting
 library(envreportutils) #for soe_theme(), package from GitHub
+library(here)
 # library(extrafont) #Verdana font
+
+here::i_am("silviculture/silviculture.R")
+
+## Set chart font
+chart_font_web <- "Verdana"
 
 ## @knitr pre
 
 ## Read in CSV files from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-silsystems <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/d5d56912-5389-467d-9d90-5732df4df9c6/download/silviculturesystems.csv")
-dist.refor <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/38fc6c11-4930-4e44-a755-5f75c46fa46e/download/disturbanceandreforestation.csv")
-treatments <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/33055c65-ac86-4612-a4e8-bda7e1973830/download/silviculturetreatments.csv")
-gains <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/005df3ca-e6be-4c11-996d-fbea182e280d/download/timbervolumegains.csv")
 
+# silsystems <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/d5d56912-5389-467d-9d90-5732df4df9c6/download/silviculturesystems.csv")
+# dist.refor <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/38fc6c11-4930-4e44-a755-5f75c46fa46e/download/disturbanceandreforestation.csv")
+# treatments <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/33055c65-ac86-4612-a4e8-bda7e1973830/download/silviculturetreatments.csv")
+# gains <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/005df3ca-e6be-4c11-996d-fbea182e280d/download/timbervolumegains.csv")
+silsystems <- read_csv(here("data/silviculture_systems.csv"))
+dist.refor <- read_csv(here("data/disturbance_and_reforestation.csv"))
+treatments <- read_csv(here("data/silviculture_treatments.csv"))
+gains <- read_csv(here("data/timber_volume_gains.csv"))
 
-## Set chart font
-chart_font_web <- "Verdana"
 
 
 ## @knitr silviculture
@@ -65,7 +73,7 @@ silsystems.stack <- ggplot(data=silsystems.data,
   theme_soe() +
   scale_y_continuous(limits = c(0, 300), breaks=seq(0, 300, 30), 
                      expand=c(0,0)) +
-  scale_x_continuous(limits = c(1987, 2016), breaks=seq(1988, 2016, 4), expand = c(0,0)) + 
+  scale_x_continuous(limits = c(1987, 2019), breaks=seq(1987, 2019, 4), expand = c(0,0)) + 
   scale_fill_manual(name = "System", values = system.pal,
                     breaks = system.order) +
   geom_line(data=silsystems.total, aes(x = Year, y = Area),
@@ -74,10 +82,10 @@ silsystems.stack <- ggplot(data=silsystems.data,
            size = 5, family = chart_font_web) +
   annotate("text", label = "Partial\nCutting", x = 1996, y = 240,
            size = 5, family = chart_font_web) +
-  annotate("segment", x = 1996, xend = 1997.5, y = 220, yend = 178) +
+  annotate("segment", x = 1996, xend = 1997.5, y = 220, yend = 176) +
   annotate("text", label = "Total Area\nHarvested", x = 2009, y = 255,
            size = 5, family = chart_font_web) +
-  annotate("segment", x = 2009.5, xend = 2010.5, y = 236, yend = 200) +
+  annotate("segment", x = 2009.5, xend = 2010.5, y = 236, yend = 202) +
   annotate("text", label = "Clearcutting with\n Reserves", x = 2008, y = 110,
            size = 5, family = chart_font_web) +
   theme(legend.position = "none",
@@ -124,13 +132,13 @@ dist.refor.plot <- ggplot(data=dist.data, aes(x = Year, y = Area, group = Catego
                                  colour = Category), size = 1.3) +
   xlab ("Year") + ylab ("Area (Hectares*1000)") +
  # ggtitle ("Disturbances and Reforestation") +
-  scale_y_continuous(limits = c(0,300), breaks=seq(0, 300, 30),
+  scale_y_continuous(limits = c(0,330), breaks=seq(0, 330, 30),
                      expand=c(0,0)) +
   scale_fill_manual(name = "Category", drop = FALSE, values = dfPalette,
                     breaks = dist.data.order, guide = FALSE) +
   scale_colour_manual(name = NULL, drop = FALSE, label = c("Reforestation", "Total Disturbance"),
                       values = c("#006d2c", "black")) +
-  scale_x_continuous(limits = c(1987, 2016), breaks=seq(1988, 2016, 4), expand=c(0,0)) +
+  scale_x_continuous(limits = c(1987, 2019), breaks=seq(1987, 2019, 4), expand=c(0,0)) +
    annotate("text", label = "Natural Disturbance",
             x = 2004, y = 140, size = 5, family = chart_font_web) +
    annotate("segment", x = 2007.5, xend = 2009, y = 152, yend = 170) +
@@ -162,10 +170,15 @@ treatments.long <- treatments %>%
   mutate(Treatment = gsub("_ha", "", Treatment)) %>% 
   mutate(Treatment = gsub("_", " ", Treatment)) %>% 
   mutate(Area = round(Hectares/1000, digits=2)) %>% 
+  mutate(Treatment = case_when(
+    Treatment == "FFT Planting" ~ "Planting", 
+    Treatment == "Fertilizing" ~ "Areal Fertilizing",
+    TRUE ~ Treatment
+  )) %>% 
   na.omit
 
 ## make and order factors for plotting
-treat.sys.order <- c("Fertilizing", "Pruning", "Spacing", "Select Seed", "FFT Planting", "Total")
+treat.sys.order <- c("Areal Fertilizing", "Pruning", "Spacing", "Select Seed", "Planting", "Total")
 treatments.long$Treatment <- factor(treatments.long$Treatment, levels=treat.sys.order)
 
 ## colour palette
@@ -180,7 +193,7 @@ treatment.plot <- ggplot(data=treatments.long,
 #  ggtitle ("Incremental Silviculture") + 
   scale_y_continuous(limits = c(0,200), breaks=seq(0, 200, 20),
                      expand = c(0,0)) +
-  scale_x_continuous(limits = c(1987, 2016), breaks=seq(1988, 2016, 4), expand=c(0,0)) + 
+  scale_x_continuous(limits = c(1987, 2019), breaks=seq(1987, 2019, 4), expand=c(0,0)) + 
   scale_colour_manual(values = tmPalette, name = NULL) +
   guides(colour = guide_legend(reverse=TRUE)) +
   theme_soe() +
@@ -209,6 +222,11 @@ gains.long <-  gains %>%
   mutate(Treatment = gsub("_m3.ha", "", Treatment)) %>% 
   mutate(Treatment = gsub("_", " ", Treatment)) %>% 
   mutate(Volume = round(Volume_gain_m3_per_ha/1000, digits = 3)) %>% 
+  mutate(Treatment = case_when(
+    Treatment == "FFT Planting Volume" ~ "Planting Volume", 
+    Treatment == "Fertilization Volume" ~ "Areal Fertilization Volume",
+    TRUE ~ Treatment
+  )) %>% 
   na.omit
 
 ## a total values df for line overlay on stacked area chart
@@ -218,7 +236,7 @@ gains.total <- gains.long %>%
   mutate(Treatment = "Total")
 
 ## order of treatments to be displayed (bottom-up) in stacked area chart
-treatment.order <- c("FFT Planting Volume", "Select Seed Volume", "Spacing Volume", "Fertilization Volume")
+treatment.order <- c("Planting Volume", "Select Seed Volume", "Spacing Volume", "Areal Fertilization Volume")
 gains.long$Treatment <- factor(gains.long$Treatment, levels = treatment.order)
 
 ## creating colour palette for graphs
@@ -233,14 +251,14 @@ gains.stack <- ggplot(data=gains.long, aes(x = Fiscal_Year, y = Volume, fill = T
 #  ggtitle ("Timber Volume Gains from Incremental Silviculture") +
   scale_y_continuous(limits = c(0, 10000), breaks=seq(0, 10000, 1000),
                      expand=c(0,0)) +
-  scale_x_continuous(limits = c(1987, 2016), breaks=seq(1988, 2016, 4), expand=c(0,0)) +
+  scale_x_continuous(limits = c(1987, 2019), breaks=seq(1987, 2019, 4), expand=c(0,0)) +
   scale_fill_manual(name = NULL, values = treatment.pal,
                     breaks = treatment.order) +
   geom_line(data=gains.total, aes(x = Fiscal_Year, y = Volume),
             colour = "black", size = 1.3) +
    annotate("text", label = "Total timber volume gain expected\n 65 years after treatment",
             x = 2003, y = 8000, size = 5, family = chart_font_web) +
-   annotate("segment", x = 2003, xend = 2010, y = 7500, yend = 6000) +
+   annotate("segment", x = 2003, xend = 2010.5, y = 7500, yend = 6000) +
   theme_soe() +
   theme(legend.position = c(.35,.5),
         legend.direction = "vertical",
