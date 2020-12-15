@@ -12,6 +12,11 @@ library(scales) #for pretty_breaks()
 library(rmapshaper) # for intersect and simplify functions
 library(sf) # mapping
 
+here::i_am("tree_seed_use/tree_seed_use.R")
+
+##font selection
+chart_font_web <- "Verdana"
+
 ## @knitr pre
 
 ## DATA
@@ -19,11 +24,9 @@ library(sf) # mapping
 
 # bc_forest <- read_csv("https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc/resource/9e329a4d-1648-4c64-bb86-2cebba2517a2/download/bcregen.csv")
 # district_forest <- read_csv("https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc/resource/a9f93154-5c3a-4752-bc34-cb3cbaff45c2/download/districtregen.csv")
-bc_forest <- read_csv("data/bc_regen.csv")
-district_forest <- read_csv("data/district_regen.csv")
+bc_forest <- read_csv(here("data/bc_regen.csv"))
+district_forest <- read_csv(here("data/district_regen.csv"))
 
-##font selection
-chart_font_web <- "Verdana"
 
 theme_map <- function() {
   theme_bw() +     

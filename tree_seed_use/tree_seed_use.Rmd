@@ -35,6 +35,7 @@ library(scales) #for pretty_breaks()
 library(rmapshaper) # for intersect and simplify functions
 library(sp) # mapping
 library(knitr) #for knitting to PDF
+library(here)
 
 read_chunk("tree_seed_use.R")
 ```
