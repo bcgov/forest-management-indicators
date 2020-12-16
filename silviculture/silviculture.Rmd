@@ -1,6 +1,6 @@
 ---
 topic: "land"
-title: "Trends in Silviculture in B.C. (1987-2016)"
+title: "Trends in Silviculture in B.C. (1987-2019)"
 output: envreportutils.internal::print_ver
 ---
 <!--
@@ -82,7 +82,7 @@ silviculture from 1987 to 2019.
   
    \begingroup\centering{\textbf{What is Silviculture?}}
    
-     \endgroup6b
+   \endgroup
      
     \vspace{1mm}
     
@@ -270,13 +270,13 @@ silviculture from 1987 to 2019.
 each file, as indicated below.
 
 -   [Indicator Summary Data: Change in Silviculture
-    Systems (1987-2016)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Systems (1987-2019)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 -   [Indicator Summary Data: Change in Disturbances and
-    Reforestation (1987-2016)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Reforestation (1987-2019)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 -   [Indicator Summary Data: Change in Silvicultural
-    Treatments (1987-2016)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Treatments (1987-2019)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 -   [Indicator Summary Data: Change in Timber Volume
-    Gains (1987-2016)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+    Gains (1987-2019)](https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
 For more information on this indicator or on Silviculture in British Columbia contact the Resource Practices Branch at [Forests.ForestPracticesBranchOffice@gov.bc.ca](Forests.ForestPracticesBranchOffice@gov.bc.ca).
 
