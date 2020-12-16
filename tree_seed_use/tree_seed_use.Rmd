@@ -294,22 +294,30 @@ final queries.
 Joins the Opening\_VW and ATU source tables to create a list of openings
 with planting activities completed after March 1970.
 
+  -------------------------------------------------------------
   **Field**                   **Criteria**      **Details**
   --------------------------- ----------------- -------------------------------------------------------------
   ATU.ATU\_COMPLETION\_DATE   >=1970-04-01   
-  ATU.SILV\_BASE\_CODE        PL                
+  
+  ATU.SILV\_BASE\_CODE        PL             
+  
   ATU.ACT\_PLANTED\_NO        >0                 Isolates only those completed activities with planted trees
+  -------------------------------------------------------------
 
 *1b-Make Planted Trees (outcome: 1b-Planted Trees)*
 
 Joins the Opening, ATU and Planting source tables to create a list of
 tree species planted after March 1970.
 
+  -------------------------------------------------------------
   **Field**                   **Criteria**      **Details**
   --------------------------- ----------------- -------------------------------------------------------------
   ATU.ATU\_COMPLETION\_DATE   &gt;=1970-04-01   
+  
   ATU.SILV\_BASE\_CODE        PL                
+  
   ATU.ACT\_PLANTED\_NO        &gt;0             Isolates only those completed activities with planted trees
+  -------------------------------------------------------------
 
 *1c-Make Unique Opening (outcome: 1c-Unique Opening)*
 
@@ -343,8 +351,6 @@ species/seedlot planted.
   SeedClass                             ```A=GENETIC_CLASS_CODE= "A" B+=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNC_IND="Y" B=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNCE_IND ="N" B=GENETIC_CLASS_CODE is null```
   
   ProratePLArea                         ```ProratePLArea: Round((([1b-Planted Trees]![NUMBER_PLANTED]/[1b-Planted Trees]![ACT_PLANTED_NO])*[1b-Planted Trees]![TREATMENT_AMOUNT]),2)```                            This gives a prorated area for each of the individual species seedlot planted
-  
-  
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *2c-Summary Seed Class*
@@ -373,8 +379,7 @@ the natural regeneration queries.
   Best Date                                           ```IIf([DISTURBANCE_START_DATE] Is Null,[DISTURBANCE_END_DATE], [DISTURBANCE_START_DATE])```   Uses the Disturbance End Date, if it is not available, then use the Disturbance Start Date
   
   OPENING_ VW.OPENING_ GROSS_AREA                      >0.1                                                                                          Excludes shell openings
-  
- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 *3b-Make SU (outcome – 3b-SU)*
 
@@ -388,7 +393,6 @@ natural regeneration opening.
   **Field**                          **Criteria**   **Details**
   ---------------------------------- -------------- -------------------------
   OPENING\_VW.OPENING\_GROSS\_AREA   <>0.1          Excludes shell openings
-  
   ---------------------------------------------------------------------------
 
 *3c-PL Area*
@@ -403,7 +407,6 @@ where the Technique is “PL”.
   SILV\_TECHNIQUE\_CODE   PL     
   
   TREATMENT\_AREA                        Sums the total PL/PL Area by Opening\_ID
-
   -----------------------------------------------------------------------
 
 *3d-Combine Opening SU and PL Area*
@@ -415,7 +418,6 @@ summarize all Planted and NAR areas in one query.
   **Field**         **Criteria**                                                           **Details**
   ----------------  ---------------------------------------------------------------------  ----------------
   Disturb Start Yr  ```IIf(Month([Best Date])<4,Year([Best Date])-1,Year([Best Date]))```  Converts the Best Date to Fiscal Year
-  
   ---------------------------------------------------------------------------------------------------------
 
 *3e-Fix Missing NAR and PL Values*
@@ -429,7 +431,6 @@ PL Area to zero in order to do subsequent calculations.
   NewNAR      ```IIf([NAR] is null,0,[NAR])```
   
   NewPL       ```IIf([PL Area] is null, 0,[PL Area])```   
-
   ---------------------------------------------------------------------
 
 *3f-Calculate Regen Ratio*
@@ -443,7 +444,6 @@ records.
   **Field**   **Criteria**                                                           **Details**
   ---------   ---------------------------------------------------------------------  ------------------------------------
   Ratio       ```IIf([NewNAR]=0,0,iif([NewNAR]>0, Round([NewPL]/[NewNAR],2),"")```    This defaults 0 value if there is no NAR, otherwise calculate the ratio of planting. Note that records with no NAR will not be accounted for in the total values for natural regen. There are approximately 23K records that is missing NAR
-  
   ---------------------------------------------------------------------------------------------------------------------
 
 *3g-Assess Regen Type – Set Threshold*
@@ -457,7 +457,6 @@ considered planted.
   **Field**   **Criteria**                                  **Details**
   ----------  --------------------------------------------  -------------
   Regen Type  ```IIf(;Ratio]<=0.1,"Natural","Planted")``` 
-  
   -----------------------------------------------------------------------
 
 *3h-Final Natural vs Planted BC*
