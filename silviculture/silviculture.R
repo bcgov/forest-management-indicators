@@ -172,13 +172,13 @@ treatments.long <- treatments %>%
   mutate(Area = round(Hectares/1000, digits=2)) %>% 
   mutate(Treatment = case_when(
     Treatment == "FFT Planting" ~ "Planting", 
-    Treatment == "Fertilizing" ~ "Areal Fertilizing",
+    Treatment == "Fertilizing" ~ "Aerial Fertilizing",
     TRUE ~ Treatment
   )) %>% 
   na.omit
 
 ## make and order factors for plotting
-treat.sys.order <- c("Areal Fertilizing", "Pruning", "Spacing", "Select Seed", "Planting", "Total")
+treat.sys.order <- c("Aerial Fertilizing", "Pruning", "Spacing", "Select Seed", "Planting", "Total")
 treatments.long$Treatment <- factor(treatments.long$Treatment, levels=treat.sys.order)
 
 ## colour palette
@@ -193,7 +193,7 @@ treatment.plot <- ggplot(data=treatments.long,
 #  ggtitle ("Incremental Silviculture") + 
   scale_y_continuous(limits = c(0,200), breaks=seq(0, 200, 20),
                      expand = c(0,0)) +
-  scale_x_continuous(limits = c(1987, 2018), breaks=seq(1988, 2018, 3), expand=c(0,0)) + 
+  scale_x_continuous(limits = c(1987, 2019), breaks=seq(1987, 2019, 4), expand=c(0,0)) + 
   scale_colour_manual(values = tmPalette, name = NULL) +
   guides(colour = guide_legend(reverse=TRUE)) +
   theme_soe() +
@@ -224,7 +224,7 @@ gains.long <-  gains %>%
   mutate(Volume = round(Volume_gain_m3_per_ha/1000, digits = 3)) %>% 
   mutate(Treatment = case_when(
     Treatment == "FFT Planting Volume" ~ "Planting Volume", 
-    Treatment == "Fertilization Volume" ~ "Areal Fertilization Volume",
+    Treatment == "Fertilization Volume" ~ "Aerial Fertilization Volume",
     TRUE ~ Treatment
   )) %>% 
   na.omit
@@ -236,7 +236,7 @@ gains.total <- gains.long %>%
   mutate(Treatment = "Total")
 
 ## order of treatments to be displayed (bottom-up) in stacked area chart
-treatment.order <- c("Planting Volume", "Select Seed Volume", "Spacing Volume", "Areal Fertilization Volume")
+treatment.order <- c("Planting Volume", "Select Seed Volume", "Spacing Volume", "Aerial Fertilization Volume")
 gains.long$Treatment <- factor(gains.long$Treatment, levels = treatment.order)
 
 ## creating colour palette for graphs
