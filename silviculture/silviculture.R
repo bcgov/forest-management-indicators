@@ -19,14 +19,14 @@ chart_font_web <- "Verdana"
 ## Read in CSV files from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
 
-# silsystems <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/d5d56912-5389-467d-9d90-5732df4df9c6/download/silviculturesystems.csv")
-# dist.refor <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/38fc6c11-4930-4e44-a755-5f75c46fa46e/download/disturbanceandreforestation.csv")
-# treatments <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/33055c65-ac86-4612-a4e8-bda7e1973830/download/silviculturetreatments.csv")
-# gains <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/005df3ca-e6be-4c11-996d-fbea182e280d/download/timbervolumegains.csv")
-silsystems <- read_csv(here("data/silviculture_systems.csv"))
-dist.refor <- read_csv(here("data/disturbance_and_reforestation.csv"))
-treatments <- read_csv(here("data/silviculture_treatments.csv"))
-gains <- read_csv(here("data/timber_volume_gains.csv"))
+silsystems <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/d5d56912-5389-467d-9d90-5732df4df9c6/download/silviculturesystems.csv")
+dist.refor <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/38fc6c11-4930-4e44-a755-5f75c46fa46e/download/disturbanceandreforestation.csv")
+treatments <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/33055c65-ac86-4612-a4e8-bda7e1973830/download/silviculturetreatments.csv")
+gains <- read_csv("https://catalogue.data.gov.bc.ca/dataset/b3369823-d130-4e8d-bcca-55c8749fab40/resource/005df3ca-e6be-4c11-996d-fbea182e280d/download/timbervolumegains.csv")
+# silsystems <- read_csv(here("data/silviculture_systems.csv"))
+# dist.refor <- read_csv(here("data/disturbance_and_reforestation.csv"))
+# treatments <- read_csv(here("data/silviculture_treatments.csv"))
+# gains <- read_csv(here("data/timber_volume_gains.csv"))
 
 
 
