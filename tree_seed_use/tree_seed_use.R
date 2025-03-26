@@ -10,9 +10,10 @@ library(envreportutils) #soe theme & svg_px(), package from GitHub
 library(rphylopic) #for conifer image, package from GitHub
 library(scales) #for pretty_breaks()
 library(rmapshaper) # for intersect and simplify functions
-library(sf) # mapping
+library(sf) # mapping'
+library(bcdata)
 
-here::i_am("tree_seed_use/tree_seed_use.R")
+#here::i_am("tree_seed_use/tree_seed_use.R")
 
 ##font selection
 chart_font_web <- "Verdana"
@@ -22,10 +23,14 @@ chart_font_web <- "Verdana"
 ## DATA
 ## load tree seed use results data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-bc_forest <- read_csv("https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc/resource/9e329a4d-1648-4c64-bb86-2cebba2517a2/download/bcregen.csv")
-district_forest <- read_csv("https://catalogue.data.gov.bc.ca/dataset/54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc/resource/a9f93154-5c3a-4752-bc34-cb3cbaff45c2/download/districtregen.csv")
-# bc_forest <- read_csv(here("data/bc_regen.csv"))
-# district_forest <- read_csv(here("data/district_regen.csv"))
+# bc_forest <- bcdc_get_data('54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc', 
+#                            resource = '9e329a4d-1648-4c64-bb86-2cebba2517a2')
+
+# district_forest <- bcdc_get_data('54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc', 
+#                            resource = 'a9f93154-5c3a-4752-bc34-cb3cbaff45c2')
+
+bc_forest <- read_csv("data/ForestSeedUse/bc_regen.csv")
+district_forest <- read_csv("data/ForestSeedUse/district_regen.csv")
 
 
 theme_map <- function() {
@@ -87,7 +92,7 @@ pal <- c("#99cc00", "#339966", "#ccffcc", "#ffff99")
 names(pal) <- seed.order
 
 ## add tree image
-conifer <- image_data("f86235e3-f437-4630-9e77-73732b9bcf41", size = "512")[[1]]
+conifer <- get_phylopic(uuid = "f86235e3-f437-4630-9e77-73732b9bcf41")
 
 ## stacked area plot
 forest_regen <- ggplot(bc_seed, aes(x = Year, y = area)) +
@@ -99,8 +104,8 @@ forest_regen <- ggplot(bc_seed, aes(x = Year, y = area)) +
                      guide = guide_legend(order=1, title = "")) +
   xlab("Year") +
   ylab("Area Reforested (Hectares*1000)") +
-  labs(caption = "\n**Note: Data for the 2013-2019 period is incomplete pending\nreporting of planting and natural regeneration field surveys") +
-  scale_x_continuous(limits = c(1987, 2019), breaks=seq(1987, 2019, 4), expand = c(0,0)) +
+  labs(caption = "\n**Note: Data for the 2013-2023 period is incomplete pending\nreporting of planting and natural regeneration field surveys") +
+  scale_x_continuous(limits = c(1987, 2023), breaks=seq(1987, 2023, 4), expand = c(0,0)) +
   scale_y_continuous(limits = c(0, 300), breaks = seq(0, 300, 30), expand=c(0, 0)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
