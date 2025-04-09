@@ -1,6 +1,6 @@
 ---
 topic: "land"
-title: "Trends in Forest Tree Seed Use in B.C. (1987-2019)"
+title: "Trends in Forest Tree Seed Use in B.C. (1987-2023)"
 output: envreportutils.internal::print_ver
 ---
 <!--
@@ -36,8 +36,11 @@ library(rmapshaper) # for intersect and simplify functions
 library(sp) # mapping
 library(knitr) #for knitting to PDF
 library(here)
+library(kableExtra)
 
 read_chunk("tree_seed_use.R")
+
+options(tinytex.verbose = TRUE)
 ```
 
 ```{r pre}
@@ -52,7 +55,7 @@ information supports the continuous improvement of genetic conservation
 and resource management plans, strategies and actions, including seed
 use best management practices used in reforestation. This indicator
 investigates the trends in forest tree seed use in regenerating B.C.\'s
-forests from 1987 to 2019.
+forests from 1987 to 2023.
 
 -   Maintaining genetic diversity, a fundamental component of
     biodiversity, ensures forests and ecosystems are healthy, resilient
@@ -89,7 +92,7 @@ choices.
 
 \newpage
 
-## Forest Regeneration by Tree Seed Source in B.C. (1987--2019)
+## Forest Regeneration by Tree Seed Source in B.C. (1987--2023)
 
 \vspace{20pt}
 
@@ -260,7 +263,7 @@ areas managed for natural regeneration).
 
 Natural Regeneration is not reported in RESULTS. Instead, this is
 inferred by the existence of planting records. If the sum of the
-planting area is &lt;= 10% of the opening, the opening is classified as
+planting area is <10% of the opening, the opening is classified as
 natural regenerated and the total Net Area to be Reforested (NAR) of the
 opening is used as the area of natural regeneration. The year displayed
 for natural regeneration is based on the disturbance end date, if not
@@ -273,11 +276,11 @@ areas managed for natural regeneration).
 
 ## Fiscal Year
 
-Fiscal year will be display as follows:
+Fiscal year will be displayed as follows:
 
--   Formula used: Fiscal Yr:```IIf(Month([DATE])<4,Year([DATE])-1,Year([DATE]))```
+-   Formula used: Fiscal Yr: $IIf(Month([DATE])<4,Year([DATE])-1,Year([DATE]))$
 
--   Example: 1987-04-01 and 1988-03-31 Fiscal Year = 1988
+-   Example: 1987-04-01 and 1988-03-31, Fiscal Year = 1988
 
 ### QUERY STEPS – Baseline Make Table Queries
 
@@ -297,11 +300,11 @@ with planting activities completed after March 1970.
   -------------------------------------------------------------
   **Field**                   **Criteria**      **Details**
   --------------------------- ----------------- -------------------------------------------------------------
-  ATU.ATU\_COMPLETION\_DATE   >=1970-04-01   
+  ATU.ATU_COMPLETION_DATE   >=1970-04-01   
   
-  ATU.SILV\_BASE\_CODE        PL             
+  ATU.SILV_BASE_CODE        PL             
   
-  ATU.ACT\_PLANTED\_NO        >0                 Isolates only those completed activities with planted trees
+  ATU.ACT_PLANTED_NO        >0                 Isolates only those completed activities with planted trees
   -------------------------------------------------------------
 
 *1b-Make Planted Trees (outcome: 1b-Planted Trees)*
@@ -309,14 +312,16 @@ with planting activities completed after March 1970.
 Joins the Opening, ATU and Planting source tables to create a list of
 tree species planted after March 1970.
 
+
+
   -------------------------------------------------------------
   **Field**                   **Criteria**      **Details**
   --------------------------- ----------------- -------------------------------------------------------------
-  ATU.ATU\_COMPLETION\_DATE   &gt;=1970-04-01   
-  
-  ATU.SILV\_BASE\_CODE        PL                
-  
-  ATU.ACT\_PLANTED\_NO        &gt;0             Isolates only those completed activities with planted trees
+  ATU.ATU_COMPLETION_DATE   >=1970-04-01
+
+  ATU.SILV_BASE_CODE        PL
+
+  ATU.ACT_PLANTED_NO        >0             Isolates only those completed activities with planted trees
   -------------------------------------------------------------
 
 *1c-Make Unique Opening (outcome: 1c-Unique Opening)*
@@ -346,11 +351,11 @@ species/seedlot planted.
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Field**                             **Criteria**                                                                                                                                                            **Details**
   ------------------------------------  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------
-  Planted Yr                            ```Planted Yr: IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))```                                                        Converts date to fiscal year
+  Planted Yr                            $Planted Yr: IIf(Month([ATU_COMPLETION_DATE])<4, Year([ATU_COMPLETION_DATE])-1, Year([ATU_COMPLETION_DATE]))$                                                        Converts date to fiscal year
 
-  SeedClass                             ```A=GENETIC_CLASS_CODE= "A" B+=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNC_IND="Y" B=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNCE_IND ="N" B=GENETIC_CLASS_CODE is null```
+  SeedClass                             $A=GENETIC_CLASS_CODE= "A" B+=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNC_IND="Y" B=GENETIC_CLASS_CODE="B" and SUPERIOR_PRVNCE_IND ="N" B=GENETIC_CLASS_CODE is null$
   
-  ProratePLArea                         ```ProratePLArea: Round((([1b-Planted Trees]![NUMBER_PLANTED]/[1b-Planted Trees]![ACT_PLANTED_NO])*[1b-Planted Trees]![TREATMENT_AMOUNT]),2)```                            This gives a prorated area for each of the individual species seedlot planted
+  ProratePLArea                         $ProratePLArea: Round((([1b-Planted Trees]![NUMBER_PLANTED]/[1b-Planted Trees]![ACT_PLANTED_NO])*[1b-Planted Trees]![TREATMENT_AMOUNT]),2)$                            This gives a prorated area for each of the individual species seedlot planted
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *2c-Summary Seed Class*
@@ -376,7 +381,7 @@ the natural regeneration queries.
  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Field**                                           **Criteria**                                                                                   **Details**
   --------------------------------------------------  ---------------------------------------------------------------------------------------------  ----------------------------------------   
-  Best Date                                           ```IIf([DISTURBANCE_START_DATE] Is Null,[DISTURBANCE_END_DATE], [DISTURBANCE_START_DATE])```   Uses the Disturbance End Date, if it is not available, then use the Disturbance Start Date
+  Best Date                                           $IIf([DISTURBANCE_START_DATE] Is Null,[DISTURBANCE_END_DATE], [DISTURBANCE_START_DATE])$   Uses the Disturbance End Date, if it is not available, then use the Disturbance Start Date
   
   OPENING_ VW.OPENING_ GROSS_AREA                      >0.1                                                                                          Excludes shell openings
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -417,7 +422,7 @@ summarize all Planted and NAR areas in one query.
   ---------------------------------------------------------------------------------------------------------
   **Field**         **Criteria**                                                           **Details**
   ----------------  ---------------------------------------------------------------------  ----------------
-  Disturb Start Yr  ```IIf(Month([Best Date])<4,Year([Best Date])-1,Year([Best Date]))```  Converts the Best Date to Fiscal Year
+  Disturb Start Yr  $IIf(Month([Best Date])<4,Year([Best Date])-1,Year([Best Date]))$ Converts the Best Date to Fiscal Year
   ---------------------------------------------------------------------------------------------------------
 
 *3e-Fix Missing NAR and PL Values*
@@ -428,9 +433,9 @@ PL Area to zero in order to do subsequent calculations.
   --------------------------------------------------------------------
   **Field**   **Criteria**                               **Details**
   ----------  -----------------------------------------  -------------
-  NewNAR      ```IIf([NAR] is null,0,[NAR])```
+  NewNAR      $IIf([NAR] is null,0,[NAR])$
   
-  NewPL       ```IIf([PL Area] is null, 0,[PL Area])```   
+  NewPL       $IIf([PL Area] is null, 0,[PL Area])$   
   ---------------------------------------------------------------------
 
 *3f-Calculate Regen Ratio*
@@ -443,7 +448,7 @@ records.
   ---------------------------------------------------------------------------------------------------------------------
   **Field**   **Criteria**                                                           **Details**
   ---------   ---------------------------------------------------------------------  ------------------------------------
-  Ratio       ```IIf([NewNAR]=0,0,iif([NewNAR]>0, Round([NewPL]/[NewNAR],2),"")```    This defaults 0 value if there is no NAR, otherwise calculate the ratio of planting. Note that records with no NAR will not be accounted for in the total values for natural regen. There are approximately 23K records that is missing NAR
+  Ratio       $IIf([NewNAR]=0,0,iif([NewNAR]>0, Round([NewPL]/[NewNAR],2),"")$    This defaults 0 value if there is no NAR, otherwise calculate the ratio of planting. Note that records with no NAR will not be accounted for in the total values for natural regen. There are approximately 23K records that is missing NAR
   ---------------------------------------------------------------------------------------------------------------------
 
 *3g-Assess Regen Type – Set Threshold*
@@ -456,7 +461,7 @@ considered planted.
   -----------------------------------------------------------------------
   **Field**   **Criteria**                                  **Details**
   ----------  --------------------------------------------  -------------
-  Regen Type  ```IIf(;Ratio]<=0.1,"Natural","Planted")``` 
+  Regen Type  $IIf(;Ratio]<=0.1,"Natural","Planted")$
   -----------------------------------------------------------------------
 
 *3h-Final Natural vs Planted BC*

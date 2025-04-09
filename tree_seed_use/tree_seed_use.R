@@ -13,7 +13,7 @@ library(rmapshaper) # for intersect and simplify functions
 library(sf) # mapping'
 library(bcdata)
 
-#here::i_am("tree_seed_use/tree_seed_use.R")
+here::i_am("tree_seed_use/tree_seed_use.R")
 
 ##font selection
 chart_font_web <- "Verdana"
@@ -29,8 +29,8 @@ chart_font_web <- "Verdana"
 # district_forest <- bcdc_get_data('54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc', 
 #                            resource = 'a9f93154-5c3a-4752-bc34-cb3cbaff45c2')
 
-bc_forest <- read_csv("data/ForestSeedUse/bc_regen.csv")
-district_forest <- read_csv("data/ForestSeedUse/district_regen.csv")
+bc_forest <- read_csv("C:/tmp/forest-management-indicators/data/ForestSeedUse/bc_regen.csv")
+district_forest <- read_csv("C:/tmp/forest-management-indicators/data/ForestSeedUse/district_regen.csv")
 
 
 theme_map <- function() {
