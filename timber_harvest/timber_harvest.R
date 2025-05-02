@@ -8,15 +8,24 @@ library(extrafont) #Verdana font
 library(envreportutils) #soe theme, package from GitHub
 library(rphylopic) #for conifer image, package from GitHub
 library(curl) #required by rphylopic function
+library(bcdata)
+library(here)
 
 ## @knitr pre
 
 ## DATA
 ## load timber harvest data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-harvest <- read_csv("https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598/resource/d62e461d-50b5-497c-af7c-fb143cda581f/download/bctimberharvest.csv")
+harvest <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
+                          resource = 'd62e461d-50b5-497c-af7c-fb143cda581f')
 
-forecast <- read_csv("https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598/resource/0720031e-ab18-47bb-9604-47a38a9ab58c/download/bctimbersupplyforecast.csv")
+forecast <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
+                         resource = '0720031e-ab18-47bb-9604-47a38a9ab58c')
+
+
+harvest <- read_csv(here("data/TimberHarvest/harvest.csv"))
+forecast <- read_csv(here("data/TimberHarvest/forecast.csv"))
+
 
 ##font selection
 chart_font_web <- "Verdana"
@@ -27,7 +36,9 @@ chart_font_web <- "Verdana"
 
 ## restructuring the harvest csv table for plotting
 harvest_long <- melt(harvest, id.vars = "Year", 
-                variable.name = "harvest", value.name = "millions_m3")
+                variable.name = "harvest", value.name = "millions_m3") |> 
+  mutate(millions_m3 = case_when(millions_m3 == "-" ~ NA_integer_,
+                                 .default = as.numeric(millions_m3)))
 
 #remove units and underscores from names
 harvest_long$harvest <- gsub("_millions_m3", "", harvest_long$harvest)
@@ -35,7 +46,8 @@ harvest_long$harvest <- gsub("_", " ", harvest_long$harvest)
 
 ## total harvest dataframe for total line
 total_harvest <- harvest_long %>% 
-  filter(harvest == "Total harvest")
+  filter(harvest == "Total harvest") |> 
+  mutate(average = mean(millions_m3, na.rm=TRUE))
 
 ## component harvest dataframe for stacked chart
 harvest_comp <- harvest_long %>% 
@@ -50,7 +62,8 @@ pal <- c("#99cc00", "#339966")
 names(pal) <- harvest.order
 
 ## add tree image
-conifer <- image_data("f86235e3-f437-4630-9e77-73732b9bcf41", size = "512")[[1]]
+#conifer <- image_data("f86235e3-f437-4630-9e77-73732b9bcf41", size = "512")[[1]]
+conifer <- get_phylopic(uuid = "f86235e3-f437-4630-9e77-73732b9bcf41")
 
 ## stacked area chart
 harvest.plot <- ggplot(harvest_comp, aes(x = Year, y = millions_m3)) +
@@ -63,17 +76,17 @@ harvest.plot <- ggplot(harvest_comp, aes(x = Year, y = millions_m3)) +
   xlab("Year") +
   ylab(expression(paste("Timber Volume", " ", "(", "millions", " ", m^3, ")"))) +
   theme_soe() +
-  scale_x_continuous(limits = c(1910, 2015), breaks=seq(1915, 2015, 10), expand = c(0,0)) +
+  scale_x_continuous(limits = c(1910, 2025), breaks=seq(1915, 2023, 12), expand = c(0,0)) +
   scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 10), expand=c(0, 0)) +
   theme(panel.grid.major.x = element_blank(),
         legend.text = element_text(size = 14),
         legend.text.align = 0,
         axis.title = element_text(size=16),
-        axis.text = element_text(size=12),
+        axis.text = element_text(size=16),
         legend.position = c(.23,.61), 
         legend.direction = "vertical",
         plot.margin = unit(c(1,2,1,1),"lines"),
-        legend.background = element_rect(fill = "NA")) +
+        legend.background = element_rect(fill = "NA", color="NA")) +
   add_phylopic(conifer, alpha = .7, color = "grey30", ysize = 30, x = 2005, y = 20)
 plot(harvest.plot)
 
@@ -100,22 +113,23 @@ aac.plot <- ggplot(total_aac_short, aes(x = Year, y = millions_m3)) +
   geom_area(data = total_aac_short, aes(x = Year, y = millions_m3, fill = harvest), alpha = 0.7) +
   scale_fill_manual(values = pal2, guide = guide_legend(title = "", label.position = "top"),
                     labels = c("Harvest Regulated\nby Allowable Annual Cut")) +
-  geom_line(data = total_aac, aes(x = Year, y = millions_m3, colour = "Total Allowable\nAnnual Cut"), alpha = 0.7, size = 1.3) +
+  geom_line(data = total_aac, aes(x = Year, y = millions_m3, 
+                                  colour = "Total Allowable\nAnnual Cut"), alpha = 0.7, size = 1.3) +
   scale_color_manual(values = ("Total Allowable Annual Cut" = "red"),
-                     guide = guide_legend(order=1, title = "")) +
+                     guide = guide_legend(title = "")) +
   xlab("Year") +
   ylab(expression(paste("Timber Volume", " ", "(", "millions", " ", m^3, ")"))) +
-  scale_x_continuous(limits = c(1945, 2015), breaks=seq(1950, 2015, 5), expand = c(0,0)) +
+  scale_x_continuous(limits = c(1945, 2025), breaks=seq(1945, 2023, 6), expand = c(0,0)) +
   scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 10), expand=c(0, 0)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
         legend.text = element_text(size = 14),
         legend.text.align = 0,
         axis.title = element_text(size=16),
-        axis.text = element_text(size=12),
+        axis.text = element_text(size=16),
         legend.position = c(.14,.86), 
         legend.direction = "vertical",
-        legend.background = element_rect(fill = "NA"),
+        legend.background = element_rect(fill = "NA", color="NA"),
         plot.margin = unit(c(5,10,5,5),"mm")) +
   add_phylopic(conifer, alpha = .7, color = "grey30", ysize = 30, x = 2008, y = 20)
 plot(aac.plot)
@@ -123,7 +137,9 @@ plot(aac.plot)
 ## @knitr forecast
 
 ## restructuring the csv table for plotting
-forecast_long <- melt(forecast, id.vars = "Year", 
+forecast_long <- forecast |> 
+  select(-Total_province_all_tenures) |> 
+  melt(id.vars = "Year", 
                      variable.name = "harvest", value.name = "m3_per_year")
 
 forecast_mut <- forecast_long %>% 
@@ -139,18 +155,18 @@ forecast.plot <- ggplot(forecast_mut, aes(x = Year, y = volume, colour = harvest
   scale_color_manual(values = pal3) +
   xlab("Year") +
   ylab(expression(paste("Timber Harvest", " ", "(", m^3,"/year", " ", " * million", ")"))) +
-  scale_x_continuous(limits = c(2010, 2100), breaks=seq(2010, 2100, 10), expand = c(0,0)) +
+  scale_x_continuous(limits = c(2010, 2220), breaks=seq(2010, 2210, 20), expand = c(0,0)) +
   scale_y_continuous(limits = c(0, 100), breaks = seq(10, 100, 10), expand=c(0, 0)) +
   theme_soe() +
   theme(panel.grid.major.x = element_blank(),
         axis.title = element_text(size=16),
-        axis.text = element_text(size=12),
+        axis.text = element_text(size=16),
         plot.margin = unit(c(5,10,5,5),"mm")) +
-   annotate("text", label = "British Columbia", x = 2091, y = 67,
+   annotate("text", label = "British Columbia", x = 2170, y = 67,
             size = 6, colour = "black",  family = chart_font_web) +
-  annotate("text", label = "Coast", x = 2091, y = 20,
+  annotate("text", label = "Coast", x = 2170, y = 20,
            size = 6, colour = "blue",  family = chart_font_web) +
-  annotate("text", label = "Interior", x = 2091, y = 50,
+  annotate("text", label = "Interior", x = 2170, y = 50,
            size = 6, colour = "#005a32",  family = chart_font_web)
 plot(forecast.plot)
   
