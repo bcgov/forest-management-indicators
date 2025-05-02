@@ -120,6 +120,11 @@ forest_regen <- ggplot(bc_seed, aes(x = Year, y = area)) +
 plot(forest_regen)
 
 
+bc_yearly_totals <- bc_seed |> 
+  group_by(Year) |> 
+  mutate(total_year = sum(hectares),
+         percentage = hectares/total_year * 100)
+
 ## @knitr map_regen
 
 ## Change in Proportion of select seed use by District MAP using district_forest
@@ -188,7 +193,7 @@ plot(forest_regen)
 dev.off()
 
 ## save facet seed planting change map
-png_retina(filename = "./out/district_seed_change_map.png", width = 900, units = "px", type = "cairo-png")
+svg_px(file = "./out/district_seed_change_map.svg", width = 836, height = 489)
 plot(seed_map_plot)
 dev.off()
 
