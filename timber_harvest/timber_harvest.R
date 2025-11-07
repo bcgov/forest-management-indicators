@@ -16,11 +16,11 @@ library(here)
 ## DATA
 ## load timber harvest data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-harvest <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
-                          resource = 'd62e461d-50b5-497c-af7c-fb143cda581f')
-
-forecast <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
-                         resource = '0720031e-ab18-47bb-9604-47a38a9ab58c')
+# harvest <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
+#                           resource = 'd62e461d-50b5-497c-af7c-fb143cda581f')
+# 
+# forecast <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
+#                          resource = '0720031e-ab18-47bb-9604-47a38a9ab58c')
 
 
 harvest <- read_csv(here("data/TimberHarvest/harvest.csv"))
@@ -28,7 +28,7 @@ forecast <- read_csv(here("data/TimberHarvest/forecast.csv"))
 
 
 ##font selection
-chart_font_web <- "Verdana"
+#chart_font_web <- "Verdana"
 
 ## @knitr harvest
 
@@ -163,11 +163,11 @@ forecast.plot <- ggplot(forecast_mut, aes(x = Year, y = volume, colour = harvest
         axis.text = element_text(size=16),
         plot.margin = unit(c(5,10,5,5),"mm")) +
    annotate("text", label = "British Columbia", x = 2170, y = 67,
-            size = 6, colour = "black",  family = chart_font_web) +
+            size = 6, colour = "#005a32") +
   annotate("text", label = "Coast", x = 2170, y = 20,
-           size = 6, colour = "blue",  family = chart_font_web) +
+           size = 6, colour = "black") +
   annotate("text", label = "Interior", x = 2170, y = 50,
-           size = 6, colour = "#005a32",  family = chart_font_web)
+           size = 6, colour = "blue")
 plot(forecast.plot)
   
 ## @knitr stop
