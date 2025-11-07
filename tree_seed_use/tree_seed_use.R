@@ -104,7 +104,7 @@ forest_regen <- ggplot(bc_seed, aes(x = Year, y = area)) +
                      guide = guide_legend(order=1, title = "")) +
   xlab("Year") +
   ylab("Area Reforested (Hectares*1000)") +
-  labs(caption = "\n**Note: Data for the 2013-2023 period is incomplete pending\nreporting of planting and natural regeneration field surveys") +
+  labs(caption = "\n**Note: Data for the 2017-2023 period is incomplete pending\nreporting of planting and natural regeneration field surveys") +
   scale_x_continuous(limits = c(1987, 2023), breaks=seq(1987, 2023, 4), expand = c(0,0)) +
   scale_y_continuous(limits = c(0, 300), breaks = seq(0, 300, 30), expand=c(0, 0)) +
   theme_soe() +
