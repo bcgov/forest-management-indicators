@@ -206,6 +206,10 @@ Published and Available On-Line at Environmental Reporting BC (May
 Email correspondence to:
 [envreportbc\@gov.bc.ca](mailto:envreportbc@gov.bc.ca){.email}
 
+## Methods
+
+The [detailed methods](https://www2.qa.gov.bc.ca/assets/gov/environment/research-monitoring-and-reporting/reporting/envreportbc/archived-indicators/land/envreportbc_silviculture-indicator_methods.pdf) are available here. 
+
 \newpage
 
 # Glossary
@@ -288,8 +292,4 @@ regeneration and planting may be improved through site preparation.
 control stocking, to maintain or improve growth, to increase wood
 quality and value, or to achieve other resource management objectives.
 
-\newpage
-
-```{r child=here("silviculture", "methods-child.Rmd")}
-```
 
