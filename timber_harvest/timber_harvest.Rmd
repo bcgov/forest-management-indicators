@@ -31,6 +31,8 @@ library(envreportutils) #soe theme
 library(rphylopic) #for conifer image, package available from GitHub only
 library(curl) #required by rphylopic function
 library(knitr) #for knitting to PDF
+library(bcdata)
+library(here)
 
 read_chunk("timber_harvest.R")
 ```
@@ -46,25 +48,10 @@ Environmental integrity and sustainable economic activity depend on
 maintaining a long-term balance between forest growth and timber
 harvest.
 
--   **How much timber is harvested annually?** The annual volume of
-    timber harvested in the province generally increased from
-    1900---peaking at almost 90 million cubic metres in 1987. Since
-    then, the annual harvest has fluctuated around an average of 77
-    million cubic metres, of which 90% is regulated under the
-    government-set Allowable Annual Cut.
--   **How does the actual harvest compare with the Allowable Annual
-    Cut?** Generally the amount of timber harvested each year has been
+-   **How much timber is harvested annually?** The annual volume of timber harvested in the province generally increased since 1900, to a peak of almost 90 million cubic metres in 1987. From 1988 to 2013, the annual harvest fluctuated around an average of 75 million cubic metres.  Since 2014, the annual harvest has declined from 71 to 39 million cubic metres.
+-   **How does the actual harvest compare with the Allowable Annual Cut?** Generally the amount of timber harvested each year has been
     below the Allowable Annual Cut on public lands in British Columbia.
--   **What is the provincial timber supply forecast?** Predictable
-    timber supplies are important to the provincial economy and to
-    customers who rely on B.C.'s forest products. Timber supply is
-    forecasted in response to changes in the forest and new information,
-    forecasting methods, and assumptions. Allowable Annual Cuts are
-    required by law to be determined at least every ten years, using the
-    latest information to reduce the risks related to uncertainty.
-    Uncertainties in timber supply forecasting include merchantability
-    of tree species, operability, future management practices, the
-    future timber production land base, wildfires and insect epidemics.
+-   **What is the provincial timber supply forecast?** Predictable timber supplies are important to the provincial economy and to customers who rely on B.C.′s forest products. Timber supply is forecasted in response to changes in the forest and new information, forecasting methods, and assumptions. Allowable Annual Cuts are required by law to be determined at least every ten years, using the latest information to reduce the risks related to uncertainty. Uncertainties in timber supply forecasting include merchantability of tree species, operability, future management practices, the future timber production land base, wildfires and insect epidemics.
 
 \vspace{30pt}
 
@@ -88,73 +75,44 @@ harvest.
 
 ## How Much Timber Is Harvested Annually?
 
-\vspace{20pt}
+- The annual volume of timber harvested in the province generally increased from 1900 to a peak of almost 90 million cubic metres in 1987. From 1988 to 2013, the annual harvest fluctuated around an average of 75 million cubic metres.  Since 2014, the annual harvest has declined from 71 to 39 million cubic metres. 
+- Since 1949, the Chief Forester or their delegate has set Allowable Annual Cuts to     regulate harvest levels on public land and some private land. Harvest without regulation by an Allowable Annual Cut occurs on private lands under the *Private Managed Forest Land Act*.
+-	Since 1987, the average total timber harvest was 72 million cubic metres per year, of which 64 million cubic metres per year (89%) was from forests where harvest levels were regulated by Allowable Annual Cuts. The remaining 8 million cubic metres of timber harvested per year (11% of the total harvest) was from lands with no government-set Allowable Annual Cuts.
 
 ```{r harvest, fig.height = 6, fig.width = 11}
 ```
 
 \vspace{20pt}
 
--   The annual timber harvest from all public and private land increased
-    10-fold since the 1900s, and generally levelled off in the 1990s.
-    Over the last 10 years, the average total timber harvest was 74
-    million cubic metres per year, of which 67 million cubic metres per
-    year (90%) was from forests where harvest levels were regulated by
-    Allowable Annual Cuts. The remaining 7 million cubic metres of
-    timber harvested per year (10% of the total harvest) was from lands
-    with no government-set Allowable Annual Cuts.
-- Since 1949, the Chief Forester or their delegate has set Allowable Annual Cuts to     regulate harvest levels on public land and some private land. Harvest without regulation by an Allowable Annual Cut occurs on private lands under the *Private Managed Forest Land Act*.
-    
-
 \newpage
 
 ## How Does the Actual Timber Harvest Compare with the Allowable Annual Cut?
+
+- 	Over the last 20 years, the amount of timber harvested annually on public land has been 22% below the Allowable Annual Cut. The average Allowable Annual Cut during this period was 77 million cubic metres while the average harvest was 60 million cubic metres per year.
+-	From 2001 to 2014, the Allowable Annual Cut was increased in mountain pine beetle impacted areas of the interior. 
+- From 2006 to 2009, a downturn in market conditions resulted in decreasing actual harvest despite the increases in Allowable Annual Cut.
 
 \vspace{20pt}
 
 ```{r aac, fig.height = 6, fig.width = 11}
 ```
 
-\vspace{20pt}
-
--   Areas regulated by government-set Allowable Annual Cuts account
-    for 90% of the total harvest volume.
--   Actual timber harvest can be compared to the average Allowable
-    Annual Cut. Over the last 10 years, the amount of timber harvested
-    annually on public land has been below the Allowable Annual Cut. The
-    average Allowable Annual Cut was 83 million cubic metres per year
-    and the average harvest on these areas was 67 million cubic metres
-    per year.
--   In the last 10 years, the Allowable Annual Cut was increased in
-    mountain pine beetle impacted areas of the province. Beginning in
-    2006, a downturn in market conditions resulted in decreasing actual
-    harvest despite the increases in Allowable Annual Cut.
-
 \newpage
 
 ## What Is the Provincial Timber Supply Forecast?
+
+-   Until the early 2000’s, B.C. was forecasted to have a stable mid- and long-term timber supply of about 70 million cubic metres per year.  Recent Timber Supply Review Allowable Annual Cut decisions have reduced the forecasted mid- and long-term timber supply to about 57 and 65 million cubic metres respectively. The main causes for this reduction are mortality due to the mountain pine beetle, mortality due to catastrophic wildfires, and an increasing amount of [conservation areas](https://www.env.gov.bc.ca/soe/indicators/land/land-designations.html)  where harvesting is reduced or not permitted.
+- Detailed timber supply forecasts and their related assumptions are [publicly available for forest management areas](http://www2.gov.bc.ca/gov/content?id=EAEB71451EB949DFB14A9E1957CF9598).
 
 \vspace{20pt}
 
 ```{r forecast, fig.height = 6, fig.width = 11}
 ```
 
-\vspace{20pt}
-
--   Until relatively recently, B.C. was forecast to have a stable mid
-    and long-term timber supply of about 70 million cubic metres per
-    year. Recent analysis projects decreases in timber supply to about
-    58 million cubic metres per year by 2025---due to mortality caused
-    by the mountain pine beetle epidemic. The forecasted timber supply
-    returns to approximately 65--70 million cubic metres per year
-    by 2075.
--   Detailed timber supply forecasts and their related assumptions are
-    [publicly available for forest management
-    areas](http://www2.gov.bc.ca/gov/content?id=EAEB71451EB949DFB14A9E1957CF9598).
-
 \newpage
 
 ## Methods
+
 Timber harvest data reported here is from public and private land that
 is regulated by the [government-set Allowable Annual
 Cuts](https://www2.gov.bc.ca/gov/content?id=EAEB71451EB949DFB14A9E1957CF9598).
@@ -166,9 +124,11 @@ Review](https://www2.gov.bc.ca/gov/content?id=EAEB71451EB949DFB14A9E1957CF9598)
 process and the [Harvest Billing
 System](https://www2.gov.bc.ca/gov/content?id=4E1093E8C2D9472EA82B2CB00A6C59FD).
 The provincial Timber Supply Forecast is a summary of the management
-unit harvest forecast data. The [**R** code](http://www.r-project.org) for creating the graphs presented on this page is available on [GitHub](https://github.com/bcgov/forest-management-indicators).
+unit harvest forecast data. 
 
 For more information on this indicator or on Timber Harvest in British Columbia contact the Forest Analysis and Inventory Branch at [Forests.ForestAnalysisBranchOffice@gov.bc.ca](Forests.ForestAnalysisBranchOffice@gov.bc.ca).
+
+The [**R** code](http://www.r-project.org) for creating the graphs presented on this page is available on [GitHub](https://github.com/bcgov/forest-management-indicators).
 
 ## References and Other Useful Links
 * [Learn more about Forest Stewardship in
@@ -178,15 +138,14 @@ For more information on this indicator or on Timber Harvest in British Columbia 
 * [Harvest Billing
     System](https://www2.gov.bc.ca/gov/content?id=4E1093E8C2D9472EA82B2CB00A6C59FD)
 
-
 ## Data
 
 \*By accessing these datasets, you agree to the licence associated with each file, as indicated in parentheses below.
 
-* [Indicator Summary Data: Change in Timber Harvest in B.C. (1910-2015)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
-* [Indicator Summary Data: B.C. Timber Supply Forecast (2010-2100)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+* [Indicator Summary Data: Change in Timber Harvest in B.C. (1910-2023)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+* [Indicator Summary Data: B.C. Timber Supply Forecast (2010-2210)](https://catalogue.data.gov.bc.ca/dataset/18754165-1daa-42ea-8c43-fef0e8cf4598) (Licence: [Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 
-Published and Available On-Line at Environmental Reporting BC (May 2018):
+Published and Available On-Line at Environmental Reporting BC (June 2025):
 [http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html](http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html)
 
 Email correspondence to: envreportbc@gov.bc.ca

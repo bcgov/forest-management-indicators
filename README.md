@@ -1,3 +1,5 @@
+
+
 [![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 
@@ -5,8 +7,8 @@
 
 A set of R scripts to create data visualizations for three forest management indicators for B.C. published on [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=B71460AF7A8049D59F8CBA6EE18E93B8).
 
-- [Trends in Silviculture in B.C. (1987-2015)](http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html)
-- [Trends in Forest Tree Seed Use in B.C. (1987-2016)](http://www.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
+- [Trends in Silviculture in B.C. (1987-2023)](http://www.env.gov.bc.ca/soe/indicators/land/silviculture.html)
+- [Trends in Forest Tree Seed Use in B.C. (1987-2023)](http://www.env.gov.bc.ca/soe/indicators/land/tree-seed-use.html)
 - [Trends in Timber Harvest in B.C.](http://www.env.gov.bc.ca/soe/indicators/land/timber-harvest.html)
 
 ### Data
@@ -25,8 +27,7 @@ install.packages("remotes") # If you don't already have it installed
 library(devtools)
 install_github("bcgov/envreportutils")
 install_github("bcgov/bcmaps")
-install_github("bcgov/bcmaps.rdata")
-install_github("sckott/rphylopic")
+
 ```
 
 An installation of LaTeX (e.g. MiKTex, MacTeX or [`tinytex`](https://cran.r-project.org/web/packages/tinytex/index.html)) is required to render the .Rmd file to PDF with `knitr`.
@@ -43,19 +44,18 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-    Copyright 2017 Province of British Columbia
+```r
+Copyright 2025 Province of British Columbia
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+```
 
 This repository is maintained by [Environmental Reporting BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC) for a complete list of our repositories on GitHub.

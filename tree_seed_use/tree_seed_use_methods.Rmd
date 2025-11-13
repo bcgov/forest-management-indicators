@@ -1,0 +1,317 @@
+---
+topic: "land"
+title: "Trends in Forest Tree Seed Use: METHODS"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    pandoc_args: 
+      - --variable
+      - colorlinks=true
+      - --variable
+      - linkcolor=blue
+      - --variable
+      - urlcolor=blue
+      - --variable
+      - citecolor=blue
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r start-up, echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE}
+
+knitr::opts_chunk$set(echo=FALSE, cache=FALSE, message=FALSE, warning=FALSE, 
+                      error=FALSE)
+
+library(readr) #read in CSV files
+library(dplyr) #data prep
+library(reshape2) #for restructuring data table
+library(bcmaps) #get bc boundary and nrs boundaries, package from GitHub
+library(ggplot2)  #for plotting
+library(extrafont) #Verdana font
+library(envreportutils) #soe theme & svg_px()
+library(rphylopic) #for conifer image
+library(curl) #required by rphylopic function
+library(scales) #for pretty_breaks()
+library(rmapshaper) # for intersect and simplify functions
+library(sp) # mapping
+library(knitr) #for knitting to PDF
+library(here)
+library(kableExtra)
+library(envreportutils.internal)
+library(tibble)
+
+
+```
+
+# METHODS
+
+The [**R** code](http://www.r-project.org) for creating the graphs
+presented on this page is available on
+[GitHub](https://github.com/bcgov/forest-management-indicators).
+
+## Source Data
+
+The Forest Tree Seed Use analysis uses data from:
+
+1.  [Reporting Silviculture Updates and Land Status Tracking System
+    (RESULTS)](https://www2.gov.bc.ca/gov/content?id=F62992DA5B324446AD5E1B5BFFA404CC)
+    and
+
+2.  [Seed Planning and Registry System
+    (SPAR)](https://www2.gov.bc.ca/gov/content?id=A2F6834E799241929E4113210A9BDD08)
+
+Wherever possible, the analysis used public data layers from the B.C.
+Geographic Warehouse[^1] released under either the Open Government
+Licence---British Columbia or the B.C. Crown Copyright Licence:
+
+[^1]: Detailed descriptions and downloads of the source layers are
+    available from the B.C. Data Catalogue at:
+    <http://catalogue.data.gov.bc.ca/dataset>
+
+-   **Activity Treatment Unit**:
+    [WHSE_FOREST_VEGATATION_RSLT_ACTIVITY_TREATMENT_UNIT](https://catalogue.data.gov.bc.ca/dataset/07cabbdf-d7bf-4c50-919d-5b7d80086ef5)
+    (Licence: [Open Government Licence - British
+    Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+
+-   **Opening_VW**:
+    [WHSE_FOREST_VEGATATION_OPENING_VW](https://catalogue.data.gov.bc.ca/dataset/f6d17c00-d4b9-401b-a20e-ef7e37b6d5e3)
+    (Licence: [Open Government Licence - British
+    Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+
+-   **Seedlot**:
+    [WHSE_FOREST_VEGATATION_SEED_SEEDLOT](https://catalogue.data.gov.bc.ca/dataset/686e10d6-78e3-4779-9a8b-08015a5c070d)
+    (Licence: [B.C. Crown
+    Copyright](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
+
+-   **Veglot**:
+    [WHSE_FOREST_VEGETATION.SEED_VEG_LOT](https://catalogue.data.gov.bc.ca/dataset/2456f4ed-7e47-438f-9ab5-711268c92075)
+    (Licence: [B.C. Crown
+    Copyright](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
+
+-   **Planting**: WHSE_FOREST_VEGATATION_RSLT_PLANTING_RSLT (Licence:
+    [Access
+    Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
+
+-   **Standards Unit**: WHSE_FOREST_VEGATATION_RSLT_STOCKING_STNDRD_UNIT
+    (Licence: [Access
+    Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
+
+-   **Seedlot Genetic Worth**: SEEDLOT_GENETIC_WORTH (Licence: [Access
+    Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
+
+-   **Veglot Genetic Worth**: SEEDLOT_GENETIC_WORTH (Licence: [Access
+    Only](https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA))
+
+## Planting
+
+RESULTS openings may have one or more planting treatment report that
+contains the area treated, species planted, SPAR seedlot/veglot (lot)
+and the number of trees planted. To determine the genetic source by
+area, the number of trees planted by lot is prorated to the treatment
+area and is reported based on the date planted. The reporting for
+planted trees by genetic source is based on the planting date.
+Classification for the genetic source is:
+
+-   A: GENETIC_CLASS_CODE = "A"
+
+-   B+: GENETIC_CLASS_CODE = "B" and SUPERIOR_PRVNC_IND = "Y"
+
+-   B: GENETIC_CLASS_CODE = "B" and SUPERIOR_PRVNC_IND = "N"
+
+-   B: GENETIC_CLASS_CODE = "B" and SUPERIOR_PRVNCE_IND is null
+
+-   B: GENETIC_CLASS_CODE is null
+
+Note: Reporting of current trends and patterns in reforestation may be
+incomplete due to delays in surveying after a disturbance event
+(typically a 1-3 year delay in areas planted and a 3-7 year delay in
+areas managed for natural regeneration).
+
+## Natural Regeneration
+
+Natural Regeneration is not reported in RESULTS. Instead, this is
+inferred by the existence of planting records. If the sum of the
+planting area is \<10% of the opening, the opening is classified as
+natural regenerated and the total Net Area to be Reforested (NAR) of the
+opening is used as the area of natural regeneration. The year displayed
+for natural regeneration is based on the disturbance end date, if not
+available, the disturbance start date is used.
+
+Note: Reporting of current trends and patterns in reforestation may be
+incomplete due to delays in surveying after a disturbance event
+(typically a 1-3 year delay in areas planted and a 3-7 year delay in
+areas managed for natural regeneration).
+
+## Fiscal Year
+
+Fiscal year will be displayed as follows:
+
+-   Formula used: Fiscal Yr:
+    `If(Month([DATE])<4,Year([DATE])-1,Year([DATE]))`
+
+-   Example: 1987-04-01 and 1988-03-31, Fiscal Year = 1988
+
+### QUERY STEPS – Baseline Make Table Queries
+
+All queries are built in Microsoft Access 2007. Make Table queries are
+used to create baseline data tables for increased efficiency and data
+auditability. Note that all data reported after April 1, 1970 is added
+to the baseline but the data are subset to more recent years in the
+final queries.
+
+### Make Tables – Planting Area: A, B+, B
+
+*1a-Make Planting Activities (outcome: 1a-Planted Activities)*
+
+Joins the Opening_VW and ATU source tables to create a list of openings
+with planting activities completed after March 1970.
+
+| **Field** | **Criteria** | **Details** |
+|------------------------|------------------------|------------------------|
+| ATU.ATU_COMPLETION \_DATE | \>= 1970-04-01 | \~ |
+| ATU.SILV_BASE_CODE PL | \~ | \~ |
+| ATU.ACT_PLANTED_NO | \>0 | Isolates only those completed activities with planted trees |
+
+*1b-Make Planted Trees (outcome: 1b-Planted Trees)*
+
+Joins the Opening, ATU and Planting source tables to create a list of
+tree species planted after March 1970.
+
+| **Field** | **Criteria** | **Details** |
+|:-----------------------|:-----------------------|:-----------------------|
+| ATU.ATU\_ COMPLETION \_ DATE | \>= 1970-04-01 | \~ |
+| ATU.SILV_BASE\_ CODE PL | \~ | \~ |
+| ATU.ACT_PLANTED\_ NO | \>0 | Isolates only those completed activities with planted trees |
+
+*1c-Make Unique Opening (outcome: 1c-Unique Opening)*
+
+Groups the 1a-Planted Activity table by Opening_ID to create a unique
+list of openings where one or more planting activities have occurred.
+
+*1d-Make Opening (outcome: 1d-Opening)*
+
+Joins the 1c-Unique Opening table with the Opening_VW and Opening source
+tables to add general overview opening information such as management
+unit, opening category and disturbance dates. The Opening source table
+will not be needed in this query once the Opening_VW ORG_UNIT attribute
+is correctly referenced – this fix is expected to be applied to the BC
+Data Catalogue layers in the summer of 2016.
+
+### QUERY STEPS – Data Summary
+
+### Planting Area: A, B+, B
+
+*2b-Planting Details with Seedlot*
+
+Joins the 1a-Planted Activities, 1b-Planted Trees, 1d-Opening, Org Unit
+and Seedlot tables to summarize activity-based details for each
+species/seedlot planted.
+
+| **Field** | **Criteria** | **Details** |
+|:----------------|:------------------------------|:-----------------------|
+| Planted Yr | Planted Yr: IIf(Month([ATU_COMPLETION\_ DATE]) \< 4, Year([ATU_COMPLETION\_ DATE]) - 1, Year([ATU_COMPLETION\_ DATE])) | Converts date to fiscal year |
+| SeedClass | A = GENETIC_CLASS_CODE = "A", B+ = GENETIC_CLASS_CODE = "B" and SUPERIOR_PRVNC_IND = "Y", B = GENETIC_CLASS_CODE = "B" and SUPERIOR_PRVNCE_IND = "N" | \~ |
+| ProratePLArea | ProratePLArea: Round((([1b-Planted Trees]! [NUMBER_PLANTED] / [1b-Planted Trees]! [ACT_PLANTED_NO]) \* [1b-Planted Trees]! [TREATMENT_AMOUNT]), 2) | This gives a prorated area for each of the individual species seedlot planted |
+
+*2c-Summary Seed Class*
+
+Sums the ProratePLArea from the results of query 2b-Planting Details
+with Seedlot by Planted Yr and SeedClass for the Province.
+
+*2d-Summary Seed Class BC*
+
+Sums the ProratePLArea from the results of query 2b-Planting Details
+with Seedlot by Planted Yr, SeedClass, District and Region.
+
+### Natural Regeneration
+
+*3a-Make Opening Natural Regen (outcome 3a-Opening Natural Regen)*
+
+Joins the Opening_VW and Opening source tables to provide a unique list
+of openings to add general overview opening information such as
+management unit, opening category and disturbance dates to be used in
+the natural regeneration queries.
+
+| **Field** | **Criteria** | **Details** |
+|:-----------------------|:-----------------------|:-----------------------|
+| Best Date | IIf([DISTURBANCE_START\_ DATE] Is Null, [DISTURBANCE_END_DATE], [DISTURBANCE_START\_ DATE]) | Uses the Disturbance End Date; if it is not available, then use the Disturbance Start Date |
+| OPENING_VW. OPENING_GROSS_AREA | \> 0.1 | Excludes shell openings |
+
+*3b-Make SU (outcome – 3b-SU)*
+
+Joins the Opening_VW and SU source tables to summarize the Net Area to
+be Reforested (NAR) by OPENING_ID. NAR is used as a baseline to
+calculate the less than 10% planted percentage to be considered a
+natural regeneration opening.
+
+| **Field**                      | **Criteria** | **Details**             |
+|:-------------------------------|:-------------|:------------------------|
+| OPENING_VW. OPENING_GROSS_AREA | \<\>0.1      | Excludes shell openings |
+
+*3c-PL Area*
+
+Summarizes the 1a-Planted Activities query Planted Area by Opening_ID
+where the Technique is “PL”.
+
+| **Field**           | **Criteria** | **Details**                             |
+|:------------------|:-----------------|:-----------------------------------|
+| SILV_TECHNIQUE_CODE | PL           | \~                                      |
+| TREATMENT_AREA      | \~           | Sums the total PL/PL Area by Opening_ID |
+
+*3d-Combine Opening SU and PL Area*
+
+Joins the 3a-Opening Natural Regen, 3b-SU, 3c-PL Area and Org Unit to
+summarize all Planted and NAR areas in one query.
+
+| **Field** | **Criteria** | **Details** |
+|:-----------------|:--------------------------|:--------------------------|
+| Disturb Start Yr | IIf(Month([Best Date])\<4, Year([Best Date])-1, Year([Best Date])) | Converts the Best Date to Fiscal Year |
+
+*3e-Fix Missing NAR and PL Values*
+
+Calculates the 3d-Combine Opening SU and PL Area null values for NAR or
+PL Area to zero in order to do subsequent calculations.
+
+| **Field** | **Criteria**                        | **Details** |
+|:----------|:------------------------------------|:------------|
+| NewNAR    | IIf([NAR] is null,0,[NAR])          | \~          |
+| NewPL     | IIf([PL Area] is null, 0,[PL Area]) | \~          |
+
+*3f-Calculate Regen Ratio*
+
+Summarizes the 3e-Fix Missing NAR and PL Values NewNAR by opening. Note
+that planting is the sum of the PL/PL. This area is compared against
+opening’s NAR. Generally, records with missing NAR are historical
+records.
+
+| **Field** | **Criteria** | **Details** |
+|------------------------|:-----------------------|:-----------------------|
+| Ratio | IIf([NewNAR]=0, 0, iif([NewNAR] \> 0, Round([NewPL] / [NewNAR], 2),"") | This defaults 0 value if there is no NAR, otherwise calculate the ratio of planting. Note that records with no NAR will not be accounted for in the total values for natural regen. There are approximately 23K records that is missing NAR |
+
+*3g-Assess Regen Type – Set Threshold*
+
+Uses 3f-Calculate Regen Ratio to define the Regen Type of Natural or
+Planted. A threshold of 10% or less of the NAR area planted is defined
+as Natural while all openings with \> 10% of the NAR area planted are
+considered planted.
+
+| **Field**  | **Criteria**                               | **Details** |
+|:-----------|:-------------------------------------------|:------------|
+| Regen Type | IIf([Ratio] \<= 0.1, "Natural", "Planted") | \~          |
+
+*3h-Final Natural vs Planted BC*
+
+Summarizes the NAR area in 3g-Assess Regen Type-Set by Regen Type. Note
+that the Natural Column is what is defined as the total area naturally
+regenerated. Planted column is ignored as it is reflected by the
+prorated of species trees planted – actuals vs. derived process.
+
+*3i-Final Natural vs Planted Org Unit*
+
+Takes 3g-Assess Regen Type-Set Threshold that has assigned natural and
+planted ratio set and groups the sum of NAR area that is by Regen Type.
+Note that the Natural Column is what is defined as the total area
+naturally regenerated. This data is summarized by Region and District.
+Planted column is ignored as it is reflected by the prorated of species
+trees planted – actuals vs. derived process.
