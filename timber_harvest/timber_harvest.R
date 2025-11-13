@@ -16,15 +16,15 @@ library(here)
 ## DATA
 ## load timber harvest data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-# harvest <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
-#                           resource = 'd62e461d-50b5-497c-af7c-fb143cda581f')
+harvest <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
+                          resource = 'd62e461d-50b5-497c-af7c-fb143cda581f')
 # 
-# forecast <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
-#                          resource = '0720031e-ab18-47bb-9604-47a38a9ab58c')
+forecast <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
+                          resource = '0720031e-ab18-47bb-9604-47a38a9ab58c')
 
 
-harvest <- read_csv(here("data/TimberHarvest/harvest.csv"))
-forecast <- read_csv(here("data/TimberHarvest/forecast.csv"))
+# harvest <- read_csv(here("data/TimberHarvest/harvest.csv"))
+# forecast <- read_csv(here("data/TimberHarvest/forecast.csv"))
 
 
 ##font selection

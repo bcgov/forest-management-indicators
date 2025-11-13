@@ -19,22 +19,22 @@ chart_font_web <- "Verdana"
 
 ## Read in CSV files from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-# silsystems <- bcdc_get_data('b3369823-d130-4e8d-bcca-55c8749fab40', 
-#                            resource = 'd5d56912-5389-467d-9d90-5732df4df9c6')
-# 
-# dist.refor <- bcdc_get_data("b3369823-d130-4e8d-bcca-55c8749fab40",
-#                             resource = "38fc6c11-4930-4e44-a755-5f75c46fa46e")
-# 
-# treatments <- bcdc_get_data('b3369823-d130-4e8d-bcca-55c8749fab40', 
-#                             resource = '33055c65-ac86-4612-a4e8-bda7e1973830')
-# 
-# gains <- bcdc_get_data('b3369823-d130-4e8d-bcca-55c8749fab40', 
-#                             resource = '005df3ca-e6be-4c11-996d-fbea182e280d')
+silsystems <- bcdc_get_data('b3369823-d130-4e8d-bcca-55c8749fab40',
+                           resource = 'd5d56912-5389-467d-9d90-5732df4df9c6')
 
-silsystems <- read_csv(here("data/Silviculture/silviculture_systems.csv"))
-dist.refor <- read_csv(here("data/Silviculture/disturbance_and_reforestation.csv"))
-treatments <- read_csv(here("data/Silviculture/silviculture_treatments.csv"))
-gains <- read_csv(here("data/Silviculture/timber_volume_gains.csv"))
+dist.refor <- bcdc_get_data("b3369823-d130-4e8d-bcca-55c8749fab40",
+                            resource = "38fc6c11-4930-4e44-a755-5f75c46fa46e")
+
+treatments <- bcdc_get_data('b3369823-d130-4e8d-bcca-55c8749fab40',
+                            resource = '33055c65-ac86-4612-a4e8-bda7e1973830')
+
+gains <- bcdc_get_data('b3369823-d130-4e8d-bcca-55c8749fab40',
+                            resource = '005df3ca-e6be-4c11-996d-fbea182e280d')
+
+# silsystems <- read_csv(here("data/Silviculture/silviculture_systems.csv"))
+# dist.refor <- read_csv(here("data/Silviculture/disturbance_and_reforestation.csv"))
+# treatments <- read_csv(here("data/Silviculture/silviculture_treatments.csv"))
+# gains <- read_csv(here("data/Silviculture/timber_volume_gains.csv"))
 
 
 

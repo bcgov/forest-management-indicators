@@ -23,14 +23,14 @@ chart_font_web <- "Verdana"
 ## DATA
 ## load tree seed use results data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
-# bc_forest <- bcdc_get_data('54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc', 
-#                            resource = '9e329a4d-1648-4c64-bb86-2cebba2517a2')
+bc_forest <- bcdc_get_data('54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc',
+                            resource = '9e329a4d-1648-4c64-bb86-2cebba2517a2')
 
-# district_forest <- bcdc_get_data('54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc', 
-#                            resource = 'a9f93154-5c3a-4752-bc34-cb3cbaff45c2')
+district_forest <- bcdc_get_data('54ec827b-3b9a-4fea-8d9b-d8c006e5b9cc',
+                           resource = 'a9f93154-5c3a-4752-bc34-cb3cbaff45c2')
 
-bc_forest <- read_csv("C:/tmp/forest-management-indicators/data/ForestSeedUse/bc_regen.csv")
-district_forest <- read_csv("C:/tmp/forest-management-indicators/data/ForestSeedUse/district_regen.csv")
+# bc_forest <- read_csv("C:/tmp/forest-management-indicators/data/ForestSeedUse/bc_regen.csv")
+# district_forest <- read_csv("C:/tmp/forest-management-indicators/data/ForestSeedUse/district_regen.csv")
 
 
 theme_map <- function() {
