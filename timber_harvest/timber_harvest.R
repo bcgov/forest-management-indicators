@@ -17,10 +17,10 @@ library(here)
 ## load timber harvest data from the BC Data Catalogue (data licence: Open Government Licence-British Columbia)
 
 harvest <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
-                          resource = 'd62e461d-50b5-497c-af7c-fb143cda581f')
+                          resource = '16a9e4fc-b0a2-4b6d-af94-676039facf47')
 # 
 forecast <- bcdc_get_data('18754165-1daa-42ea-8c43-fef0e8cf4598', 
-                          resource = '0720031e-ab18-47bb-9604-47a38a9ab58c')
+                          resource = '77c77dd2-92e3-4897-bc28-96068308d678')
 
 
 # harvest <- read_csv(here("data/TimberHarvest/harvest.csv"))
